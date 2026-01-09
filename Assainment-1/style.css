@@ -373,3 +373,75 @@ body {
 .readyToThinkSecMain button:hover {
     background: var(--primary-hover-color);
 }
+
+/* FOOTER SECTION */
+footer {
+    background: var(--footer-bg-colort);
+    width: 100%;
+    /* padding: 3rem 0px; */
+    color: white;
+}
+
+.footerMain {
+    max-width: 1300px !important;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+.footerTop {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 250px;
+}
+
+.footerTopSocial h1 {
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.footerTopSocialIconBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.footerTopSocialIconBox a {
+    text-decoration: none;
+    width: 25px;
+    height: 25px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #555;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.footerTopSocialIconBox a:hover {
+    background: rgb(51, 156, 255);
+    color: white;
+}
+
+.footerBottom {
+    width: 100%;
+    text-align: center;
+    padding: 25px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.349);
+}
+.footerBottom p {
+    color: #888;
+    font-weight: 400;
+    font-size: 15px;
+}
