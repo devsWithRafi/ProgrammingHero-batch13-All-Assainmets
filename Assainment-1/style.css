@@ -266,3 +266,68 @@ body {
     font-size: 12px !important;
     color: #888;
 }
+
+/* Your second brain section */
+.yourSecondBrainSec {
+    width: 100%;
+    padding: 3rem 0px;
+}
+
+.yourSecondBrainSec main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    gap: 5rem;
+}
+
+.secondBrainLeft {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.secondBrainLeft img {
+    width: 100%;
+}
+
+.secondBrainRight {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: start;
+    padding: 10px;
+}
+
+.secondBrainRight h4 {
+    color: var(--primary-color);
+    font-weight: 400;
+    text-transform: uppercase;
+}
+.secondBrainRight h1 {
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 3rem;
+}
+.secondBrainRight p {
+    text-transform: capitalize;
+    color: #888;
+    font-size: 14px;
+    line-height: 1.2rem;
+    width: 80%;
+}
+
+.secondBrainRight ul {
+    list-style: none;
+}
+.secondBrainRight ul li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
