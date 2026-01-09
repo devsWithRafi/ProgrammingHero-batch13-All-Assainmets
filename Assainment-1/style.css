@@ -34,7 +34,7 @@ body {
     align-items: center;
     justify-content: center;
     background: white;
-    padding: 10px;
+    padding: 10px 15px;
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
@@ -53,7 +53,7 @@ body {
 .navMiddle {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
 }
 .navMiddle a {
     text-decoration: none;
@@ -87,7 +87,6 @@ body {
 }
 
 /* Hero Sections */
-
 .HeroSec {
     width: 100%;
     height: 100vh;
@@ -202,7 +201,7 @@ body {
 .notesSec {
     background: #fbfbfb;
     width: 100%;
-    padding: 3rem 0px;
+    padding: 3rem 15px;
 }
 
 .notesSec main {
@@ -232,7 +231,7 @@ body {
 .notesGridCard {
     width: 100%;
     height: 250px;
-    padding: 15px;
+    padding: 15px 20px;
     background: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -242,6 +241,11 @@ body {
     justify-content: center;
     flex-direction: column;
     gap: 20px;
+    transition: all .3s ease-in-out;
+}
+
+.notesGridCard:hover {
+    scale: 1.1;
 }
 
 .notesLogo {
@@ -270,7 +274,7 @@ body {
 /* Your second brain section */
 .yourSecondBrainSec {
     width: 100%;
-    padding: 3rem 0px;
+    padding: 3rem 15px;
 }
 
 .yourSecondBrainSec main {
@@ -336,7 +340,7 @@ body {
 .readyToThinkSec {
     background: #f7f6f2;
     width: 100%;
-    padding: 4rem 0px;
+    padding: 4rem 15px;
 }
 
 .readyToThinkSecMain {
@@ -378,7 +382,7 @@ body {
 footer {
     background: var(--footer-bg-colort);
     width: 100%;
-    /* padding: 3rem 0px; */
+    padding: 0px 15px;
     color: white;
 }
 
