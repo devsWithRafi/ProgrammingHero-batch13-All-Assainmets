@@ -14,8 +14,59 @@
             referrerpolicy="no-referrer"
         />
     </head>
-    <body>
-        <h1 class="text-red-400 font-bold text-5xl">Hello world</h1>
-        <p class="text-green-400 font-bold text-5xl">Assainment-2</p>
+    <body class="[&::-webkit-scrollbar]:hidden bg-[#1A0B2E]">
+        <!-- HEADER -->
+        <header
+            class="w-full bg-[#1A0B2E]/80 backdrop-blur-[10px] flex items-center justify-center fixed top-0 left-0 right-0 text-white z-[999] border-b border-white/10 px-5"
+        >
+            <nav
+                class="flex items-center justify-between max-w-[1500px] w-full h-22"
+            >
+                <!-- NAV LEFT -->
+                <a href="#" class="text-5xl font-bold">
+                    <h1>
+                        Tech<span
+                            class="bg-[linear-gradient(180deg,#b003e3,#f98971)] bg-clip-text text-transparent bg-center"
+                            >Wave</span
+                        >
+                    </h1>
+                </a>
+                <!-- NAV MIDDLE -->
+                <div class="text-sm md:flex hidden items-center gap-10">
+                    <a
+                        href="#about"
+                        class="cursor-pointer hover:text-white text-zinc-300 duration-300"
+                        >About</a
+                    >
+                    <a
+                        href="#episod"
+                        class="cursor-pointer hover:text-white text-zinc-300 duration-300"
+                        >Episodes</a
+                    >
+                    <a
+                        href="#host"
+                        class="cursor-pointer hover:text-white text-zinc-300 duration-300"
+                        >Host</a
+                    >
+                </div>
+                <!-- NAV RIGHT -->
+                <div class="md:flex hidden">
+                    <button
+                        class="bg-[linear-gradient(20deg,#F7E93F,#9100F8)] flex items-center gap-1 p-2 font-semibold rounded-full px-5 cursor-pointer hover:bg-[linear-gradient(50deg,#F7E93F,#9100F8)] duration-300 hover:shadow-2xl/50 hover:shadow-[#F7E93F]"
+                    >
+                        Subscribe
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+                <!-- MENU -->
+                <div class="flex md:hidden">
+                    <img
+                        src="./assets/hamburger-menu.png"
+                        alt=""
+                        class="scale-[1.4]"
+                    />
+                </div>
+            </nav>
+        </header>
     </body>
 </html>
