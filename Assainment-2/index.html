@@ -68,5 +68,52 @@
                 </div>
             </nav>
         </header>
+        
+        <!-- HERO SECTION -->
+        <section
+            class="w-screen min-h-secreen h-screen relative flex flex-col items-center justify-center bg-center bg-cover text-white"
+        >
+            <!-- BACKGROUND IMAGE -->
+            <img
+                src="./assets/hero-bg.png"
+                alt=""
+                class="absolute w-full h-full select-none pointer-events-none -z-1"
+            />
+            <!-- MIC -->
+            <div
+                class="relative flex items-center justify-center md:scale-[1] scale-[0.8]"
+            >
+                <img src="./assets/microphone.png" alt="" class="absolute" />
+                <img src="./assets/hero-circle.png" alt="" />
+                <span
+                    class="bg-[#00FF88] absolute text-black font-semibold rounded-full px-5 py-1.5 text-2xl top-3 right-3 shadow-xl/50 shadow-[#9100F8] animate-bounce"
+                    >NEW</span
+                >
+            </div>
+            <h1 class="md:text-[60px] text-[50px] font-bold text-center">
+                TechWave
+            </h1>
+            <p class="text-md text-zinc-400 font-medium w-[80%] text-center">
+                Your daily dose of tech insights, productivity hacks, and
+                personal growth
+            </p>
+            <div class="flex items-cener gap-5 mt-7">
+                <button
+                    class="bg-[linear-gradient(20deg,#F7E93F,#9100F8)] flex items-center gap-1.5 p-2.5 font-semibold rounded-full px-5 cursor-pointer hover:bg-[linear-gradient(50deg,#F7E93F,#9100F8)] duration-300 hover:shadow-2xl/50 hover:shadow-[#F7E93F]"
+                >
+                    <img
+                        src="./assets/spotify.png"
+                        alt=""
+                        class="scale-[0.9]"
+                    />
+                    Listen on Spotify
+                </button>
+                <button
+                    class="flex items-center gap-2 p-2.5 font-semibold rounded-full px-6 cursor-pointer border text-[#00FF88] leading-0 hover:shadow-2xl/40 hover:shadow-[#00FF88] duration-300"
+                >
+                    <img src="./assets/message.png" alt="" /> Subscribe
+                </button>
+            </div>
+        </section>
     </body>
 </html>
