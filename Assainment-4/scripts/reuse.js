@@ -4,7 +4,6 @@ const getEliment = (id) => {
 };
 
 
-
 const jobCard = (job) => {
     const card = document.createElement('div');
     card.className = 'card bg-base-300 w-full shadow-sm overflow-hidden border border-gray-700 hover:-translate-y-1 transition-all';
