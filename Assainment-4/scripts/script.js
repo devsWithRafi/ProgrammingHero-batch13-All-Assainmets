@@ -4,6 +4,7 @@ let currentSelectedTab = 'all';
 let jobData = [...allJobData];
 const tabButtons = document.querySelectorAll('.tabButton')
 const availableJob = getEliment('availableJob')
+const emptyContainer = getEliment('emptyContainer')
 
 
 
@@ -11,6 +12,7 @@ const renderJobCards = () => {
     const jobDataFiltered = currentSelectedTab === 'all' ? jobData : jobData.filter((j) => j.status === currentSelectedTab);
     
     jobCardContainer.innerHTML = '';
+    emptyContainer.classList.toggle('hidden', jobDataFiltered.length > 0)
 
 
     const totalInterview = jobData.filter(j => j.status.toLowerCase() === 'interview').length
