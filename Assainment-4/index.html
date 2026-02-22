@@ -13,6 +13,38 @@
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     </head>
     <body>
-        <h1 class="bg-red-500 text-5xl">Hello wrld</h1>
+        <main class="container mx-auto scroll-m-0 p-5 sm:p-0">
+            <!-- HEADER PART -->
+            <header class="py-7 sm:mt-10 border-b border-gray-700">
+                <h1 class="sm:text-4xl text-xl font-bold">Job Application Tracker</h1>
+
+                <figure class="grid sm:grid-cols-3 grid-cols-2 w-full gap-5 mt-5">
+                    <div class="card w-full bg-base-300 card-xs shadow-sm sm:p-4 p-2 border border-gray-700">
+                        <div class="card-body">
+                            <h2 class="card-title sm:text-lg text-sm font-semibold text-gray-400">
+                                Total
+                            </h2>
+                            <p id="totalJobs" class="font-bold sm:text-3xl text-xl">0</p>
+                        </div>
+                    </div>
+                    <div class="card w-full bg-base-300 card-xs shadow-sm sm:p-4 p-2 border border-gray-700">
+                        <div class="card-body">
+                            <h2 class="card-title sm:text-lg text-sm font-semibold text-gray-400">
+                                Interview
+                            </h2>
+                            <p id="totalInterview" class="font-bold sm:text-3xl text-xl text-green-400">0</p>
+                        </div>
+                    </div>
+                    <div class="card sm:col-span-1 col-span-2 w-full bg-base-300 card-xs shadow-sm sm:p-4 p-2 border border-gray-700">
+                        <div class="card-body">
+                            <h2 class="card-title sm:text-lg text-sm font-semibold text-gray-400">
+                                Rejected
+                            </h2>
+                            <p id="totalRejected" class="font-bold sm:text-3xl text-xl text-red-400">0</p>
+                        </div>
+                    </div>
+                </figure>
+            </header>
+        </main>
     </body>
 </html>
