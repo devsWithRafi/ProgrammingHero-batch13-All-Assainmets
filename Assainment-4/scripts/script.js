@@ -33,10 +33,10 @@ const renderJobCards = () => {
     });
 
     tabButtons.forEach(button => {
-        button.classList.remove('bg-green-400')
+        button.classList.remove('bg-gradient-to-r', 'from-blue-600', 'to-violet-600');
 
         if(button.getAttribute('data-value') === currentSelectedTab){
-            button.classList.add('bg-green-400')
+            button.classList.add('bg-gradient-to-r', 'from-blue-600', 'to-violet-600');
         }
     })
 };
