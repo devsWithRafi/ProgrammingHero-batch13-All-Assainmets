@@ -1,6 +1,26 @@
 const getEliment = (id) => document.getElementById(id);
 const removeSpace = (text) => text.trim().replaceAll(' ', '');
 
+const loadingSpinner = (isLoading) => {
+    const spinner = getEliment('loadingSpinner');
+    if(isLoading) {
+        spinner.classList.remove('hidden')
+        spinner.classList.add('flex')
+    } else{
+        spinner.classList.add('hidden')
+        spinner.classList.remove('flex')
+    }
+}
+const issueNotFound = (isFound) => {
+    const notFound = getEliment('issueNotFound');
+    if(!isFound) {
+        notFound.classList.add('hidden')
+        notFound.classList.remove('flex')
+    } else{
+        notFound.classList.remove('hidden')
+        notFound.classList.add('flex')
+    }
+}
 
 const priorityStyle = {
     high: 'bg-[#FEECEC] text-[#EF4444]',
@@ -22,7 +42,8 @@ const issueCard = (item) => {
     const cardBorderStyle = item.status === 'open' ? '#00A96E' : '#A855F7'; 
     const cardStatusIcon = item.status === 'open' ? './assets/Open-Status.png' : './assets/Closed-Status.png'
     const issueDate = new Date(item.createdAt).toLocaleDateString('en-US')
-    card.className = `card w-full bg-base-100 card-xs shadow-sm border-t-3 p-4 border-[${cardBorderStyle}]`;
+    card.className = `card w-full bg-base-100 card-xs shadow-sm hover:-translate-y-1 ease-in-out duration-300 
+                      border-t-3 p-4 border-[${cardBorderStyle}]`;
 
     card.innerHTML = `
       <div class="card-body">
