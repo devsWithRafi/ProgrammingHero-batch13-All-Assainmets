@@ -55,7 +55,7 @@ const labelStyles = {
 const issueCard = (item) => {
     const card = document.createElement('div');
     const cardBorderStyle = item.status === 'open' ? '#00A96E' : '#A855F7'; 
-    const cardStatusIcon = item.status === 'open' ? './assets/Open-Status.png' : './assets/Closed-Status.png'
+    const cardStatusIcon = item.status === 'open' ? '../assets/Open-Status.png' : '../assets/Closed-Status.png'
     const issueDate = new Date(item.createdAt).toLocaleDateString('en-US')
     card.className = `card w-full bg-base-100 card-xs shadow-sm hover:-translate-y-1 ease-in-out duration-300 
                       border-t-3 p-4 border-[${cardBorderStyle}]`;

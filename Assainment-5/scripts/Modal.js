@@ -4,22 +4,20 @@ const showIssueCardModal = async (id) => {
     cardModal.innerHTML = '';
     cardModal.showModal();
 
-    const res = await fetch(
-        `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`,
-    );
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
     const data = await res.json();
     const card = data.data;
 
-    const modal = document.createElement('div');
-
     const statusStyle = card.status === 'open' ? 'bg-[#00A96E]' : 'bg-[#EF4444]';
     const issueDate = new Date(card.createdAt).toLocaleDateString('en-US')
-
+    
     const priorityStyle = {
-        high: 'bg-[#EF4444] ',
-        low: 'bg-[#9CA3AF]',
-        medium: 'bg-[#F59E0B]',
-    };
+       high: 'bg-[#EF4444] ',
+       low: 'bg-[#9CA3AF]',
+       medium: 'bg-[#F59E0B]',
+      };
+      
+    const modal = document.createElement('div');
 
     modal.innerHTML = `
          <div class="modal-box w-full md:min-w-150">
@@ -45,7 +43,9 @@ const showIssueCardModal = async (id) => {
              <div class="bg-[#F8FAFC] p-3">
                 <div class="flex items-start justify-between">
                      <h2 class="flex gap-2 items-center text-gray-500">Assignee: 
-                        <span class="text-zinc-800 font-semibold capitalize">${card.assignee.replaceAll('_', ' ')}</span>
+                        <span class="text-zinc-800 font-semibold capitalize">
+                           ${removeSpace(card.assignee) === '' ? 'N/A' : card.assignee.replaceAll('_', ' ')}
+                        </span>
                      </h2>
                      <h2 class="flex gap-2 items-center text-gray-500">Priority: 
                         <span class="px-5 uppercase py-1 text-sm rounded-full text-white ${priorityStyle[card.priority]}">

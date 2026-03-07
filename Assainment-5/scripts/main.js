@@ -5,9 +5,7 @@ let currentSelectedTab = 'all';
 
 const fetchAllData = async () => {
     loadingSpinner(true);
-    const res = await fetch(
-        'https://phi-lab-server.vercel.app/api/v1/lab/issues',
-    );
+    const res = await fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues');
     const data = await res.json();
     loadingSpinner(false);
 
@@ -16,9 +14,7 @@ const fetchAllData = async () => {
 
 const searchData = async (text) => {
     loadingSpinner(true);
-    const res = await fetch(
-        `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${text}`,
-    );
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${text}`);
     const data = await res.json();
     loadingSpinner(false);
     return data.data;
@@ -30,9 +26,7 @@ const renderCards = async () => {
     const data = await fetchAllData();
 
     const filterData =
-        currentSelectedTab === 'all'
-            ? data
-            : data.filter((d) => d.status === currentSelectedTab);
+        currentSelectedTab === 'all' ? data : data.filter((d) => d.status === currentSelectedTab);
     totalIssues.innerText = `${filterData.length} issues`;
 
     if (filterData) {
