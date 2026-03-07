@@ -34,7 +34,7 @@ loginForm.addEventListener('submit', (e) => {
     passwordInput.classList.toggle('input-error', !passwordMatched);
 
     if (isMatched) {
-        window.location.href = '../Assainment-5/pages/home.html';
+        window.location.href = './pages/home.html';
     } else {
         alert('Invalid Cradentials!');
     }
