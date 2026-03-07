@@ -1,3 +1,63 @@
 const getEliment = (id) => document.getElementById(id);
+const removeSpace = (text) => text.trim().replaceAll(' ', '');
 
-const removeSpace = (text) => text.trim().replaceAll(' ', '')
+
+const priorityStyle = {
+    high: 'bg-[#FEECEC] text-[#EF4444]',
+    low: 'bg-[#EEEFF2] text-[#9CA3AF]',
+    medium: 'bg-[#FFF6D1] text-[#F59E0B]',
+};
+
+const labelStyles = {
+    bug: 'bg-[#FEECEC] text-[#EF4444] border border-[#FECACA]',
+    help_wanted: 'bg-[#FFF8DB] text-[#D97706] border border-[#FDE68A]',
+    enhancement: 'bg-[#DEFCE8] text-[#00A96E] border border-[#BBF7D0]',
+    good_first_issue: 'bg-[#E0F2FE] text-[#0284C7] border border-[#BAE6FD]',
+    documentation: 'bg-[#F3E8FF] text-[#9333EA] border border-[#E9D5FF]',
+};
+
+
+const issueCard = (item) => {
+    const card = document.createElement('div');
+    const cardBorderStyle = item.status === 'open' ? '#00A96E' : '#A855F7'; 
+    const cardStatusIcon = item.status === 'open' ? './assets/Open-Status.png' : './assets/Closed-Status.png'
+    const issueDate = new Date(item.createdAt).toLocaleDateString('en-US')
+    card.className = `card w-full bg-base-100 card-xs shadow-sm border-t-3 p-4 border-[${cardBorderStyle}]`;
+
+    card.innerHTML = `
+      <div class="card-body">
+          <!-- card top -->
+          <div class="flex items-center gap-2 justify-between w-full">
+              <img src=${cardStatusIcon} alt="Status" class="size-7"/>
+              <div class="uppercase py-1 font-medium text-[12px] px-7 rounded-full ${priorityStyle[item.priority]}">
+                  ${item.priority}
+              </div>
+          </div>
+
+          <!-- card middle -->
+          <div class="py-3 border-b border-gray-200">
+              <h2 class="font-semibold text-xl">${item.title}</h2>
+              <p class="text-gray-500 text-sm text-ellipsis font-medium mt-2">
+                ${item.description.length > 90 ? item.description.slice(0, 80) + '...' : item.description}
+              </p>
+
+              <!-- card badges -->
+              <div class="flex items-center flex-wrap gap-2 mt-4 py-1">
+                  ${item.labels
+                      .map((l) =>
+                        `<div class="px-3 py-1 rounded-full font-medium badge-sm uppercase ${labelStyles[l.replaceAll(' ', '_')]}">
+                           ${l}
+                        </div>`).join('')
+                  }
+              </div>
+          </div>
+
+          <!-- card bottom -->
+          <div class="mt-2">
+              <h2 class="font-medium text-[14px] text-gray-500">#${item.id} by ${item.author}</h2>
+              <h2 class="font-medium text-[14px] text-gray-500">${issueDate}</h2>
+          </div>
+      </div>`;
+
+    return card;
+};
