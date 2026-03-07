@@ -29,11 +29,26 @@ const priorityStyle = {
 };
 
 const labelStyles = {
-    bug: 'bg-[#FEECEC] text-[#EF4444] border border-[#FECACA]',
-    help_wanted: 'bg-[#FFF8DB] text-[#D97706] border border-[#FDE68A]',
-    enhancement: 'bg-[#DEFCE8] text-[#00A96E] border border-[#BBF7D0]',
-    good_first_issue: 'bg-[#E0F2FE] text-[#0284C7] border border-[#BAE6FD]',
-    documentation: 'bg-[#F3E8FF] text-[#9333EA] border border-[#E9D5FF]',
+    bug: {
+        color: 'bg-[#FEECEC] text-[#EF4444] border border-[#FECACA]',
+        icon: `<i class="fa-solid fa-bug"></i>`
+    },
+    help_wanted: {
+        color: 'bg-[#FFF8DB] text-[#D97706] border border-[#FDE68A]',
+        icon: `<i class="fa-solid fa-hands-helping"></i>`
+    },
+    enhancement: {
+        color: 'bg-[#DEFCE8] text-[#00A96E] border border-[#BBF7D0]',
+        icon: `<i class="fa-solid fa-rocket"></i>`
+    },
+    good_first_issue: {
+        color: 'bg-[#E0F2FE] text-[#0284C7] border border-[#BAE6FD]',
+        icon: `<i class="fa-solid fa-seedling"></i>`
+    },
+    documentation: {
+        color: 'bg-[#F3E8FF] text-[#9333EA] border border-[#E9D5FF]',
+        icon: `<i class="fa-solid fa-book"></i>`
+    },
 };
 
 
@@ -46,10 +61,10 @@ const issueCard = (item) => {
                       border-t-3 p-4 border-[${cardBorderStyle}]`;
 
     card.innerHTML = `
-      <div class="card-body">
+      <div class="card-body" onclick="showIssueCardModal('${item.id}')">
           <!-- card top -->
           <div class="flex items-center gap-2 justify-between w-full">
-              <img src=${cardStatusIcon} alt="Status" class="size-7"/>
+              <img src=${cardStatusIcon} alt="Status" class="size-7" />
               <div class="uppercase py-1 font-medium text-[12px] px-7 rounded-full ${priorityStyle[item.priority]}">
                   ${item.priority}
               </div>
@@ -59,15 +74,15 @@ const issueCard = (item) => {
           <div class="py-3 border-b border-gray-200">
               <h2 class="font-semibold text-xl">${item.title}</h2>
               <p class="text-gray-500 text-sm text-ellipsis font-medium mt-2">
-                ${item.description.length > 90 ? item.description.slice(0, 80) + '...' : item.description}
+                ${item.description.length > 80 ? item.description.slice(0, 80) + '...' : item.description}
               </p>
 
               <!-- card badges -->
               <div class="flex items-center flex-wrap gap-2 mt-4 py-1">
                   ${item.labels
                       .map((l) =>
-                        `<div class="px-3 py-1 rounded-full font-medium badge-sm uppercase ${labelStyles[l.replaceAll(' ', '_')]}">
-                           ${l}
+                        `<div class="px-3 py-1 rounded-full font-medium badge-sm uppercase ${labelStyles[l.replaceAll(' ', '_')].color}">
+                            ${labelStyles[l.replaceAll(' ', '_')].icon} ${l}
                         </div>`).join('')
                   }
               </div>
