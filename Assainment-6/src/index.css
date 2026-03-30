@@ -1,2 +1,7 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "daisyui";
+
+::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}

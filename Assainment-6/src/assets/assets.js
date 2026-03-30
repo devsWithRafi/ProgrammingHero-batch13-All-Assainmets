@@ -4,12 +4,14 @@ import playPng from './Play.png';
 import rocketPng from './rocket.png';
 import userPng from './user.png';
 import DigiToolsLogo from './DigiTools.svg';
+import heroPointIcon from './heroPointIcon.svg';
 import designToolPng from './products/design-tool.png';
 import operationPng from './products/operation.png';
 import portfolioPng from './products/portfolio.png';
 import shoppingCartPng from './products/shopping-cart.png';
 import socialMediaPng from './products/social-media.png';
 import writingPng from './products/writing_2327400 1.png';
+import playIcon from './playIcon.svg';
 
 export const assets = {
     bennerPng,
@@ -24,5 +26,6 @@ export const assets = {
     socialMediaPng,
     writingPng,
     DigiToolsLogo,
+    heroPointIcon,
+    playIcon,
 };
-

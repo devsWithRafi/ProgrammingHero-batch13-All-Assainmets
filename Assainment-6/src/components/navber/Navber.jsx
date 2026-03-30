@@ -10,7 +10,7 @@ const Navber = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <header className="bg-white shadow-sm md:sticky fixed left-0 right-0 top-0 z-100">
+        <header className="bg-white shadow-sm fixed left-0 right-0 top-0 z-100">
             <nav className="max-w-[1500px] p-5 mx-auto transition-all duration-300">
                 {/* NAV TOP */}
                 <div className="flex gap-5 items-center justify-between">
