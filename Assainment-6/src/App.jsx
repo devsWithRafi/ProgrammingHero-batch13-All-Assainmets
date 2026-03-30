@@ -1,12 +1,14 @@
 import Navber from './components/navber/Navber';
+import AchivementSection from './sections/AchivementSection';
 import HeroSection from './sections/HeroSection';
 
 function App() {
     return (
         <>
             <Navber />
-            <main className='p-5'>
+            <main className="">
                 <HeroSection />
+                <AchivementSection />
             </main>
         </>
     );

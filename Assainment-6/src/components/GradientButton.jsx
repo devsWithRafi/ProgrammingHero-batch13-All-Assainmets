@@ -1,7 +1,7 @@
 const GradientButton = ({ children, type = 'fill', ...props }) => {
     return type === 'fill' ? (
         <button
-            className="btn bg-gradient-to-r border-none from-[#4F39F6] to-[#9514FA] px-7 py-3 shadow-[#4F39F6] hover:shadow-2xl/50 duration-300 font-medium sm:text-[16px] text-sm h-auto rounded-full text-white"
+            className="btn border-none bg-gradient-to-r from-[#4F39F6] to-[#9514FA] px-7 py-3 shadow-[#4F39F6] hover:shadow-2xl/50 duration-300 font-medium sm:text-[16px] text-sm h-auto rounded-full text-white"
             {...props}
         >
             {children}

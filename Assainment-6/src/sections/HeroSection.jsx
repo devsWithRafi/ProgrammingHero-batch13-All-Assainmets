@@ -4,7 +4,7 @@ import GradientText from '../components/GradientText';
 
 const HeroSection = () => {
     return (
-        <section className="min-h-screen md:mt-0 mt-[20%] max-w-[1500px] flex md:flex-row flex-col md:gap-5 gap-15 items-center justify-between w-full mx-auto">
+        <section className="min-h-screen md:mt-10 p-5 mt-[20%] max-w-[1500px] flex md:flex-row flex-col md:gap-5 gap-15 items-center justify-between w-full mx-auto">
             {/* SECTION LEFT */}
             <div className="flex flex-col md:items-start items-center gap-3">
                 <div className="flex items-center gap-1 bg-[#E1E7FF] rounded-full p-2 px-3">
