@@ -5,23 +5,29 @@ import HeroSection from './sections/HeroSection';
 import PremiumDigitalToolSection from './sections/PremiumDigitalToolSection';
 import { ToastContainer } from 'react-toastify';
 import StepSection from './sections/StepSection';
+import PricingSection from './sections/PricingSection';
 
 const fetchProducts = async () => {
     const res = await fetch('./data/ProductCardsData.json');
     return res.json();
 };
 
+const fetchPricingData = async () => {
+    const res = await fetch('./data/PricingData.json');
+    return res.json();
+};
+
 function App() {
     const productsPromise = fetchProducts();
+    const pricingDataPromise = fetchPricingData();
     const [cartProducts, setCartProducts] = useState([]);
 
-    const getCartProductsFromLocalStorage = () => {
-        const cartProducts =
-            JSON.parse(localStorage.getItem('cartProducts')) || [];
-        setCartProducts(cartProducts);
-    };
-
     useEffect(() => {
+        const getCartProductsFromLocalStorage = () => {
+            const cartProducts =
+                JSON.parse(localStorage.getItem('cartProducts')) || [];
+            setCartProducts(cartProducts);
+        };
         getCartProductsFromLocalStorage();
     }, []);
 
@@ -31,6 +37,7 @@ function App() {
             <main>
                 <HeroSection />
                 <AchivementSection />
+
                 <Suspense fallback={<div>Loading...</div>}>
                     <PremiumDigitalToolSection
                         productsPromise={productsPromise}
@@ -38,7 +45,11 @@ function App() {
                         cartProducts={cartProducts}
                     />
                 </Suspense>
+
                 <StepSection />
+                <Suspense fallback={<div>Loading...</div>}>
+                    <PricingSection pricingDataPromise={pricingDataPromise} />
+                </Suspense>
             </main>
 
             <ToastContainer />
