@@ -4,6 +4,7 @@ import AchivementSection from './sections/AchivementSection';
 import HeroSection from './sections/HeroSection';
 import PremiumDigitalToolSection from './sections/PremiumDigitalToolSection';
 import { ToastContainer } from 'react-toastify';
+import StepSection from './sections/StepSection';
 
 const fetchProducts = async () => {
     const res = await fetch('./data/ProductCardsData.json');
@@ -37,6 +38,7 @@ function App() {
                         cartProducts={cartProducts}
                     />
                 </Suspense>
+                <StepSection />
             </main>
 
             <ToastContainer />

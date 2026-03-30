@@ -76,7 +76,7 @@ const PremiumDigitalToolSection = ({
                 <div className="mt-10 p-5 shadow-sm rounded-2xl flex flex-col gap-7">
                     {cartProducts.length > 0 ? (
                         <>
-                            <h2 className="font-semibold text-2xl">
+                            <h2 className="font-bold text-2xl">
                                 Your Cart
                             </h2>
 
@@ -90,16 +90,16 @@ const PremiumDigitalToolSection = ({
                                 ))}
                             </div>
 
-                            <p className="flex items-center text-xl text-gray-400 font-medium justify-between gap-5">
+                            <p className="flex items-center sm:text-xl text-lg text-gray-400 font-medium justify-between gap-5">
                                 Total:
-                                <span className="font-bold text-2xl text-black">
+                                <span className="font-bold sm:text-2xl text-xl text-black">
                                     ${totalCartProductsPrice}
                                 </span>
                             </p>
 
                             <button
                                 onClick={handleCheckout}
-                                className="w-full btn h-auto rounded-full bg-gradient text-white py-3 text-lg"
+                                className="w-full btn h-auto rounded-full bg-gradient text-white py-3 sm:text-lg text-sm"
                             >
                                 Proceed to Checkout
                             </button>

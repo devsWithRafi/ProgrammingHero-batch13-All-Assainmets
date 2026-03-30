@@ -25,7 +25,8 @@ const ProductCard = ({ product, setCartProducts }) => {
         <div className="w-full card bg-base-100 p-6 shadow-sm flex flex-col items-start">
             {/* badge */}
             <div
-                className={`${productBadgeStyle[product.tagType]} px-4 font-medium absolute top-5 right-5 rounded-full py-1 capitalize`}
+                className={`${productBadgeStyle[product.tagType]} 
+                    px-4 font-medium absolute top-5 right-5 rounded-full py-1 capitalize`}
             >
                 {product.tagType.toLowerCase().replaceAll('_', ' ')}
             </div>
