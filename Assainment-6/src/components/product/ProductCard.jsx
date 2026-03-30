@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react';
+import { toast } from 'react-toastify';
 
 const productBadgeStyle = {
     best_seller: 'bg-[#FEF3C6] text-[#BB4D00]',
@@ -6,7 +7,19 @@ const productBadgeStyle = {
     new: 'bg-[#DBFCE7] text-[#0A883E]',
 };
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, setCartProducts }) => {
+    const handleBuyProduct = () => {
+        setCartProducts((prev) => {
+            const existingProduct = prev.find((p) => p.id === product.id);
+            if (existingProduct) {
+                toast.error('Product already added to cart!');
+                return prev;
+            }
+            toast.success('Product added successfully!');
+            localStorage.setItem('cartProducts', JSON.stringify([...prev, product]));
+            return [...prev, product];
+        });
+    };
 
     return (
         <div className="w-full card bg-base-100 p-6 shadow-sm flex flex-col items-start">
@@ -51,6 +64,7 @@ const ProductCard = ({ product }) => {
 
             {/* buy now button */}
             <button
+                onClick={handleBuyProduct}
                 className="bg-gradient w-full btn h-auto rounded-full text-white py-3 mt-5 text-[16px]"
             >
                 Buy Now

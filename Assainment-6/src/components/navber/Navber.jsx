@@ -3,10 +3,9 @@ import { assets } from '../../assets/assets';
 import { navItems } from './navItems';
 import { FiMenu } from 'react-icons/fi';
 import { useState } from 'react';
-import { RxCross2 } from "react-icons/rx";
+import { RxCross2 } from 'react-icons/rx';
 
-
-const Navber = () => {
+const Navber = ({ cartProducts }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
@@ -41,7 +40,7 @@ const Navber = () => {
                         <span className="flex items-center">
                             <RiShoppingCartLine size={18} />
                             <sup className="p-1 h-4 -ml-2 text-xs bg-black text-white flex items-center justify-center rounded-full">
-                                0
+                                {cartProducts.length}
                             </sup>
                         </span>
                         <a
@@ -55,15 +54,24 @@ const Navber = () => {
                         </button>
 
                         {/* menu button */}
-                        <button onClick={() => setMobileMenuOpen(prev => !prev)} className='md:hidden block'>
-                            {!mobileMenuOpen ? <FiMenu size={25} /> : <RxCross2 size={25}/>}
+                        <button
+                            onClick={() => setMobileMenuOpen((prev) => !prev)}
+                            className="md:hidden block"
+                        >
+                            {!mobileMenuOpen ? (
+                                <FiMenu size={25} />
+                            ) : (
+                                <RxCross2 size={25} />
+                            )}
                         </button>
                     </div>
                 </div>
 
                 {/* NAV BOTTOM MOBILE */}
-                <div className={`flex flex-col gap-1 overflow-hidden transition-all duration-300 
-                    ${mobileMenuOpen ? 'max-h-200 opacity-100 mt-5' : 'max-h-0 opacity-0'}`}>
+                <div
+                    className={`flex flex-col gap-1 overflow-hidden transition-all duration-300 
+                    ${mobileMenuOpen ? 'max-h-200 opacity-100 mt-5' : 'max-h-0 opacity-0'}`}
+                >
                     {/* nav items */}
                     <div className="flex flex-col font-medium">
                         {navItems.map((item, index) => (

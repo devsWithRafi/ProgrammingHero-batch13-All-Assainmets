@@ -12,6 +12,7 @@ import shoppingCartPng from './products/shopping-cart.png';
 import socialMediaPng from './products/social-media.png';
 import writingPng from './products/writing_2327400 1.png';
 import playIcon from './playIcon.svg';
+import emptyCart from './empty-cart.png';
 
 export const assets = {
     bennerPng,
@@ -28,4 +29,5 @@ export const assets = {
     DigiToolsLogo,
     heroPointIcon,
     playIcon,
+    emptyCart,
 };
