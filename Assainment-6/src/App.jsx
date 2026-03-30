@@ -1,7 +1,12 @@
+import Navber from './components/navber/Navber';
+
 function App() {
     return (
         <>
-            <h1 className="bg-red-500 p-5">Initial projects setup</h1>
+            <Navber />
+            <main>
+                <h1>Assainment-6</h1>
+            </main>
         </>
     );
 }
