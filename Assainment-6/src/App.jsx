@@ -6,6 +6,7 @@ import PremiumDigitalToolSection from './sections/PremiumDigitalToolSection';
 import { ToastContainer } from 'react-toastify';
 import StepSection from './sections/StepSection';
 import PricingSection from './sections/PricingSection';
+import Footer from './components/footer/Footer';
 
 const fetchProducts = async () => {
     const res = await fetch('./data/ProductCardsData.json');
@@ -50,6 +51,7 @@ function App() {
                 <Suspense fallback={<div>Loading...</div>}>
                     <PricingSection pricingDataPromise={pricingDataPromise} />
                 </Suspense>
+                <Footer />
             </main>
 
             <ToastContainer />

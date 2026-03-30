@@ -13,6 +13,7 @@ import socialMediaPng from './products/social-media.png';
 import writingPng from './products/writing_2327400 1.png';
 import playIcon from './playIcon.svg';
 import emptyCart from './empty-cart.png';
+import footerLogo from './footerLogo.svg';
 
 export const assets = {
     bennerPng,
@@ -30,4 +31,5 @@ export const assets = {
     heroPointIcon,
     playIcon,
     emptyCart,
+    footerLogo,
 };
