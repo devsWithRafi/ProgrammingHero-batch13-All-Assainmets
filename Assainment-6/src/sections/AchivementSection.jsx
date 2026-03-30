@@ -13,7 +13,7 @@ const AchivementSection = () => {
                 {Object.entries(data).map(([key, value], index) => (
                     <>
                         <div
-                            key={key}
+                            key={index}
                             className="capitalize text-white flex flex-col items-center justify-center w-full gap-2 max-[450px]:gap-1"
                         >
                             <h2 className="font-bold lg:text-7xl md:text-6xl sm:text-5xl text-4xl max-[450px]:text-2xl text-center">
