@@ -1,16 +1,52 @@
-# React + Vite
+# **DigiTools**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Supercharge Your Digital Workflow Access premium AI tools, design assets, templates, and productivity software — all in one place. DigiTools is designed to help creators and professionals start creating faster and explore a world of high-quality digital products.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<table>
+  <thead>
+    <tr>
+      <th>Technology</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>React</b></td>
+      <td>JavaScript library for building user-centered interface components.</td>
+    </tr>
+    <tr>
+      <td><b>Tailwind CSS</b></td>
+      <td>Utility-first CSS framework for rapid UI development.</td>
+    </tr>
+    <tr>
+      <td><b>DaisyUI</b></td>
+      <td>Component library for Tailwind CSS providing pre-styled UI elements.</td>
+    </tr>
+    <tr>
+      <td><b>Lucide & React Icons</b></td>
+      <td>Clean and customizable icons for React.</td>
+    </tr>
+    <tr>
+      <td><b>React Toastify</b></td>
+      <td>Simple and beautiful notifications for React apps.</td>
+    </tr>
+    <tr>
+      <td><b>Tailwind Merge</b></td>
+      <td>Utility to merge Tailwind classes without style conflicts.</td>
+    </tr>
+    <tr>
+      <td><b>JSON</b></td>
+      <td>Used for local storage and management of all data.</td>
+    </tr>
+  </tbody>
+</table>
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Interactive Cart System:** A fully functional cart that stores selected products, allows for item removal, and automatically calculates the real-time total price.
 
-## Expanding the ESLint configuration
+- **Persistent Local Storage:** Ensures user data is never lost by syncing the cart state with local storage, allowing the selection to persist even after a page refresh.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Fully Responsive Design:** A `Mobile-First` approach using Tailwind CSS, ensuring a premium experience across desktops, tablets, and smartphones.
