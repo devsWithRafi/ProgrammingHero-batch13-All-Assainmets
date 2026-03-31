@@ -4,7 +4,7 @@
         "name": "AI Writing Pro",
         "description": "Generate high-quality content, blogs, and marketing copy in seconds with advanced AI.",
         "price": 29,
-        "period": "Mo",
+        "period": "monthly",
         "tagType": "best_seller",
         "features": [
             "Unlimited AI generations",
@@ -18,7 +18,7 @@
         "name": "Design Templates Pack",
         "description": "2000+ premium templates for social media, presentations, and marketing materials.",
         "price": 49,
-        "period": "One-Time",
+        "period": "one-time",
         "tagType": "popular",
         "features": [
             "2000+ templates",
@@ -32,7 +32,7 @@
         "name": "Premium Stock Assets",
         "description": "Access millions of royalty-free photos, videos, and graphics for your projects.",
         "price": 19,
-        "period": "Mo",
+        "period": "monthly",
         "tagType": "new",
         "features": ["10M+ assets", "Commercial use", "No attribution"],
 
@@ -44,7 +44,7 @@
         "name": "Automation Toolkit",
         "description": "Automate repetitive tasks and streamline your workflow with powerful tools.",
         "price": 79,
-        "period": "Mo",
+        "period": "monthly",
         "tagType": "popular",
         "features": ["50+ automations", "API access", "Custom workflows"],
         "icon": "https://i.ibb.co.com/F41tdLpL/operation.png"
@@ -54,7 +54,7 @@
         "name": "Resume Builder Pro",
         "description": "Create professional resumes and cover letters that land interviews.",
         "price": 15,
-        "period": "One-Time",
+        "period": "one-time",
         "tagType": "new",
         "features": ["100+ templates", "ATS optimization", "Export to PDF"],
         "icon": "https://i.ibb.co.com/v6YNn7yg/portfolio.png"
@@ -64,7 +64,7 @@
         "name": "Social Media Content Kit",
         "description": "Complete toolkit for creating engaging social media content across all platforms.",
         "price": 39,
-        "period": "Mo",
+        "period": "monthly",
         "tagType": "best_seller",
         "features": [
             "5000+ assets",
@@ -72,5 +72,57 @@
             "Analytics dashboard"
         ],
         "icon": "https://i.ibb.co.com/vpR4xSs/social-media.png"
+    },
+    {
+        "id": 7,
+        "name": "Video Editing Suite",
+        "description": "Edit professional videos with advanced tools, effects, and transitions in minutes.",
+        "price": 708,
+        "period": "yearly",
+        "tagType": "popular",
+        "features": [
+            "4K video support",
+            "100+ transitions",
+            "Audio editing tools"
+        ],
+        "icon": "https://i.ibb.co.com/j9bfJ1Nn/image.png"
+    },
+    {
+        "id": 8,
+        "name": "SEO Optimization Tool",
+        "description": "Boost your website ranking with powerful SEO analysis and keyword tracking.",
+        "price": 300,
+        "period": "yearly",
+        "tagType": "best_seller",
+        "features": ["Keyword research", "Site audit", "Rank tracking"],
+        "icon": "https://i.ibb.co.com/ZzHsLFJT/image.png"
+    },
+    {
+        "id": 9,
+        "name": "Website Builder Pro",
+        "description": "Build modern, responsive websites without coding using drag and drop tools.",
+        "price": 35,
+        "period": "monthly",
+        "tagType": "popular",
+        "features": [
+            "Drag & drop builder",
+            "Responsive design",
+            "Hosting included"
+        ],
+        "icon": "https://i.ibb.co.com/jkLHCkPB/image.png"
+    },
+    {
+        "id": 10,
+        "name": "Email Marketing Suite",
+        "description": "Create, send, and analyze email campaigns to grow your business faster.",
+        "price": 500,
+        "period": "yearly",
+        "tagType": "new",
+        "features": [
+            "Email templates",
+            "Automation flows",
+            "Analytics reports"
+        ],
+        "icon": "https://i.ibb.co.com/r2tmpLJY/image.png"
     }
 ]

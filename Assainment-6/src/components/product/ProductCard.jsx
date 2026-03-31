@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react';
 import { toast } from 'react-toastify';
+import { cn } from '../../lib/cn';
 
 const productBadgeStyle = {
     best_seller: 'bg-[#FEF3C6] text-[#BB4D00]',
@@ -7,11 +8,17 @@ const productBadgeStyle = {
     new: 'bg-[#DBFCE7] text-[#0A883E]',
 };
 
-const ProductCard = ({ product, setCartProducts }) => {
+const formatePeriod = (period) => {
+    const pre = period.replaceAll('-', '').replaceAll('_', '');
+    return pre === "onetime" ? period : pre === "monthly" ? "Mo" : "Year";
+}
+
+const ProductCard = ({ product, setCartProducts, cartProducts }) => {
+    const isProductInCart = cartProducts.some((p) => p.id === product.id);
+
     const handleBuyProduct = () => {
         setCartProducts((prev) => {
-            const existingProduct = prev.find((p) => p.id === product.id);
-            if (existingProduct) {
+            if (isProductInCart) {
                 toast.error('Product already added to cart!');
                 return prev;
             }
@@ -44,8 +51,8 @@ const ProductCard = ({ product, setCartProducts }) => {
                 </p>
                 <h4 className="text-2xl font-bold">
                     ${product.price}
-                    <span className="text-sm text-gray-500 font-medium">
-                        /{product.period}
+                    <span className="text-sm text-gray-500 font-medium capitalize">
+                        /{formatePeriod(product.period)}
                     </span>
                 </h4>
             </div>
@@ -66,9 +73,12 @@ const ProductCard = ({ product, setCartProducts }) => {
             {/* buy now button */}
             <button
                 onClick={handleBuyProduct}
-                className="bg-gradient w-full btn h-auto rounded-full text-white py-3 mt-5 text-[16px]"
+                disabled={isProductInCart}
+                className={cn("bg-gradient w-full btn h-auto rounded-full text-white py-3 mt-5 text-[16px]",
+                    isProductInCart && 'bg-gray-400 cursor-not-allowed'
+                )}
             >
-                Buy Now
+                {isProductInCart ? "Added to cart" : "Buy Now"}
             </button>
         </div>
     );

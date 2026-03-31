@@ -7,6 +7,8 @@ import { ToastContainer } from 'react-toastify';
 import StepSection from './sections/StepSection';
 import PricingSection from './sections/PricingSection';
 import Footer from './components/footer/Footer';
+import Loader from './components/Loader';
+import ReadyToTransformSection from './sections/ReadyToTransformSection';
 
 const fetchProducts = async () => {
     const res = await fetch('./data/ProductCardsData.json');
@@ -39,7 +41,7 @@ function App() {
                 <HeroSection />
                 <AchivementSection />
 
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loader className="h-100 mt-10" />}>
                     <PremiumDigitalToolSection
                         productsPromise={productsPromise}
                         setCartProducts={setCartProducts}
@@ -48,9 +50,10 @@ function App() {
                 </Suspense>
 
                 <StepSection />
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loader className="h-100" />}>
                     <PricingSection pricingDataPromise={pricingDataPromise} />
                 </Suspense>
+                <ReadyToTransformSection />
                 <Footer />
             </main>
 

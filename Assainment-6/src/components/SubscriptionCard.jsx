@@ -7,7 +7,8 @@ const SubscriptionCard = ({ data }) => {
 
     return (
         <div
-            className={`w-full relative card rounded-2xl p-7 shadow-sm flex flex-col items-center 
+            className={`w-full relative card rounded-2xl p-7 shadow-sm flex flex-col items-center transition-all duration-300 hover:scale-102
+                 cursor-pointer hover:shadow-2xl
                 ${isPopular ? 'bg-gradient text-white' : 'bg-white'}`}
         >
             {/* badge */}

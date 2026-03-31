@@ -3,7 +3,7 @@ import SectionTitle from '../components/SectionTitle';
 
 const StepSection = () => {
     return (
-        <section className="w-full py-20 bg-[#F9FAFC] p-5 mt-[6%]">
+        <section className="w-full py-30 bg-[#F9FAFC] p-5 mt-[6%]">
             <div className="max-w-[1500px] mx-auto">
                 <SectionTitle>Step By Step Guide</SectionTitle>
                 <p className="sm:text-[16px] text-sm text-gray-500 text-center mt-5">
