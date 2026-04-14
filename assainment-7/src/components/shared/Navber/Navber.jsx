@@ -9,6 +9,8 @@ import { GoGraph } from 'react-icons/go';
 import { RiMenuFill } from 'react-icons/ri';
 import { RxCross2 } from 'react-icons/rx';
 import { cn } from '@/lib/utils';
+import { assets } from '@/assets/assets';
+import Image from 'next/image';
 
 const navList = [
     {
@@ -38,7 +40,12 @@ const Navber = () => {
                 <div className="w-full flex items-center justify-between gap-5">
                     {/* NAV  TOP LEFT */}
                     <Link href="/" className="font-bold text-2xl">
-                        Keens<span className="text-[#244D3F]">Keeper</span>
+                        <Image
+                            src={assets.logoPng}
+                            alt="nav-logo"
+                            width={141}
+                            height={31}
+                        />
                     </Link>
 
                     {/* NAV TOP RIGHT */}
