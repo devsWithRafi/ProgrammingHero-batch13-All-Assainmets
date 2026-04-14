@@ -34,7 +34,7 @@ const Navber = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <header className="w-full font-poppins bg-white py-5 px-4 border-b border-gray-200 fixed left-0 top-0">
+        <header className="w-full z-[99999999999999] font-poppins bg-white py-5 px-4 border-b border-gray-200 fixed left-0 top-0">
             <nav className="max-w-[1500px] mx-auto flex flex-col">
                 {/* NAV TOP - DESKTOP */}
                 <div className="w-full flex items-center justify-between gap-5">

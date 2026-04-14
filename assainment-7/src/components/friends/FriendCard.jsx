@@ -12,9 +12,14 @@ const formateStatus = (status) => {
     return status.toLowerCase().replaceAll(' ', '_').replaceAll('-', '_');
 };
 
-const FriendCard = ({ friend }) => {
+const FriendCard = ({ friend, className }) => {
     return (
-        <div className="bg-white w-full shadow-sm p-5 py-10 text-center rounded-sm flex gap-1 flex-col items-center justify-center">
+        <div
+            className={cn(
+                'bg-white w-full shadow-sm p-5 py-10 text-center rounded-sm flex gap-1 flex-col items-center justify-center',
+                className,
+            )}
+        >
             <Image
                 src={friend.picture}
                 alt={friend.name}

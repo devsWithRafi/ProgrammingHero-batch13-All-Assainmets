@@ -2,6 +2,7 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import Navber from '@/components/shared/Navber/Navber';
 import Footer from '@/components/shared/Footer/Footer';
+import FriendContextProvider from '@/context/friendsContext/FriendContextProvider';
 
 const poppins = Poppins({
     variable: '--font-poppins',
@@ -24,7 +25,7 @@ export default function RootLayout({ children }) {
             <body className="min-h-full flex flex-col bg-[#F8FAFC]">
                 <Navber />
                 <main className="font-poppins max-w-[1500px] mx-auto w-full px-4 py-15">
-                    {children}
+                    <FriendContextProvider>{children}</FriendContextProvider>
                 </main>
                 <Footer />
             </body>

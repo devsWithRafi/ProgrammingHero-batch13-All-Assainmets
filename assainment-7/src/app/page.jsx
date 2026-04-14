@@ -1,7 +1,6 @@
-import FriendCard from '@/components/friends/FriendCard';
 import { Button } from '@/components/ui/Button';
-import Image from 'next/image';
 import { FiPlus } from 'react-icons/fi';
+import FriendList from '@/components/friends/FriendList';
 
 const bennerData = [
     { title: 'Total Friends', count: 10 },
@@ -10,14 +9,7 @@ const bennerData = [
     { title: 'Interactions This Month', count: 12 },
 ];
 
-const fetchFriends = async () => {
-    const res = await fetch('http://localhost:3000/data/friends.json');
-    return res.json();
-};
-
 export default async function HomePage() {
-    const friendsData = await fetchFriends();
-
     return (
         <section className="md:mt-35 mt-25 flex flex-col gap-10">
             {/* TOP BENNER */}
@@ -51,18 +43,12 @@ export default async function HomePage() {
                 </div>
             </div>
 
-            <hr className='my-5'/>
+            <hr className="my-5" />
 
             {/* BOTTOM FRIENDS DATA */}
-            <div className='flex flex-col gap-5'>
-                <h2 className='text-xl font-semibold'>Your Friends</h2>
-
-                {/* friends cards */}
-                <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3">
-                    {friendsData.map((friend) => (
-                        <FriendCard key={friend.id} friend={friend} />
-                    ))}
-                </div>
+            <div className="flex flex-col gap-5">
+                <h2 className="text-xl font-semibold">Your Friends</h2>
+                <FriendList />
             </div>
         </section>
     );
