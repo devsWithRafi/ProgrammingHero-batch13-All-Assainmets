@@ -11,7 +11,7 @@ const bennerData = [
 
 export default async function HomePage() {
     return (
-        <section className="md:mt-35 mt-25 flex flex-col gap-10">
+        <section className="md:mt-35 mt-25 flex flex-col gap-10 pb-15">
             {/* TOP BENNER */}
             <div className="text-center flex flex-col items-center gap-6">
                 <h1 className="md:text-5xl text-4xl font-bold">

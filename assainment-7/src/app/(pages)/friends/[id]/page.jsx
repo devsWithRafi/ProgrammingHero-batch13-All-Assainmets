@@ -25,7 +25,7 @@ const FriedDetailsPage = async ({ params }) => {
     const date = new Date(friend.next_due_date);
 
     return (
-        <section className="mt-15 grid sm:grid-cols-3 gap-5">
+        <section className="mt-15 grid sm:grid-cols-3 gap-5 py-15">
             {/* LEFT SIDE */}
             <div className="flex flex-col gap-5">
                 <div className="text-center bg-white shadow-sm rounded-sm px-5 py-10">
