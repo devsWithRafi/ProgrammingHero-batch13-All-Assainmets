@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
         >
             <body className="min-h-full flex flex-col bg-[#F8FAFC]">
                 <Navber />
-                <main className="font-poppins max-w-[1500px] mx-auto w-full p-5">
+                <main className="font-poppins max-w-[1500px] mx-auto w-full p-4">
                     {children}
                 </main>
             </body>
