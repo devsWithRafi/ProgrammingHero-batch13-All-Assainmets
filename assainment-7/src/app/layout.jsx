@@ -20,9 +20,9 @@ export default function RootLayout({ children }) {
             lang="en"
             className={`${poppins.variable} h-full antialiased`}
         >
-            <body className="min-h-full flex flex-col">
-                <main className='font-poppins'>
-                    <Navber />
+            <body className="min-h-full flex flex-col bg-[#F8FAFC]">
+                <Navber />
+                <main className="font-poppins max-w-[1500px] mx-auto w-full p-5">
                     {children}
                 </main>
             </body>
