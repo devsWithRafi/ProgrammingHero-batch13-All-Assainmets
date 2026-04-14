@@ -1,6 +1,6 @@
 'use client';
 
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FriendContext } from './friendContext';
 import useFetchData from '@/hooks/useFetchData';
 

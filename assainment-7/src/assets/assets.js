@@ -6,6 +6,7 @@ import logoXlPng from './logo-xl.png';
 import textPng from './text.png';
 import twitterPng from './twitter.png';
 import videoPng from './video.png';
+import notFoundPng from './not-found.png';
 
 export const assets = {
     callPng,
@@ -16,4 +17,5 @@ export const assets = {
     textPng,
     twitterPng,
     videoPng,
+    notFoundPng
 };

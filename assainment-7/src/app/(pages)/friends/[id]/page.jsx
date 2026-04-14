@@ -100,28 +100,6 @@ const FriedDetailsPage = async ({ params }) => {
 
                 {/* Quick Check-In */}
                 <CheckInSection friend={friend} />
-
-                {/* Recent Interactions */}
-                <div className="bg-white shadow-sm rounded-sm p-5">
-                    <span className="flex items-center gap-5 justify-between">
-                        <h2 className="sm:text-xl text-lg font-medium text-deepGreen">
-                            Recent Interactions
-                        </h2>
-                        <Button className="bg-gray-100 px-4 py-1.5 text-black text-sm border border-gray-200 font-medium rounded">
-                            <MdHistory size={20} />
-                            <span className="sm:block hidden">
-                                Full History
-                            </span>
-                        </Button>
-                    </span>
-                    {/* history */}
-                    <div className="flex flex-col mt-5">
-                        <HistoryBox />
-                        <HistoryBox />
-                        <HistoryBox />
-                        <HistoryBox className="border-none pb-0" />
-                    </div>
-                </div>
             </div>
         </section>
     );
