@@ -1,6 +1,11 @@
 import React from 'react';
 import StatePieChart from './_component/StatePieChart';
 
+export const metadata = {
+    title: 'KeenKeeper | Stats',
+    description: 'KeenKeeper - Friendship Analytics Page',
+};
+
 const StatsPage = () => {
     return (
         <section className="mt-15 py-15">

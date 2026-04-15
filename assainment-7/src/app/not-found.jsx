@@ -1,6 +1,11 @@
 import Link from 'next/link';
 import { RiHome3Line } from 'react-icons/ri';
 
+export const metadata = {
+    title: 'KeenKeeper | 404 - Page not found',
+    description: 'KeenKeeper',
+};
+
 const NotFound = () => {
     return (
         <section className="w-full h-screen flex flex-col items-center justify-center">

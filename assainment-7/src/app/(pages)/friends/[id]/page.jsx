@@ -15,6 +15,11 @@ const fetchFriedsData = async (id) => {
     return data.find((f) => String(f.id) === id);
 };
 
+export const metadata = {
+    title: 'KeenKeeper | Friends',
+    description: 'KeenKeeper - Friend Details Page',
+};
+
 const FriedDetailsPage = async ({ params }) => {
     const { id } = await params;
     const friend = await fetchFriedsData(id);
