@@ -10,7 +10,7 @@ const FriendList = () => {
     const { friendsData, loading } = useContext(FriendContext);
 
     return loading ? (
-        <div className="w-full h-150 flex gap-1 items-center justify-center">
+        <div className="w-full h-100 flex gap-1 items-center justify-center">
             <Spinner />
             <span className="text-gray-500 text-sm">Loading...</span>
         </div>

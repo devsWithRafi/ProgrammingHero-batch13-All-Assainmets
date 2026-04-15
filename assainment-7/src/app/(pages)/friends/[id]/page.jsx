@@ -7,7 +7,6 @@ import { PiArchiveBold } from 'react-icons/pi';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { MdHistory } from 'react-icons/md';
 import CheckInSection from './_components/CheckInSection';
-import HistoryBox from './_components/HistoryBox';
 import { formatedDate } from '@/lib/formateDate';
 
 const fetchFriedsData = async (id) => {

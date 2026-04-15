@@ -1,13 +1,7 @@
 import { Button } from '@/components/ui/Button';
 import { FiPlus } from 'react-icons/fi';
 import FriendList from '@/components/friends/FriendList';
-
-const bennerData = [
-    { title: 'Total Friends', count: 10 },
-    { title: 'On Track', count: 3 },
-    { title: 'Need Attention', count: 6 },
-    { title: 'Interactions This Month', count: 12 },
-];
+import BennerStats from '@/components/home/BennerStats';
 
 export default async function HomePage() {
     return (
@@ -27,19 +21,7 @@ export default async function HomePage() {
 
                 {/* benner cards */}
                 <div className="grid md:grid-cols-4 grid-cols-2 md:gap-5 gap-3 w-full">
-                    {bennerData.map((item, index) => (
-                        <div
-                            key={index}
-                            className="bg-white flex flex-col items-center justify-center text-center px-5 sm:py-10 py-5 rounded-sm shadow-sm"
-                        >
-                            <h2 className="sm:text-3xl text-2xl font-bold">
-                                {item.count}
-                            </h2>
-                            <p className="capitalize sm:text-lg text-sm text-gray-400">
-                                {item.title}
-                            </p>
-                        </div>
-                    ))}
+                    <BennerStats />
                 </div>
             </div>
 
