@@ -1,16 +1,17 @@
 import FriendCard from '@/components/friends/FriendCard';
 import { Button } from '@/components/ui/Button';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { PiBellSimpleZBold } from 'react-icons/pi';
 import { PiArchiveBold } from 'react-icons/pi';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { MdHistory } from 'react-icons/md';
 import CheckInSection from './_components/CheckInSection';
 import { formatedDate } from '@/lib/formateDate';
 
+// http://localhost:3000
+const url = 'https://keenkeeper-assainment-7.vercel.app';
+
 const fetchFriedsData = async (id) => {
-    const res = await fetch('http://localhost:3000/data/friends.json');
+    const res = await fetch(`${url}/data/friends.json`);
     const data = await res.json();
     return data.find((f) => String(f.id) === id);
 };
