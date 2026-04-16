@@ -37,11 +37,12 @@ const FriedDetailsPage = async ({ params }) => {
                     <FriendCard
                         friend={friend}
                         className="shadow-none bg-transparent p-0"
+                        needDaysSince={false}
                     />
-                    <p className="text-gray-400 text-sm w-[90%] mx-auto mt-5">
-                        {friend.bio}
+                    <p className="text-[#64748B] font-medium italic sm:text-[16px] text-sm w-[90%] mx-auto mt-5">
+                        &quot;{friend.bio}&quot;
                     </p>
-                    <p className="text-gray-400 text-sm w-[90%] mx-auto mt-3">
+                    <p className="text-gray-500 sm:text-sm text-xs w-[90%] mx-auto mt-3">
                         Preferred: {friend.email}
                     </p>
                 </div>

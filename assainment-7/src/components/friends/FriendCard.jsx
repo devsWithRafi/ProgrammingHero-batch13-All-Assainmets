@@ -12,7 +12,7 @@ const formateStatus = (status) => {
     return status.toLowerCase().replaceAll(' ', '_').replaceAll('-', '_');
 };
 
-const FriendCard = ({ friend, className }) => {
+const FriendCard = ({ friend, className, needDaysSince=true }) => {
     return (
         <div
             className={cn(
@@ -27,13 +27,13 @@ const FriendCard = ({ friend, className }) => {
                 height={80}
                 className="size-20 rounded-full"
             />
-            <h2 className="text-xl font-semibold mt-4">{friend.name}</h2>
-            <p className="text-sm text-gray-400">
+            <h2 className="text-xl font-semibold mt-2">{friend.name}</h2>
+            {needDaysSince && <p className="text-sm text-gray-400">
                 {friend.days_since_contact}d ago
-            </p>
+            </p>}
 
             {/* tags */}
-            <div className="flex gap-2 flex-wrap text-sm items-center justify-center uppercase mt-3">
+            <div className="flex gap-2 flex-wrap text-sm items-center justify-center uppercase mt-1">
                 {friend.tags.map((tag, index) => (
                     <span
                         key={index}
@@ -47,7 +47,7 @@ const FriendCard = ({ friend, className }) => {
             {/* status */}
             <span
                 className={cn(
-                    'text-sm capitalize mt-3 rounded-full px-2.5 py-1',
+                    'text-sm capitalize mt-1 rounded-full px-2.5 py-1',
                     statusStyle[formateStatus(friend.status)],
                 )}
             >
