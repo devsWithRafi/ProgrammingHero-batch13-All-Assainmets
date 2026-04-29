@@ -4,34 +4,34 @@ import React, { useEffect, useState } from 'react';
 import { TimelineContext } from './timelineContext';
 
 const TimelineContextProvider = ({ children }) => {
-    const [timelineData, setTimelineData] = useState([]);
+  const [timelineData, setTimelineData] = useState([]);
 
-    useEffect(() => {
-        const storedData = localStorage.getItem('timelineData');
-        if (storedData) {
-            setTimelineData(JSON.parse(storedData));
-        }
-    }, []);
+  useEffect(() => {
+    const storedData = localStorage.getItem('timelineData');
+    if (storedData) {
+      setTimelineData(JSON.parse(storedData));
+    }
+  }, []);
 
-    console.log('timelineData:', timelineData);
+  console.log('timelineData:', timelineData);
 
-    const addNewTimeline = (newTimeline) => {
-        const currentDate = new Date();
+  const addNewTimeline = (newTimeline) => {
+    const currentDate = new Date();
 
-        const updateData = [
-            ...timelineData,
-            { ...newTimeline, date: currentDate.toString() },
-        ];
+    const updateData = [
+      ...timelineData,
+      { ...newTimeline, date: currentDate.toString() },
+    ];
 
-        setTimelineData(updateData);
-        localStorage.setItem('timelineData', JSON.stringify(updateData));
-    };
+    setTimelineData(updateData);
+    localStorage.setItem('timelineData', JSON.stringify(updateData));
+  };
 
-    return (
-        <TimelineContext value={{ timelineData, addNewTimeline }}>
-            {children}
-        </TimelineContext>
-    );
+  return (
+    <TimelineContext value={{ timelineData, addNewTimeline }}>
+      {children}
+    </TimelineContext>
+  );
 };
 
 export default TimelineContextProvider;
