@@ -1,9 +1,9 @@
 const SectionTitle = ({ title, description, eliment }) => {
   return (
     <div className="">
-      <h2 className="font-bold font-ring text-5xl">{title}</h2>
-      <div className="flex items-center justify-between gap-5">
-        <p className="text-zinc-500 font-poppins text-md font-medium">
+      <h2 className="font-bold font-ring sm:text-5xl text-3xl">{title}</h2>
+      <div className="flex sm:flex-row flex-col sm:items-center justify-between sm:gap-5 gap-3 sm:mt-0 mt-2">
+        <p className="text-zinc-500 font-poppins sm:text-md text-sm font-medium">
           {description}
         </p>
         {eliment}
