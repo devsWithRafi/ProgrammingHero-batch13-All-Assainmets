@@ -1,6 +1,9 @@
+import Hero from './_components/Hero';
 
 export default function HomePage() {
   return (
-    <section>Home page</section>
+    <section className='w-full min-h-screen'>
+      <Hero />
+    </section>
   );
 }

@@ -1,10 +1,5 @@
-import { Geist, Geist_Mono, Poppins, Lora } from 'next/font/google';
+import { Poppins, Lora, Viga, Righteous, Abel } from 'next/font/google';
 import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -18,14 +13,32 @@ const lora = Lora({
   weight: ['400', '500', '600', '700'],
 });
 
+const righteous = Righteous({
+  variable: '--font-ring',
+  subsets: ['latin'],
+  weight: ['400'],
+});
+
+const viga = Viga({
+  variable: '--font-viga',
+  subsets: ['latin'],
+  weight: ['400'],
+});
+
+const abel = Abel({
+  variable: '--font-abel',
+  subsets: ['latin'],
+  weight: ['400'],
+});
+
 export default function RootLayout({ children }) {
   return (
     <html
       suppressHydrationWarning={true}
       lang="en"
-      className={`${poppins.variable} ${lora.variable} h-full antialiased`}
+      className={`${poppins.variable} ${lora.variable} ${righteous.variable} ${viga.variable} ${abel.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="font-poppins min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
