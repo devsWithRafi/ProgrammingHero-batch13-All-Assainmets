@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "date": "May 15, 2024",
+    "title": "Unlocking Your Hidden Potential",
+    "description": "Dive into the transformative world of personal growth. This article explores how key texts, like those seen in our curated collection, can restructure your habits, mindset, and ultimately, your life architecture.",
+    "image": "https://i.ibb.co.com/qL6MWXJM/best-self-help-book-B0ca-ULk9-Z7f-Xw-M.webp",
+    "author": {
+      "name": "Dianne Russell",
+      "image": "https://randomuser.me/api/portraits/women/44.jpg"
+    }
+  },
+  {
+    "id": 2,
+    "date": "June 10, 2024",
+    "title": "Designing Your Future",
+    "description": "Learn to move beyond passive reading. We discuss actionable strategies to implement the wisdom from high-impact books (like our stacked collection) into a concrete blueprint for professional mastery and wealth design.",
+    "image": "https://i.ibb.co.com/rRdx4YQW/self-improvement-books-personal-developement-books-8096-684x1024.jpg",
+    "author": {
+      "name": "Floyd Miles",
+      "image": "https://randomuser.me/api/portraits/women/45.jpg"
+    }
+  },
+  {
+    "id": 3,
+    "date": "June 30, 2025",
+    "title": "The Architecture of a Daily Reader",
+    "description": "Consistency is king. Discover how to build a resilient reading habit from the ground up, turning scattered moments into a powerful daily ritual that nourishes your mind and soul, even amidst a busy schedule.",
+    "image": "https://i.ibb.co.com/wZrdwr1G/5-books-to-level-up.webp",
+    "author": {
+      "name": "Arlene McCoy",
+      "image": "https://randomuser.me/api/portraits/women/46.jpg"
+    }
+  },
+  {
+    "id": 4,
+    "date": "July 12, 2024",
+    "title": "Playing the Long Game",
+    "description": "Inspired by Simon Sinek's 'The Infinite Game,' this post explores the architectural shift from short-term wins to long-term fulfillment, teaching you to design strategies that endure.",
+    "image": "https://i.ibb.co.com/MH6ZzTX/1115825-the-infinite-game-by-simon-sinek.webp",
+    "author": {
+      "name": "Jerome Bell",
+      "image": "https://randomuser.me/api/portraits/women/47.jpg"
+    }
+  },
+  {
+    "id": 5,
+    "date": "August 5, 2024",
+    "title": "Cultivating Inner Peace",
+    "description": "Your environment impacts your insight. Learn how to create a tranquil sanctuary (with a focus on light and plants) that enhances your reading experience, turning every session into a peaceful retreat.",
+    "image": "https://i.ibb.co.com/vCh522cv/50-best-self-help-books-of-all-time.webp",
+    "author": {
+      "name": "Albert Flores",
+      "image": "https://randomuser.me/api/portraits/women/48.jpg"
+    }
+  }
+]

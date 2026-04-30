@@ -36,7 +36,7 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/services/apis/fetchBooks.js"  ],
   "exclude": [
     "node_modules"
   ]
