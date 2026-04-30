@@ -17,7 +17,7 @@ const ButtonBlack = ({ children, className, type = 'fill', ...props }) => {
     <Button
       variant="secondary"
       className={cn(
-        'font-poppins font-normal bg-transparent text-black border border-zinc-300 px-5 py-5',
+        'font-poppins bg-white text-black font-medium border border-zinc-300 px-5 py-5',
         className,
       )}
       {...props}

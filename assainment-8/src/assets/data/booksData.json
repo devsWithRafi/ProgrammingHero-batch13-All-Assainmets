@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "The Psychology of Money",
+    "author": "Morgan Housel",
+    "description": "Explores how people's behavior and emotions influence financial decisions more than technical knowledge.",
+    "category": "Science",
+    "available_quantity": 15,
+    "image_url": "https://res.cloudinary.com/ddpx8dxi7/image/upload/v1777527591/psycology_pbnr56.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Thinking, Fast and Slow",
+    "author": "Daniel Kahneman",
+    "description": "Explains the two systems of thinking that drive our decisions: fast, intuitive thinking and slow, logical reasoning.",
+    "category": "Science",
+    "available_quantity": 12,
+    "image_url": "https://res.cloudinary.com/ddpx8dxi7/image/upload/v1777527582/thinking_fast_vm4jgq.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Think Again",
+    "author": "Adam Grant",
+    "description": "Encourages rethinking and unlearning outdated beliefs to improve decision-making and personal growth.",
+    "category": "Science",
+    "available_quantity": 10,
+    "image_url": "https://res.cloudinary.com/ddpx8dxi7/image/upload/v1777527598/thinking_again_e3yxdo.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Talking to Strangers",
+    "author": "Malcolm Gladwell",
+    "description": "Examines how we misunderstand people we don't know and the consequences of these misjudgments.",
+    "category": "Story",
+    "available_quantity": 9,
+    "image_url": "https://res.cloudinary.com/ddpx8dxi7/image/upload/v1777527588/talking_to_n4lh3p.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Mindset",
+    "author": "Carol S. Dweck",
+    "description": "Introduces the concept of fixed and growth mindsets and how they impact success in life.",
+    "category": "Science",
+    "available_quantity": 14,
+    "image_url": "https://res.cloudinary.com/ddpx8dxi7/image/upload/v1777527580/mindset_frozsk.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Designing Your Life",
+    "author": "Bill Burnett & Dave Evans",
+    "description": "Applies design thinking principles to help individuals build a meaningful and fulfilling life.",
+    "category": "Tech",
+    "available_quantity": 8,
+    "image_url": "https://res.cloudinary.com/ddpx8dxi7/image/upload/v1777527596/designing_your_life_enydbw.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Company of One",
+    "author": "Paul Jarvis",
+    "description": "Promotes staying small in business and focusing on independence rather than growth at all costs.",
+    "category": "Tech",
+    "available_quantity": 11,
+    "image_url": "https://res.cloudinary.com/ddpx8dxi7/image/upload/v1777527587/company_of_one_abg0mc.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Anything You Want",
+    "author": "Derek Sivers",
+    "description": "Shares lessons from building a successful business while staying true to personal values.",
+    "category": "Tech",
+    "available_quantity": 7,
+    "image_url": "https://res.cloudinary.com/ddpx8dxi7/image/upload/v1777527599/any_thing_jcuyj9.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Show Your Work!",
+    "author": "Austin Kleon",
+    "description": "Encourages creators to share their process and build an audience by being open and authentic.",
+    "category": "Story",
+    "available_quantity": 13,
+    "image_url": "https://res.cloudinary.com/ddpx8dxi7/image/upload/v1777527592/show_your_works_embtmc.jpg"
+  },
+  {
+    "id": 10,
+    "title": "The Almanack of Naval Ravikant",
+    "author": "Eric Jorgenson",
+    "description": "A collection of wisdom and insights on wealth, happiness, and decision-making from Naval Ravikant.",
+    "category": "Science",
+    "available_quantity": 16,
+    "image_url": "https://res.cloudinary.com/ddpx8dxi7/image/upload/v1777527578/the_almanack_fz8rvi.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Steal Like an Artist",
+    "author": "Austin Kleon",
+    "description": "A guide to creativity that encourages borrowing ideas and transforming them into something new.",
+    "category": "Story",
+    "available_quantity": 10,
+    "image_url": "https://res.cloudinary.com/ddpx8dxi7/image/upload/v1777527580/like_an_artist_b6dmkq.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Atomic Habits",
+    "author": "James Clear",
+    "description": "A practical guide to building good habits and breaking bad ones through small daily improvements.",
+    "category": "Science",
+    "available_quantity": 12,
+    "image_url": "https://res.cloudinary.com/ddpx8dxi7/image/upload/v1777527584/atomic-habits_cyoqpy.jpg"
+  }
+]
