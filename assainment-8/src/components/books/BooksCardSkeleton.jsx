@@ -1,8 +1,14 @@
+import { cn } from '@/lib/utils';
 import { Skeleton } from '@heroui/react';
 
-const BooksCardSkeleton = () => {
+const BooksCardSkeleton = ({ className }) => {
   return (
-    <section className="w-full grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3 max-[460px]:gap-1.5">
+    <section
+      className={cn(
+        'w-full grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3 max-[460px]:gap-1.5',
+        className,
+      )}
+    >
       {[...Array(4)].map((_, index) => (
         <div key={index} className="bg-white shadow-sm rounded-2xl">
           {/* image */}
