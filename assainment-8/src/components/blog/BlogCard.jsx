@@ -5,10 +5,9 @@ import ButtonBlack from '../Button';
 const BlogCard = ({ blog }) => {
   return (
     <div
-      key={blog.id}
-      className="w-full h-full group shrink-0 flex rounded-2xl overflow-hidden bg-white shadow-sm"
+      className="w-full h-full group shrink-0 flex rounded-xl overflow-hidden bg-white shadow-sm"
     >
-      <div className='min-w-[270px] max-w-[220px] aspect-square overflow-hidden'>
+      <div className='sm:min-w-[270px] sm:max-w-[270px] min-w-[200px] max-w-[200px] aspect-square overflow-hidden'>
         <Image
           src={blog.image}
           alt={blog.title}
@@ -18,11 +17,11 @@ const BlogCard = ({ blog }) => {
         />
       </div>
 
-      <div className="bg-white rounded-2xl p-5 -ml-8 z-1">
+      <div className="bg-white rounded-xl p-5 -ml-8 z-1">
         <span className="font-poppins text-sm font-medium">{blog.date}</span>
-        <h2 className="font-viga font-semibold text-xl mt-15">{blog.title}</h2>
-        <p className="text-sm font-poppins text-zinc-500 mt-3">
-          {blog.description.slice(0, 115)} ...
+        <h2 className="font-viga font-semibold sm:text-xl text-md sm:mt-15 mt-5">{blog.title}</h2>
+        <p className="sm:text-sm text-xs font-poppins text-zinc-500 mt-3">
+          {blog.description.slice(0, 100)} ...
         </p>
 
         <div className="flex items-center gap-3 mt-5">
@@ -31,15 +30,15 @@ const BlogCard = ({ blog }) => {
             alt={blog.author.name}
             width={32}
             height={32}
-            className="size-7 rounded-full object-cover"
+            className="sm:size-7 size-6 rounded-full object-cover"
           />
           <span className="text-sm font-semibold">
             {blog.author.name}
           </span>
         </div>
 
-        <span className="flex w-full mt-5">
-          <ButtonBlack type="outline" className="w-full py-4">
+        <span className="flex w-full sm:mt-5 mt-3">
+          <ButtonBlack type="outline" className="w-full sm:py-4 !py-2 sm:text-sm text-xs">
             Read More
           </ButtonBlack>
         </span>

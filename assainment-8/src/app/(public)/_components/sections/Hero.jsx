@@ -1,9 +1,8 @@
 import { assets } from '@/assets/assets';
 import ButtonBlack from '@/components/Button';
-import Marquee from 'react-fast-marquee';
-import { PiStarFourFill } from 'react-icons/pi';
+import HeroMarquee from '@/components/HeroMarquee';
 
-const Hero = () => {
+const Hero = async () => {
   return (
     <>
       <section
@@ -29,20 +28,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <div className="w-full bg-black text-zinc-300 font-poppins py-4 overflow-hidden">
-        <Marquee className="w-full">
-          <div className="flex items-center gap-10 whitespace-nowrap lg:text-xl sm:text-sm text-xs uppercase font-medium">
-            <span>New Arrivals: The Midnight Library</span>
-            <PiStarFourFill className="shrink-0" />
-
-            <span>Special Discount on Memberships</span>
-            <PiStarFourFill className="shrink-0" />
-
-            <span>New Sci-Fi Collection Out Now!</span>
-            <PiStarFourFill className="shrink-0" />
-          </div>
-        </Marquee>
-      </div>
+      <HeroMarquee />
     </>
   );
 };

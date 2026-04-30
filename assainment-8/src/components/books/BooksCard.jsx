@@ -6,7 +6,7 @@ import { LuHeart } from 'react-icons/lu';
 
 const BooksCard = ({ book }) => {
   return (
-    <div className="bg-white shadow-sm rounded-2xl relative overflow-hidden">
+    <div className="bg-white group shadow-sm rounded-2xl relative overflow-hidden">
       {/* top */}
       <div className="w-full z-1 absolute p-2 flex items-start justify-between gap-5">
         <span className="text-xs max-[460px]:text-[10px] font-poppins uppercase font-medium bg-black text-white px-2 py-0.5 rounded">
@@ -31,7 +31,7 @@ const BooksCard = ({ book }) => {
           height={500}
           alt={book.title}
           priority={false}
-          className="w-full h-full object-cover select-none max-[460px]:scale-[0.9]"
+          className="w-full h-full object-cover select-none max-[460px]:scale-[0.9] group-hover:scale-102 transition-all duration-300 ease-in-out"
         />
       </div>
 
