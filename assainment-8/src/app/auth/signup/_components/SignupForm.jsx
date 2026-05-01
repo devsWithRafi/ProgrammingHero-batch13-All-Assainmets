@@ -2,6 +2,7 @@
 import ButtonBlack from '@/components/Button';
 import Loading from '@/components/Loading';
 import { authClient } from '@/lib/auth-client';
+import { cn } from '@/lib/utils';
 import { validateUrl } from '@/lib/validateUrl';
 import {
   Description,
@@ -69,8 +70,16 @@ const SignupForm = () => {
     });
   };
 
+  const formPending = signupWithEmailPending || loginWithGooglePending;
+
   return (
-    <Form className="flex w-full flex-col gap-4 mt-5" onSubmit={onSubmit}>
+    <Form
+      className={cn(
+        'flex w-full flex-col gap-4 mt-5',
+        formPending && 'pointer-events-none opacity-50',
+      )}
+      onSubmit={onSubmit}
+    >
       {/* name */}
       <TextField
         isRequired

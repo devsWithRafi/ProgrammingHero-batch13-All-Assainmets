@@ -1,6 +1,7 @@
 import { assets } from '@/assets/assets';
 import ButtonBlack from '@/components/Button';
 import HeroMarquee from '@/components/HeroMarquee';
+import Link from 'next/link';
 
 const Hero = async () => {
   return (
@@ -21,8 +22,12 @@ const Hero = async () => {
             </p>
 
             <div className="flex items-center gap-3">
-              <ButtonBlack>Browse Now</ButtonBlack>
-              <ButtonBlack buttonType="outline">Sign Up</ButtonBlack>
+              <Link href="/books">
+                <ButtonBlack>Browse Now</ButtonBlack>
+              </Link>
+              <Link href="/auth/signup">
+                <ButtonBlack buttonType="outline">Sign Up</ButtonBlack>
+              </Link>
             </div>
           </div>
         </div>

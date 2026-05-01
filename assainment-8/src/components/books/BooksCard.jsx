@@ -44,7 +44,7 @@ const BooksCard = ({ book }) => {
           {book.author}
         </p>
         <Link
-          href={'/'}
+          href={`/books/${book.id}`}
           className="border border-gray-200 rounded-full font-poppins text-sm max-[460px]:text-xs w-full py-1.5 mt-2"
         >
           View Details

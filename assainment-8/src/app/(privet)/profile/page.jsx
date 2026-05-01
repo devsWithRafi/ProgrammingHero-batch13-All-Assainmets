@@ -1,29 +1,45 @@
 import BooksCard from '@/components/books/BooksCard';
 import ButtonBlack from '@/components/Button';
+import { auth } from '@/lib/auth';
+import { formateDate } from '@/lib/formateDate';
 import { fetchBooks } from '@/services/apis/fetchBooks';
 import { Separator } from '@heroui/react';
-import { URLPattern } from 'next/dist/server/web/exports';
+import { headers } from 'next/headers';
+import Image from 'next/image';
 import Link from 'next/link';
 import { MdOutlineSettings } from 'react-icons/md';
 
 const ProfilePage = async () => {
   const books = await fetchBooks();
 
+  const { user } = await auth.api.getSession({
+    headers: await headers(),
+  });
+  const userJoinedDate = formateDate(user?.createdAt);
+
   return (
     <section className="w-full p-3">
       {/* profile header */}
       <div className="p-7 mt-20 bg-white rounded-2xl shadow-sm  w-full max-w-[1300px] mx-auto">
         <div className="flex items-start gap-5">
-          <div className="bg-gray-300 border-4 aspect-square w-50 rounded-4xl"></div>
+          <div className="bg-gray-300 border-4 overflow-hidden aspect-square w-50 rounded-4xl">
+            <Image
+              src={user?.image}
+              alt="profile"
+              width={300}
+              height={300}
+              className="w-full h-full object-cover"
+            />
+          </div>
           <div className="p-2 flex flex-col items-start gap-2">
             <p className="font-poppins text-xs text-zinc-600 bg-zinc-100 px-3 py-1 rounded-full">
-              Joined: Sept 2023
+              Joined: {userJoinedDate}
             </p>
             <h2 className="font-bold font-poppins text-4xl capitalize">
-              Julian Thorne
+              {user?.name}
             </h2>
             <p className="font-poppins text-zinc-500 font-medium text-md">
-              julian.thorne@atheneum.edu
+              {user?.email}
             </p>
 
             <Link href={'/profile/setting'}>
