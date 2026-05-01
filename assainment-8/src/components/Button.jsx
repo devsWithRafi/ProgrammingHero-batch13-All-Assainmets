@@ -1,8 +1,8 @@
 import { cn } from '@/lib/utils';
 import { Button } from '@heroui/react';
 
-const ButtonBlack = ({ children, className, type = 'fill', ...props }) => {
-  return type === 'fill' ? (
+const ButtonBlack = ({ children, className, buttonType = 'fill', ...props }) => {
+  return buttonType === 'fill' ? (
     <Button
       variant="secondary"
       className={cn(

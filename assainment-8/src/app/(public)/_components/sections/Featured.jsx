@@ -24,7 +24,7 @@ const Featured = async () => {
         </Suspense>
 
         <Link href="/books" className='mx-auto'>
-          <ButtonBlack className={'px-10 py-4.5'} type='outline'>Browse All</ButtonBlack>
+          <ButtonBlack className={'px-10 py-4.5'} buttonType='outline'>Browse All</ButtonBlack>
         </Link>
       </div>
     </section>

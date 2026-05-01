@@ -22,7 +22,7 @@ const Hero = async () => {
 
             <div className="flex items-center gap-3">
               <ButtonBlack>Browse Now</ButtonBlack>
-              <ButtonBlack type="outline">Sign Up</ButtonBlack>
+              <ButtonBlack buttonType="outline">Sign Up</ButtonBlack>
             </div>
           </div>
         </div>

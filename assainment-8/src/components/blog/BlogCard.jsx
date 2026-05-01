@@ -38,7 +38,7 @@ const BlogCard = ({ blog }) => {
         </div>
 
         <span className="flex w-full sm:mt-5 mt-3">
-          <ButtonBlack type="outline" className="w-full sm:py-4 !py-2 sm:text-sm text-xs">
+          <ButtonBlack buttonType="outline" className="w-full sm:py-4 !py-2 sm:text-sm text-xs">
             Read More
           </ButtonBlack>
         </span>
