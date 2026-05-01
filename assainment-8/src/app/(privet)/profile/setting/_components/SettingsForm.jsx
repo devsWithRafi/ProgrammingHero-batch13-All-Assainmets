@@ -1,6 +1,7 @@
 'use client';
 
 import ButtonBlack from '@/components/Button';
+import { validateUrl } from '@/lib/validateUrl';
 import {
   Button,
   Description,
@@ -12,14 +13,6 @@ import {
 } from '@heroui/react';
 
 const SettingsForm = () => {
-  const validateUrl = (url) => {
-    try {
-      if (new URL(url)) return true;
-    } catch (error) {
-      console.log(error);
-      return false;
-    }
-  };
 
   const onSubmit = (e) => {
     e.preventDefault();

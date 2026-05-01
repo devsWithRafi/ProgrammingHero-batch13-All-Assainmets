@@ -1,5 +1,6 @@
 import { Poppins, Lora, Viga, Righteous, Abel } from 'next/font/google';
 import './globals.css';
+import { Toast } from '@heroui/react';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -38,7 +39,10 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${poppins.variable} ${lora.variable} ${righteous.variable} ${viga.variable} ${abel.variable} h-full antialiased`}
     >
-      <body className="font-poppins min-h-full flex flex-col">{children}</body>
+      <body className="font-poppins min-h-full flex flex-col">
+        <Toast.Provider placement='top'/>
+        {children}
+      </body>
     </html>
   );
 }

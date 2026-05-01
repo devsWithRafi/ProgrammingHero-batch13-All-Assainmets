@@ -40,7 +40,7 @@ const Navber = () => {
 
         {/* NAV RIGHT */}
         <div>
-          <Link href={'/login'}>
+          <Link href={'/auth/signin'}>
             <ButtonBlack className={'py-4'}>Login</ButtonBlack>
           </Link>
         </div>
