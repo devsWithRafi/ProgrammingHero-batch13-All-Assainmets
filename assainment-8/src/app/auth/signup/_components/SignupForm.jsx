@@ -56,11 +56,11 @@ const SignupForm = () => {
     startLoginWithGooglePending(async () => {
       await authClient.signIn.social({
         provider: 'google',
-        callbackURL: '/signin',
+        callbackURL: '/',
         fetchOptions: {
           onSuccess: () => {
             toast.success('Signed in successfully!');
-            router.push('/signin');
+            router.push('/');
           },
           onError: (error) => {
             toast.danger(error.message || 'Sign Up With Google Failed!');
@@ -201,7 +201,11 @@ const SignupForm = () => {
         className="w-full capitalize hover:shadow-2xl hover:shadow-gray-300/50"
         buttonType="outline"
       >
-        continue with google
+        {loginWithGooglePending ? (
+          <Loading text="Processing..." />
+        ) : (
+          'continue with google'
+        )}
       </ButtonBlack>
 
       <Description className="flex items-center gap-2 justify-center pb-10">

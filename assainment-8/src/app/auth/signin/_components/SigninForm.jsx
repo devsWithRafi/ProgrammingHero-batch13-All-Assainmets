@@ -18,7 +18,6 @@ import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
 import { IoIosEye } from 'react-icons/io';
 import { IoIosEyeOff } from 'react-icons/io';
-import { LuLoader } from 'react-icons/lu';
 
 const SigninForm = () => {
   const router = useRouter();
