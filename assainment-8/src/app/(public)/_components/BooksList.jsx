@@ -3,7 +3,7 @@ import { fetchBooks } from '@/services/apis/fetchBooks';
 
 
 const BooksList = async () => {
-  const books = await fetchBooks();
+  const books = await fetchBooks(true);
 
   return (
     <div className="w-full grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3 max-[460px]:gap-1.5">

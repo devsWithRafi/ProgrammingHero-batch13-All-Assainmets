@@ -18,7 +18,7 @@ const BlogList = () => {
     const loadData = async () => {
       try {
         setBlogLoading(true);
-        const data = await fetchBlogs();
+        const data = await fetchBlogs(true);
         setBlogs(data);
         setBlogLoading(false);
       } catch (error) {
