@@ -8,7 +8,9 @@ export const fetchBlogs = async () => {
     });
     if (!res.ok) throw new Error('Failed to fetch blogs');
     const data = await res.json();
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    if (process.env.NODE_ENV === 'development') {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    }
     return data ?? [];
   } catch (error) {
     throw new Error(error);
