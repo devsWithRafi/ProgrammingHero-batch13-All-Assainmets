@@ -3,9 +3,7 @@ const baseUrl = 'https://atheneum-ph-assainment-8.vercel.app';
 
 export const fetchBooks = async (effect = false) => {
   try {
-    const res = await fetch(`${baseUrl}/data/booksData.json`, {
-      cache: 'no-store',
-    });
+    const res = await fetch(`${baseUrl}/data/booksData.json`);
     if (!res.ok) throw new Error('Failed to fetch books');
     const data = await res.json();
     if (effect) {

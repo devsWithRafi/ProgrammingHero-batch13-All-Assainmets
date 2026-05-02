@@ -3,9 +3,7 @@ const baseUrl = 'https://atheneum-ph-assainment-8.vercel.app';
 
 export const fetchBlogs = async (effect = false) => {
   try {
-    const res = await fetch(`${baseUrl}/data/blogData.json`, {
-      cache: 'no-store',
-    });
+    const res = await fetch(`${baseUrl}/data/blogData.json`);
     if (!res.ok) throw new Error('Failed to fetch blogs');
     const data = await res.json();
     if (effect) {

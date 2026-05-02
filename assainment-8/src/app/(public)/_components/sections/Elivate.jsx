@@ -25,8 +25,8 @@ const Elivate = () => {
           essential summaries and deep-dives designed for the intentional
           reader.
         </p>
-        <Link href="/books">
-          <ButtonBlack>Explore Collection</ButtonBlack>
+        <Link href="/books" className='btn-black'>
+          Explore Collection
         </Link>
 
         <div className="flex items-center justify-center sm:gap-10 gap-4 flex-wrap mt-10">

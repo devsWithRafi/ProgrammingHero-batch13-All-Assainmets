@@ -8,6 +8,7 @@ import { MdOutlineBookmarkAdd } from 'react-icons/md';
 import { MdArrowBackIos } from 'react-icons/md';
 import { FaRegHeart } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
+import BorrowButton from './BorrowButton';
 
 const BookDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -114,11 +115,7 @@ const BookDetailsPage = async ({ params }) => {
             )}
 
             <div className="mt-2 w-full flex items-center sm:gap-7 gap-3 justify-between">
-              <ButtonBlack className={cn("rounded-xl w-full hover:scale-100",
-                !isAvailable && 'opacity-50 pointer-events-none'
-              )}>
-                Borrow This Book
-              </ButtonBlack>
+              <BorrowButton isAvailable={isAvailable}/>
               <span className="flex items-center gap-3">
                 <button className="p-2.5 bg-white hover:bg-black hover:text-white duration-300 shadow-sm rounded-lg text-zinc-500">
                   <MdOutlineBookmarkAdd size={20} />

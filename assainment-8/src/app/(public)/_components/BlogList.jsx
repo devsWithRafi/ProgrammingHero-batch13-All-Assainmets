@@ -8,7 +8,6 @@ import 'swiper/css';
 import BlogNav from '@/components/blog/BlogNav';
 import BlogCardSkeleton from '@/components/blog/BlogCardSkeleton';
 
-
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
   const [swiperRef, setSwiperRef] = useState(null);
@@ -24,6 +23,8 @@ const BlogList = () => {
       } catch (error) {
         setBlogLoading(false);
         console.error('Error fetching data:', error);
+      } finally {
+        setBlogLoading(false);
       }
     };
     loadData();

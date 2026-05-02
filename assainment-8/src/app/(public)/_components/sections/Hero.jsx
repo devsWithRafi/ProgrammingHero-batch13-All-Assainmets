@@ -22,11 +22,11 @@ const Hero = () => {
             </p>
 
             <div className="flex items-center gap-3">
-              <Link href="/books">
-                <ButtonBlack>Browse Now</ButtonBlack>
+              <Link href="/books" className="btn-black text-sm !py-2.5 !px-7">
+                Browse Now
               </Link>
-              <Link href="/auth/signup">
-                <ButtonBlack buttonType="outline">Sign Up</ButtonBlack>
+              <Link href="/auth/signup" className='btn-outline !py-2.5 text-sm'>
+                Sign Up
               </Link>
             </div>
           </div>

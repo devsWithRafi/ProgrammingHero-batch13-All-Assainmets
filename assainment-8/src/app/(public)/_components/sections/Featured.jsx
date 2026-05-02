@@ -13,18 +13,19 @@ const Featured = () => {
           title="Featured Books"
           description="Hand-picked by our lead archivists for your consideration."
           eliment={
-            <Link href="/books">
-              <ButtonBlack className={'px-7 py-4.5'}>Join Now</ButtonBlack>
+            <Link href="/books" className="btn-black px-7 py-2">
+              Join Now
             </Link>
           }
         />
 
-        <Suspense fallback={<BooksCardSkeleton />}>
-          <BooksList />
-        </Suspense>
+        <BooksList />
 
-        <Link href="/books" className='mx-auto'>
-          <ButtonBlack className={'px-10 py-4.5'} buttonType='outline'>Browse All</ButtonBlack>
+        <Link
+          href="/books"
+          className="mx-auto btn-outline !px-10 !py-2 text-sm"
+        >
+          Browse All
         </Link>
       </div>
     </section>

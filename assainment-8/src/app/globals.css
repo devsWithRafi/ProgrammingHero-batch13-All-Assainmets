@@ -6,6 +6,13 @@
   --foreground: #171717;
 }
 
+.btn-black {
+  @apply font-poppins font-normal bg-black border-2 border-zinc-600 text-white shadow-xl px-5 py-2 hover:scale-102 rounded-full;
+}
+.btn-outline {
+  @apply font-poppins bg-white text-black font-medium border border-zinc-300 px-5 py-2 hover:scale-102 rounded-full;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

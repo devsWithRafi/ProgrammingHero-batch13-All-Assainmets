@@ -95,10 +95,10 @@ const Navber = () => {
                 <ButtonBlack
                   onClick={handleSignOut}
                   className={
-                    'py-3.5 sm:px-5 px-3 sm:max-h-max max-h-4 sm:text-sm text-xs sm:flex hidden'
+                    'py-3.5 sm:px-5 px-3 sm:max-h-max max-h-4 sm:text-sm text-xs sm:flex hidden rounded-xl'
                   }
                 >
-                  Logout
+                  LogOut
                 </ButtonBlack>
               </>
             )}

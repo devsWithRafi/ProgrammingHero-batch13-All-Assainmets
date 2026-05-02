@@ -46,11 +46,12 @@ const ProfilePage = async () => {
               {user?.email}
             </p>
 
-            <Link href="/profile/setting">
-              <ButtonBlack className="px-10 py-4.5 rounded-xl">
-                <MdOutlineSettings />
-                Edit Profile
-              </ButtonBlack>
+            <Link
+              href="/profile/setting"
+              className="!px-10 mt-2 !rounded-xl btn-black flex items-center gap-2"
+            >
+              <MdOutlineSettings />
+              Edit Profile
             </Link>
           </div>
         </div>
