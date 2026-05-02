@@ -4,6 +4,8 @@ import BooksCardSkeleton from '@/components/books/BooksCardSkeleton';
 import AllBooksCards from './_components/AllBooksCards';
 import BookSearchber from './_components/BookSearchber';
 
+export const dynamic = 'force-dynamic';
+
 const AllBooksPage = async ({ searchParams }) => {
   return (
     <section className="w-full p-3">
@@ -12,7 +14,9 @@ const AllBooksPage = async ({ searchParams }) => {
           Explore the library
         </h1>
 
-        <BookSearchber />
+        <Suspense fallback={<p>Loading...</p>}>
+          <BookSearchber />
+        </Suspense>
 
         <div className="flex gap-5 justify-between">
           <SideBer />

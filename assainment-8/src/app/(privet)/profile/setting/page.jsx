@@ -7,6 +7,8 @@ import { formateDate } from '@/lib/formateDate';
 import Image from 'next/image';
 import { assets } from '@/assets/assets';
 
+export const dynamic = 'force-dynamic';
+
 const SettingPage = async () => {
   const { user } = await auth.api.getSession({
     headers: await headers(),

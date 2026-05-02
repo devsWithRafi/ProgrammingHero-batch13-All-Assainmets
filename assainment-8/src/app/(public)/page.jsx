@@ -2,6 +2,7 @@ import Elivate from './_components/sections/Elivate';
 import Featured from './_components/sections/Featured';
 import Hero from './_components/sections/Hero';
 import ReadingResult from './_components/sections/ReadingResult';
+export const dynamic = 'force-dynamic';
 
 export default function HomePage() {
   return (

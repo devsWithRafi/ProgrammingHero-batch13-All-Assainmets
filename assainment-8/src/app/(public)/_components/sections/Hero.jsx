@@ -3,7 +3,7 @@ import ButtonBlack from '@/components/Button';
 import HeroMarquee from '@/components/HeroMarquee';
 import Link from 'next/link';
 
-const Hero = async () => {
+const Hero = () => {
   return (
     <>
       <section

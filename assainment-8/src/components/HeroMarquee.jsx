@@ -1,9 +1,10 @@
 'use client';
+
 import { fetchBooks } from '@/services/apis/fetchBooks';
-import { Separator } from '@heroui/react';
 import { useEffect, useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import { PiStarFourFill } from 'react-icons/pi';
+
 
 const HeroMarquee = () => {
   const [books, setBooks] = useState([]);

@@ -1,6 +1,7 @@
 import BooksCard from '@/components/books/BooksCard';
 import { fetchBooks } from '@/services/apis/fetchBooks';
 
+
 const BooksList = async () => {
   const books = await fetchBooks();
 

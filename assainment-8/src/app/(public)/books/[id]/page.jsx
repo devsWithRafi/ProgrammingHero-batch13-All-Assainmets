@@ -24,8 +24,6 @@ const BookDetailsPage = async ({ params }) => {
     { title: 'ISBN', subtitle: '978-0525559474' },
   ];
 
-  console.log(book);
-
   return (
     <section className="w-full sm:mt-20 mt-10 p-5">
       <div className="w-full max-w-[1500px] mx-auto flex flex-col gap-5">

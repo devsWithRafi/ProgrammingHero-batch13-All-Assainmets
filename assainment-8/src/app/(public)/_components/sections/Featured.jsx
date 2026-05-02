@@ -5,7 +5,7 @@ import BooksList from '../BooksList';
 import BooksCardSkeleton from '@/components/books/BooksCardSkeleton';
 import Link from 'next/link';
 
-const Featured = async () => {
+const Featured = () => {
   return (
     <section className="w-full p-3 py-20">
       <div className="w-full mx-auto max-w-[1500px] flex flex-col gap-10">

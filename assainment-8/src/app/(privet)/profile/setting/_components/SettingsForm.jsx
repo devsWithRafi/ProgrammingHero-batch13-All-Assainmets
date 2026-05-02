@@ -72,6 +72,7 @@ const SettingsForm = () => {
           isRequired
           name="name"
           type="text"
+          value={userData.name}
           validate={(value) => {
             if (value.replaceAll(' ', '').length < 1) {
               return 'Name must not be empty!';
@@ -87,7 +88,6 @@ const SettingsForm = () => {
             onChange={(e) =>
               setUserData((prev) => ({ ...prev, name: e.target.value }))
             }
-            value={userData.name}
             className="font-poppins rounded-md shadow-none border-gray-200 border sm:text-md text-sm"
           />
           <FieldError />

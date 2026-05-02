@@ -10,6 +10,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { MdOutlineSettings } from 'react-icons/md';
 
+export const dynamic = 'force-dynamic';
+
 const ProfilePage = async () => {
   const books = await fetchBooks();
 
@@ -44,7 +46,7 @@ const ProfilePage = async () => {
               {user?.email}
             </p>
 
-            <Link href={'/profile/setting'}>
+            <Link href="/profile/setting">
               <ButtonBlack className="px-10 py-4.5 rounded-xl">
                 <MdOutlineSettings />
                 Edit Profile
