@@ -1,4 +1,5 @@
-const baseUrl = 'http://localhost:3000';
+// const baseUrl = 'http://localhost:3000';
+const baseUrl = 'https://atheneum-ph-assainment-8.vercel.app';
 
 export const fetchBlogs = async () => {
   try {
