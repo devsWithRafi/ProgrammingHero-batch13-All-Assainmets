@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { RxCross2 } from 'react-icons/rx';
 import { cn } from '@/lib/utils';
 import NavMobile from './NavMobile';
+import { toast } from '@heroui/react';
 
 const navItems = [
   { name: 'Home', link: '/' },
@@ -33,7 +34,11 @@ const Navber = () => {
       fetchOptions: {
         credentials: 'include',
         onSuccess: () => {
+          toast.success('Signed out successfully!');
           router.push('/auth/signin');
+        },
+        onError: () => {
+          toast.danger('Signed out failed!');
         },
       },
     });

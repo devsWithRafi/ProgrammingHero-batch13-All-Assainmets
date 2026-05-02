@@ -3,6 +3,11 @@ import React from 'react';
 import SignupForm from './_components/SignupForm';
 import { assets } from '@/assets/assets';
 
+export const metadata = {
+  title: 'Atheneum | Sign Up',
+  description: 'Sign Up to Atheneum Book Library',
+};
+
 const SignUpPage = () => {
   return (
     <section className="w-full md:h-screen flex items-center justify-center">

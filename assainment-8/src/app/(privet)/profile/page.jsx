@@ -12,6 +12,8 @@ import { MdOutlineSettings } from 'react-icons/md';
 
 export const dynamic = 'force-dynamic';
 
+export const metadata = { title: 'Atheneum | My Profile' };
+
 const ProfilePage = async () => {
   const books = await fetchBooks();
 

@@ -4,6 +4,8 @@ import BooksCardSkeleton from '@/components/books/BooksCardSkeleton';
 import AllBooksCards from './_components/AllBooksCards';
 import BookSearchber from './_components/BookSearchber';
 
+export const metadata = { title: 'Atheneum | Explore the library' };
+
 const AllBooksPage = async ({ searchParams }) => {
   return (
     <section className="w-full p-3">

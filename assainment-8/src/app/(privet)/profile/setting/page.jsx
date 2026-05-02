@@ -9,6 +9,8 @@ import { assets } from '@/assets/assets';
 
 export const dynamic = 'force-dynamic';
 
+export const metadata = { title: 'Atheneum | Settings' };
+
 const SettingPage = async () => {
   const { user } = await auth.api.getSession({
     headers: await headers(),

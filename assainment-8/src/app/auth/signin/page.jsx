@@ -3,6 +3,11 @@ import Image from 'next/image';
 import React from 'react';
 import SigninForm from './_components/SigninForm';
 
+export const metadata = {
+  title: 'Atheneum | Sign In',
+  description: 'Sign In to Atheneum Book Library',
+};
+
 const SignInPage = () => {
   return (
     <section className="w-full h-screen flex items-center justify-center">

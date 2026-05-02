@@ -1,4 +1,3 @@
-import ButtonBlack from '@/components/Button';
 import { fetchBooks } from '@/services/apis/fetchBooks';
 import { Separator } from '@heroui/react';
 import Image from 'next/image';
@@ -9,6 +8,16 @@ import { MdArrowBackIos } from 'react-icons/md';
 import { FaRegHeart } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import BorrowButton from './BorrowButton';
+
+export const generateMetadata = async ({ params }) => {
+  const books = await fetchBooks();
+  const { id } = await params;
+  const book = books.find((b) => String(b.id) === String(id));
+
+  return {
+    title: `Atheneum | ${book?.title}`,
+  };
+};
 
 const BookDetailsPage = async ({ params }) => {
   const { id } = await params;
