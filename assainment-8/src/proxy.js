@@ -11,6 +11,13 @@ export async function proxy(request) {
     headers: await headers(),
   });
 
+  if (pathname.startsWith('/auth/')) {
+    if (session) {
+      return NextResponse.redirect(new URL('/', request.url));
+    }
+    return NextResponse.next();
+  }
+
   if (!session) {
     return NextResponse.redirect(new URL('/auth/signin', request.url));
   }

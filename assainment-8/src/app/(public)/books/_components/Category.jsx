@@ -22,8 +22,8 @@ const Category = ({ categories }) => {
           key={index}
           onClick={() => handleClick(category)}
           className={cn(
-            'text-sm font-poppins w-full text-left capitalize text-zinc-500 font-medium px-3 py-2 rounded',
-            query === category && 'bg-gray-50 text-black',
+            'text-sm font-poppins w-full text-left capitalize text-zinc-500 hover:text-zinc-700 font-medium px-3 py-2 rounded',
+            query === category && 'bg-gray-50 text-black hover:text-black',
           )}
         >
           {category}

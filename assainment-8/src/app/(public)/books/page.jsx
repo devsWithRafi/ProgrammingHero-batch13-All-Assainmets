@@ -2,7 +2,6 @@ import { Suspense } from 'react';
 import SideBer from './_components/SideBer';
 import BooksCardSkeleton from '@/components/books/BooksCardSkeleton';
 import AllBooksCards from './_components/AllBooksCards';
-import { FiSearch } from 'react-icons/fi';
 import BookSearchber from './_components/BookSearchber';
 
 const AllBooksPage = async ({ searchParams }) => {

@@ -27,8 +27,9 @@ const ProfilePage = async () => {
             <Image
               src={user?.image ?? assets.defaultAvatar}
               alt="profile"
-              width={300}
-              height={300}
+              width={500}
+              height={500}
+              quality={100}
               className="w-full h-full object-cover"
             />
           </div>
