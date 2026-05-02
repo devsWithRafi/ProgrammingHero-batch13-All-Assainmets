@@ -14,7 +14,7 @@ const Footer = () => {
       >
         <div className="w-full h-full bg-black/70 backdrop-blur-xs flex flex-col sm:justify-end justify-center">
           <div className="w-full p-8 flex flex-col gap-5">
-            <h2 className="font-ring font-medium md:text-5xl text-4xl sm:text-left text-center">
+            <h2 className="font-ring text-gray-200 font-medium md:text-5xl text-4xl sm:text-left text-center">
               Ready to read with purpose?
             </h2>
             <span className="flex sm:flex-row flex-col items-center justify-between gap-5">

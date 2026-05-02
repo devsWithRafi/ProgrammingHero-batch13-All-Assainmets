@@ -1,3 +1,4 @@
+import { assets } from '@/assets/assets';
 import BooksCard from '@/components/books/BooksCard';
 import ButtonBlack from '@/components/Button';
 import { auth } from '@/lib/auth';
@@ -21,24 +22,24 @@ const ProfilePage = async () => {
     <section className="w-full p-3">
       {/* profile header */}
       <div className="p-7 mt-20 bg-white rounded-2xl shadow-sm  w-full max-w-[1300px] mx-auto">
-        <div className="flex items-start gap-5">
-          <div className="bg-gray-300 border-4 overflow-hidden aspect-square w-50 rounded-4xl">
+        <div className="flex sm:flex-row flex-col sm:items-start items-center gap-5">
+          <div className="bg-gray-300 border-4 overflow-hidden aspect-square sm:w-50 w-30 rounded-4xl">
             <Image
-              src={user?.image}
+              src={user?.image ?? assets.defaultAvatar}
               alt="profile"
               width={300}
               height={300}
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="p-2 flex flex-col items-start gap-2">
-            <p className="font-poppins text-xs text-zinc-600 bg-zinc-100 px-3 py-1 rounded-full">
+          <div className="p-2 flex flex-col sm:items-start items-center gap-2">
+            <p className="font-poppins sm:text-xs text-[10px] text-zinc-600 bg-zinc-100 px-3 py-1 rounded-full">
               Joined: {userJoinedDate}
             </p>
-            <h2 className="font-bold font-poppins text-4xl capitalize">
+            <h2 className="font-bold font-poppins sm:text-left text-center sm:text-4xl text-2xl capitalize">
               {user?.name}
             </h2>
-            <p className="font-poppins text-zinc-500 font-medium text-md">
+            <p className="font-poppins text-zinc-500 sm:text-left text-center font-medium sm:text-md text-sm">
               {user?.email}
             </p>
 
@@ -56,14 +57,14 @@ const ProfilePage = async () => {
       <div className="w-full max-w-[1300px] mx-auto">
         <h2 className="font-bold font-ring text-3xl mt-10">Borrowed Books</h2>
         <Separator className="my-4" />
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid sm:grid-cols-3 grid-cols-2 gap-3">
           {books.slice(0, 3).map((book) => (
             <BooksCard key={book.id} book={book} />
           ))}
         </div>
         <h2 className="font-bold font-ring text-3xl mt-10">My Favorites</h2>
         <Separator className="my-4" />
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3">
           {books.slice(0, 4).map((book) => (
             <BooksCard key={book.id} book={book} />
           ))}

@@ -5,7 +5,7 @@ const PrivetLayout = ({ children }) => {
   return (
     <>
       <Navber />
-      <main className="bg-[#f7f7f7] text-black min-h-screen">{children}</main>
+      <main className="bg-[#f7f7f7] text-black">{children}</main>
       <Footer />
     </>
   );

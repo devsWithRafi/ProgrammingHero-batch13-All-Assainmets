@@ -40,7 +40,7 @@ const Navber = () => {
   };
 
   return (
-    <header className="z-[99999] fixed top-0 bg-white w-full shadow-sm">
+    <header className="z-[999] fixed top-0 bg-white w-full shadow-sm">
       <nav className="w-full max-w-[1500px] mx-auto px-4 py-3 flex flex-col">
         <div className="w-full flex items-center justify-between gap-5">
           {/* NAV LEFT */}
