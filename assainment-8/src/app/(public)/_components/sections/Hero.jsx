@@ -1,14 +1,8 @@
 import { assets } from '@/assets/assets';
 import HeroMarquee from '@/components/HeroMarquee';
-import { auth } from '@/lib/auth';
-import { headers } from 'next/headers';
 import Link from 'next/link';
 
 const Hero = async () => {
-  const { user } = await auth.api.getSession({
-    headers: await headers(),
-  });
-
   return (
     <>
       <section
@@ -30,15 +24,10 @@ const Hero = async () => {
               <Link href="/books" className="btn-black text-sm !py-2.5 !px-7">
                 Browse Now
               </Link>
-              {!user && 
-                <Link href="/auth/signup" className="btn-outline !py-2.5 text-sm">
-                  Sign Up
-                </Link>}
             </div>
           </div>
         </div>
       </section>
-
       <HeroMarquee />
     </>
   );
