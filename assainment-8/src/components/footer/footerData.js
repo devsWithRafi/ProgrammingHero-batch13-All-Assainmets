@@ -12,15 +12,15 @@ export const socials = [
 
 export const footerData = {
   explore: [
-    { name: 'Browse books', link: '/books' },
-    { name: 'New arrivals', link: '/' },
+    { name: 'Home', link: '/' },
+    { name: 'All books', link: '/books' },
     { name: 'Reading lists', link: '/' },
     { name: 'Blog', link: '/' },
   ],
   account: [
     { name: 'My profile', link: '/profile' },
-    { name: 'Borrowed books', link: '/' },
-    { name: 'Favourites', link: '/' },
+    { name: 'Borrowed books', link: '/profile' },
+    { name: 'Favourites', link: '/profile' },
     { name: 'Settings', link: '/profile/setting' },
   ],
 };
