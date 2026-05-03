@@ -1,5 +1,4 @@
-// const baseUrl = 'http://localhost:3000';
-const baseUrl = 'https://atheneum-ph-assainment-8.vercel.app';
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
 
 export const fetchBooks = async (effect = false) => {
   try {

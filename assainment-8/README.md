@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📚 **Atheneum**
 
-## Getting Started
+#### A sleek, modern web application that transforms the traditional library into a fully digital experience - allowing users to browse an extensive collection of books, filter by categories, and borrow titles effortlessly online.
 
-First, run the development server:
+### Live Demo: https://atheneum-ph-assainment-8.vercel.app
+
+<div style='display:flex; flex-wrap:wrap; gap:10px'>
+    <img src="./public/readme-images/image-1.png" width="350" height="200"/>
+    <img src="./public/readme-images/image-2.png" width="350" height="200"/>
+    <img src="./public/readme-images/image-3.png" width="350" height="200"/>
+    <img src="./public/readme-images/image-4.png" width="350" height="200"/>
+</div>
+
+## ✨ **Features**
+
+- ### **🔍 Books Explorer:** A dedicated `/books` page with a prominent search bar and a sidebar filter panel. Users can search books by title and sort/filter the entire collection by category.
+
+- ### **📖 Book Details Page:** Each book has a dedicated detail page showing all available information: `title`, `author`, `description`, `cover-image`, `stock-count`, and more. If a copy is in stock, users can borrow it directly from this page.
+
+- ### **👤 My Profile:** A personal profile section where users can view their `name`, `email`, and `profile-picture` in a clean, organized layout.
+
+- ### **✏️ Update Profile:** Users can update their display name and profile image URL directly from the profile settings — simple and straightforward.
+
+- ### **🔐 Authentication & Security:**
+  - Sign-in and Sign-up powered by `BetterAuth` — a modern, developer-friendly authentication library.
+
+  - Protected routes enforced via Next.js middleware `proxy.js` using the built-in proxy pattern, ensuring unauthenticated users are redirected before any page loads.
+
+- ### **📱 Fully Responsive:** Atheneum is designed mobile-first and tested across all screen sizes — from phones to widescreen desktops.
+
+## **🛠️ Tech Stack**
+
+<table>
+    <tr>
+      <th><strong>Layer</strong></th>
+      <th>Technology</th>
+    </tr>
+    <tr>
+      <td><strong>Framework</strong></td>
+      <td>Next.js 16.2.4</td>
+    </tr>
+    <tr>
+      <td><strong>UI Library</strong></td>
+      <td>HeroUI v3</td>
+    </tr>
+    <tr>
+      <td><strong>Styling</strong></td>
+      <td>Tailwind CSS + tailwind-merge + clsx</td>
+    </tr>
+    <tr>
+      <td><strong>Database</strong></td>
+      <td>MongoDB 7.2</td>
+    </tr>
+    <tr>
+      <td><strong>Authentication</strong></td>
+      <td>BetterAuth 1.6.9</td>
+    </tr>
+    <tr>
+      <td><strong>Icons</strong></td>
+      <td>React Icons 5</td>
+    </tr>
+    <tr>
+      <td><strong>Carousel/Slider</strong></td>
+      <td>Swiper 12</td>
+    </tr>
+    <tr>
+      <td><strong>Marquee</strong></td>
+      <td>react-fast-marquee</td>
+    </tr>
+</table>
+
+## **📦 NPM Packages Used**
+
+- #### **Core**
+  - next
+  - react
+  - react-dom
+
+- #### **UI & Styling**
+  - @heroui/react
+  - @heroui/styles
+  - tailwindcss
+  - clsx
+  - tailwind-merge
+
+- #### **Database & Auth**
+  - mongodb
+  - better-auth
+
+- #### **UI Enhancements**
+  - react-icons
+  - swiper
+  - react-fast-marquee
+
+
+
+## **🚀 Installation Process**
+
+### Install
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# 1. Clone the repository
+git clone https://github.com/devsWithRafi/ProgrammingHero-batch13-All-Assainmets.git
+cd assainment-8
+
+# 2. Install dependencies
+npm install
+
+# 3. Set up environment variables
+cp .env.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Variables
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Create a `.env` file in the root directory and fill in the values:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+# BetterAuth
+BETTER_AUTH_SECRET=<your_betterAuth_secret>
+BETTER_AUTH_URL=http://localhost:3000
+GOOGLE_CLIENT_ID=<your_google_client_id>
+GOOGLE_CLIENT_SECRET=<your_google_client_secret>
 
-## Learn More
+# MongoDB
+MONGODB_URI=<your_mongodb_connection_string>
 
-To learn more about Next.js, take a look at the following resources:
+# App
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Running the App
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+# Development
+npm run dev
 
-## Deploy on Vercel
+# Production build
+npm run build
+npm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<div align="center">Built with ❤️ by Saiful Islam Rafi</div>
+
+---
