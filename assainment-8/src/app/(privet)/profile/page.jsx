@@ -1,29 +1,24 @@
-import { assets } from '@/assets/assets';
-import BooksCard from '@/components/books/BooksCard';
-import ButtonBlack from '@/components/Button';
+import { assets } from '@/assets/assets';;
 import { auth } from '@/lib/auth';
 import { formateDate } from '@/lib/formateDate';
-import { fetchBooks } from '@/services/apis/fetchBooks';
-import { Separator } from '@heroui/react';
 import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MdOutlineSettings } from 'react-icons/md';
+import ProfileContent from './ProfileContent';
 
 export const dynamic = 'force-dynamic';
 
 export const metadata = { title: 'Atheneum | My Profile' };
 
 const ProfilePage = async () => {
-  const books = await fetchBooks();
-
   const { user } = await auth.api.getSession({
     headers: await headers(),
   });
   const userJoinedDate = formateDate(user?.createdAt);
 
   return (
-    <section className="w-full p-3">
+    <section className="w-full p-3 min-h-screen">
       {/* profile header */}
       <div className="p-7 mt-20 bg-white rounded-2xl shadow-sm  w-full max-w-[1300px] mx-auto">
         <div className="flex sm:flex-row flex-col sm:items-start items-center gap-5">
@@ -60,22 +55,7 @@ const ProfilePage = async () => {
       </div>
 
       {/* profile content */}
-      <div className="w-full max-w-[1300px] mx-auto">
-        <h2 className="font-bold font-ring text-3xl mt-10">Borrowed Books</h2>
-        <Separator className="my-4" />
-        <div className="grid sm:grid-cols-3 grid-cols-2 gap-3">
-          {books.slice(0, 3).map((book) => (
-            <BooksCard key={book.id} book={book} />
-          ))}
-        </div>
-        <h2 className="font-bold font-ring text-3xl mt-10">My Favorites</h2>
-        <Separator className="my-4" />
-        <div className="grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-3">
-          {books.slice(0, 4).map((book) => (
-            <BooksCard key={book.id} book={book} />
-          ))}
-        </div>
-      </div>
+      <ProfileContent />
     </section>
   );
 };

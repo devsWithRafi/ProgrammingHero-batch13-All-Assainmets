@@ -3,9 +3,7 @@ import { Separator } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { MdOutlineBookmarkAdd } from 'react-icons/md';
 import { MdArrowBackIos } from 'react-icons/md';
-import { FaRegHeart } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import BorrowButton from './BorrowButton';
 
@@ -123,17 +121,7 @@ const BookDetailsPage = async ({ params }) => {
               </span>
             )}
 
-            <div className="mt-2 w-full flex items-center sm:gap-7 gap-3 justify-between">
-              <BorrowButton isAvailable={isAvailable}/>
-              <span className="flex items-center gap-3">
-                <button className="p-2.5 bg-white hover:bg-black hover:text-white duration-300 shadow-sm rounded-lg text-zinc-500">
-                  <MdOutlineBookmarkAdd size={20} />
-                </button>
-                <button className="p-2.5 bg-white hover:bg-black hover:text-white duration-300 shadow-sm rounded-lg text-zinc-500">
-                  <FaRegHeart size={20} />
-                </button>
-              </span>
-            </div>
+            <BorrowButton isAvailable={isAvailable} book={book} />
           </div>
         </div>
       </div>

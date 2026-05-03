@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import { Skeleton } from '@heroui/react';
 
-const BooksCardSkeleton = ({ className }) => {
+const BooksCardSkeleton = ({ className, amount = 4 }) => {
   return (
     <section
       className={cn(
@@ -9,7 +9,7 @@ const BooksCardSkeleton = ({ className }) => {
         className,
       )}
     >
-      {[...Array(4)].map((_, index) => (
+      {[...Array(amount)].map((_, index) => (
         <div key={index} className="bg-white shadow-sm rounded-2xl">
           {/* image */}
           <div className="w-full aspect-square overflow-hidden p-2 rounded-lg max-[460px]:p-1.5">
