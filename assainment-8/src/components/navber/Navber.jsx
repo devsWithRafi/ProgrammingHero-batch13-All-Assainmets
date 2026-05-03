@@ -9,7 +9,9 @@ import { useState } from 'react';
 import { RxCross2 } from 'react-icons/rx';
 import { cn } from '@/lib/utils';
 import NavMobile from './NavMobile';
-import { toast } from '@heroui/react';
+import { Avatar, toast } from '@heroui/react';
+import { RiLogoutCircleLine } from 'react-icons/ri';
+
 
 const navItems = [
   { name: 'Home', link: '/' },
@@ -58,14 +60,14 @@ const Navber = () => {
             </button>
             <Link
               href={'/'}
-              className="font-semibold sm:text-xl text-md tracking-wide text-black font-ring"
+              className="flex items-center font-semibold sm:text-xl text-lg tracking-wide text-transparent bg-clip-text font-ring bg-gradient-to-br from-gray-900 to-gray-200"
             >
               Atheneum
             </Link>
           </span>
 
           {/* NAV MIDDLE */}
-          <div className="sm:flex hidden items-center text-sm font-medium font-poppins">
+          <div className="sm:flex gap-3 hidden items-center text-sm font-medium font-poppins">
             {navItems.map((item, index) => (
               <Link
                 key={index}
@@ -85,24 +87,45 @@ const Navber = () => {
           {/* NAV RIGHT */}
           <div className="flex items-center gap-4">
             {!user ? (
-              <ButtonBlack
-                onClick={() => router.push('/auth/signin')}
-                className={
-                  'py-3.5 sm:px-5 px-3 sm:max-h-max max-h-4 sm:text-sm text-xs sm:flex hidden'
-                }
-              >
-                Login
-              </ButtonBlack>
+              <>
+                <ButtonBlack
+                  onClick={() => router.push('/auth/signin')}
+                  className="py-3.5 sm:px-5 px-3 sm:max-h-max max-h-4 sm:text-sm text-xs sm:flex hidden rounded-xl"
+                >
+                  Login
+                </ButtonBlack>
+                <ButtonBlack
+                  onClick={() => router.push('/auth/signup')}
+                  buttonType='outline'
+                  className="py-3.5 sm:px-5 px-3 sm:max-h-max max-h-4 sm:text-sm text-xs sm:flex hidden rounded-xl"
+                >
+                  Sign Up
+                </ButtonBlack>
+              </>
             ) : (
               <>
-                <h3 className="font-viga font-bold text-md">{usersName}</h3>
-
+                <h3 className="font-viga font-bold text-xl text-zinc-800">
+                  {usersName}
+                </h3>
+                <Link
+                  href="/profile"
+                  className="bg-gray-300 p-0.5 rounded-full"
+                >
+                  <Avatar size="sm">
+                    <Avatar.Image
+                      src={user?.image}
+                      alt="avater"
+                      className="object-cover"
+                    />
+                    <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+                  </Avatar>
+                </Link>
                 <ButtonBlack
                   onClick={handleSignOut}
-                  className={
-                    'py-3.5 sm:px-5 px-3 sm:max-h-max max-h-4 sm:text-sm text-xs sm:flex hidden rounded-xl'
-                  }
+                  buttonType="outline"
+                  className="py-3.5 sm:px-5 px-3 sm:max-h-max max-h-4 sm:text-sm text-xs sm:flex hidden rounded-xl hover:bg-black hover:text-white"
                 >
+                  <RiLogoutCircleLine />
                   LogOut
                 </ButtonBlack>
               </>

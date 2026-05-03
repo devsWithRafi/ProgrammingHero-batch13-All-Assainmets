@@ -35,13 +35,13 @@ const abel = Abel({
 export default function RootLayout({ children }) {
   return (
     <html
-      suppressHydrationWarning={true}
-      lang="en"
+    lang="en"
+    suppressHydrationWarning={true}
       className={`${poppins.variable} ${lora.variable} ${righteous.variable} ${viga.variable} ${abel.variable} h-full antialiased`}
     >
       <body className="font-poppins min-h-full flex flex-col">
-        <Toast.Provider placement='top'/>
         {children}
+        <Toast.Provider placement="top" className="z-[9999]"/>
       </body>
     </html>
   );
