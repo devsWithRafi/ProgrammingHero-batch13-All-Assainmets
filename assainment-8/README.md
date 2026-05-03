@@ -13,20 +13,20 @@
 
 ## ✨ **Features**
 
-- ### **🔍 Books Explorer:** A dedicated `/books` page with a prominent search bar and a sidebar filter panel. Users can search books by title and sort/filter the entire collection by category.
+- **🔍 Books Explorer:** A dedicated `/books` page with a prominent search bar and a sidebar filter panel. Users can search books by title and sort/filter the entire collection by category.
 
-- ### **📖 Book Details Page:** Each book has a dedicated detail page showing all available information: `title`, `author`, `description`, `cover-image`, `stock-count`, and more. If a copy is in stock, users can borrow it directly from this page.
+- **📖 Book Details Page:** Each book has a dedicated detail page showing all available information: `title`, `author`, `description`, `cover-image`, `stock-count`, and more. If a copy is in stock, users can borrow it directly from this page.
 
-- ### **👤 My Profile:** A personal profile section where users can view their `name`, `email`, and `profile-picture` in a clean, organized layout.
+- **👤 My Profile:** A personal profile section where users can view their `name`, `email`, and `profile-picture` in a clean, organized layout.
 
-- ### **✏️ Update Profile:** Users can update their display name and profile image URL directly from the profile settings — simple and straightforward.
+- **✏️ Update Profile:** Users can update their display name and profile image URL directly from the profile settings — simple and straightforward.
 
-- ### **🔐 Authentication & Security:**
+- **🔐 Authentication & Security:**
   - Sign-in and Sign-up powered by `BetterAuth` — a modern, developer-friendly authentication library.
 
   - Protected routes enforced via Next.js middleware `proxy.js` using the built-in proxy pattern, ensuring unauthenticated users are redirected before any page loads.
 
-- ### **📱 Fully Responsive:** Atheneum is designed mobile-first and tested across all screen sizes — from phones to widescreen desktops.
+- **📱 Fully Responsive:** Atheneum is designed mobile-first and tested across all screen sizes — from phones to widescreen desktops.
 
 ## **🛠️ Tech Stack**
 
@@ -71,23 +71,23 @@
 
 ## **📦 NPM Packages Used**
 
-- #### **Core**
+- **Core**
   - next
   - react
   - react-dom
 
-- #### **UI & Styling**
+- **UI & Styling**
   - @heroui/react
   - @heroui/styles
   - tailwindcss
   - clsx
   - tailwind-merge
 
-- #### **Database & Auth**
+- **Database & Auth**
   - mongodb
   - better-auth
 
-- #### **UI Enhancements**
+- **UI Enhancements**
   - react-icons
   - swiper
   - react-fast-marquee
