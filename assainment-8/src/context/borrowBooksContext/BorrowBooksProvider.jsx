@@ -11,57 +11,14 @@ const BorrowBooksProvider = ({ children }) => {
     favorites: [],
   });
 
-  const setBorrowedBooks = (book) => {
-    const date = new Date();
-    const isBorrowed = books.borrowed.some((b) => b.id === book.id);
-    if (isBorrowed) return;
-    const updatedBooks = {
-      ...books,
-      borrowed: [...books.borrowed, { ...book, borrowedAt: date }],
-    };
-    setBooks(updatedBooks);
-    localStorage.setItem('borrowedBooks', JSON.stringify(updatedBooks));
-  };
-
-  const removeBorrowedBook = (bookId) => {
-    const updatedBooks = {
-      ...books,
-      borrowed: books.borrowed.filter((b) => b.id !== bookId),
-    };
-    toast.success('Book removed from Borrowed successfully!');
-    setBooks(updatedBooks);
-    localStorage.setItem('borrowedBooks', JSON.stringify(updatedBooks));
-  };
-
-  const setFavoriteBooks = (book) => {
-    const updatedBooks = { ...books, favorites: [...books.favorites, book] };
-    setBooks(updatedBooks);
-    localStorage.setItem('favoriteBooks', JSON.stringify(updatedBooks));
-  };
-
-  const removeFavoriteBook = (bookId) => {
-    const updatedBooks = {
-      ...books,
-      favorites: books.favorites.filter((b) => b.id !== bookId),
-    };
-    toast.success('Book removed from favorites successfully!');
-    setBooks(updatedBooks);
-    localStorage.setItem('favoriteBooks', JSON.stringify(updatedBooks));
-  };
-
   useEffect(() => {
     const loadBooks = async () => {
       try {
         setLoading(true);
-        const borrowedBooks = localStorage.getItem('borrowedBooks');
-        const favoriteBooks = localStorage.getItem('favoriteBooks');
+        const booksData = localStorage.getItem('books');
 
-        if (borrowedBooks) {
-          setBooks(JSON.parse(borrowedBooks));
-        }
-        if (favoriteBooks) {
-          setBooks(JSON.parse(favoriteBooks));
-        }
+        if (booksData) setBooks(JSON.parse(booksData));
+
         await new Promise((resolve) => setTimeout(resolve, 500));
       } catch (error) {
         setLoading(false);
@@ -73,6 +30,49 @@ const BorrowBooksProvider = ({ children }) => {
 
     loadBooks();
   }, []);
+
+  // set borrowed books
+  const setBorrowedBooks = (book) => {
+    const date = new Date();
+    const isBorrowed = books.borrowed.some((b) => b.id === book.id);
+    if (isBorrowed) return;
+    const updatedBooks = {
+      ...books,
+      borrowed: [...books.borrowed, { ...book, borrowedAt: date }],
+    };
+    setBooks(updatedBooks);
+    localStorage.setItem('books', JSON.stringify(updatedBooks));
+  };
+
+  // remove borrowed books
+  const removeBorrowedBook = (bookId) => {
+    const updatedBooks = {
+      ...books,
+      borrowed: books.borrowed.filter((b) => b.id !== bookId),
+    };
+    toast.success('Book removed from Borrowed successfully!');
+    setBooks(updatedBooks);
+    localStorage.setItem('books', JSON.stringify(updatedBooks));
+  };
+
+  // set favorite books
+  const setFavoriteBooks = (book) => {
+    const updatedBooks = { ...books, favorites: [...books.favorites, book] };
+    setBooks(updatedBooks);
+    localStorage.setItem('books', JSON.stringify(updatedBooks));
+  };
+
+  // remove favorite books
+  const removeFavoriteBook = (bookId) => {
+    const updatedBooks = {
+      ...books,
+      favorites: books.favorites.filter((b) => b.id !== bookId),
+    };
+    toast.success('Book removed from favorites successfully!');
+    setBooks(updatedBooks);
+    localStorage.setItem('books', JSON.stringify(updatedBooks));
+  };
+  
 
   return (
     <BorrowBooksContext.Provider

@@ -57,7 +57,7 @@ const ProfileContent = () => {
             <div key={book.id} className="relative group">
               <BooksCard book={book} />
               <button onClick={() => removeFavoriteBook(book.id)} 
-                className="text-white bg-red-500 opacity-0 group-hover:opacity-100 duration-200 shadow-sm rounded-full p-1 absolute -top-2 -right-2">
+                className="text-white z-1 bg-red-500 hover:bg-red-600 opacity-0 group-hover:opacity-100 hover:scale-105 duration-200 shadow-sm cursor-pointer rounded-full p-1 absolute -top-2 -right-2">
                 <RxCross2 />
               </button>
             </div>
