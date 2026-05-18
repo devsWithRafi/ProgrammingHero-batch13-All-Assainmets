@@ -25,18 +25,23 @@ const Navber = () => {
         </Link>
 
         <div className="md:flex hidden items-center gap-3">
-          {navItems.map((item, index) => (
-            <Link
-              key={index}
-              href={item.path}
-              className={cn(
-                'font-viga text-sm duration-200 text-zinc-500 hover:text-primary border-b-2 border-transparent px-1',
-                pathname === item.path && 'text-primary border-primary',
-              )}
-            >
-              {item.name}
-            </Link>
-          ))}
+          {navItems.map((item, index) => {
+            const access =
+              item.access === 'public' || (item.access === 'privet' && user);
+            if (!access) return null;
+            return (
+              <Link
+                key={index}
+                href={item.path}
+                className={cn(
+                  'font-viga text-sm duration-200 text-zinc-500 hover:text-primary border-b-2 border-transparent px-1',
+                  pathname === item.path && 'text-primary border-primary',
+                )}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
         </div>
 
         <div className="flex items-center sm:gap-2 gap-5">

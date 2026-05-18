@@ -24,11 +24,13 @@ import { IoEyeOffOutline } from 'react-icons/io5';
 import Link from 'next/link';
 import Loading from '@/components/Loading';
 import { signIn } from '@/lib/auth-client';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { signInFormSchema } from './signInFormSchema';
 
 const SignInPage = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectRoute = searchParams.get('redirect');
   const [showpPassword, setShowPassword] = useState(false);
   const [signupWithEmailPending, startSignupWithEmailPending] = useTransition();
   const [loginWithGooglePending, startLoginWithGooglePending] = useTransition();
@@ -41,18 +43,19 @@ const SignInPage = () => {
     },
   });
 
+
   const onSubmit = async (data) => {
     startSignupWithEmailPending(async () => {
       await signIn.email({
         email: data.email,
         password: data.password,
-        callbackURL: '/',
+        callbackURL: redirectRoute || '/',
         fetchOptions: {
           onSuccess: () => {
             toast.success('Signed in successfully!', {
               position: 'top-center',
             });
-            router.push('/');
+            router.push(redirectRoute || '/');
           },
           onError: (ctx) => {
             toast.error(ctx.error.message ?? 'Sign In Failed!', {
@@ -74,7 +77,7 @@ const SignInPage = () => {
             toast.success('Signed in successfully!', {
               position: 'top-center',
             });
-            router.push('/');
+            router.push(redirectRoute || '/');
           },
           onError: (ctx) => {
             toast.error(ctx.error.message || 'Sign In With Google Failed!', {
