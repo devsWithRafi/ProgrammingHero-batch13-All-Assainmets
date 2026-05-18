@@ -1,4 +1,5 @@
 import { betterAuth } from 'better-auth';
+import { jwt } from 'better-auth/plugins';
 import { mongodbAdapter } from 'better-auth/adapters/mongodb';
 import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
@@ -14,8 +15,7 @@ export const auth = betterAuth({
   }),
   emailAndPassword: {
     enabled: true,
-    // if the autoSignIn false then better-auth creating new user with the existing email
-    // for fix that bug i turned it true
+    // if autoSignIn false then better-auth creating new user with existing email
     autoSignIn: true,
     requireEmailVerification: false,
   },
@@ -32,4 +32,12 @@ export const auth = betterAuth({
       requireLocalEmailVerified: false,
     },
   },
+
+  session: {
+    cookieCache: {
+      enabled: true,
+    },
+  },
+
+  plugins: [jwt()],
 });
