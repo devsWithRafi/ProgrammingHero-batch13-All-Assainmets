@@ -81,7 +81,7 @@ const Hero = () => {
               className="w-full h-auto object-cover select-none pointer-events-none"
             />
             <div className="w-full h-full top-0 left-0 absolute bg-gradient-to-r from-[#000]/90 via-[#3525CD]/60 to-[#3525CD]/0">
-              <div className="flex flex-col justify-center items-start p-5 max-w-[1500px] mx-auto w-full h-full sm:gap-5">
+              <div className="flex flex-col justify-center items-start p-3 max-w-[1500px] mx-auto w-full h-full sm:gap-5">
                 <h2 className="text-white md:text-7xl sm:text-5xl text-2xl font-ring sm:w-2/3">
                   {item.title}
                 </h2>
