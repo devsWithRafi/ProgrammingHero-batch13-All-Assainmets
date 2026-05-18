@@ -24,7 +24,6 @@ const TutorCard = ({ tutor }) => {
             alt={tutor.name}
             width={700}
             height={300}
-            quality={100}
             className="w-full h-full object-cover group-hover:scale-105 duration-300 ease-in-out"
           />
         </div>

@@ -2,6 +2,7 @@ import { Poppins, Lora, Viga, Righteous, Abel } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import Navber from '@/components/navber/Navber';
+import { Toaster } from '@/components/ui/sonner';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -51,10 +52,8 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <main className='font-poppins'>
-            <Navber />
-            {children}
-          </main>
+          {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

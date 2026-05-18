@@ -7,12 +7,15 @@ import { navItems } from './navItems';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '../ui/button';
-import { BiMenu } from "react-icons/bi";
-
-
+import { BiMenu } from 'react-icons/bi';
+import { useSession } from '@/lib/auth-client';
+import Image from 'next/image';
+import NavAvatar from './NavAvatar';
 
 const Navber = () => {
   const pathname = usePathname();
+  const { data } = useSession();
+  const user = data?.user;
 
   return (
     <header className="w-full bg-white dark:bg-black sticky top-0 z-50 flex flex-col items-center justify-center border-b">
@@ -36,12 +39,31 @@ const Navber = () => {
           ))}
         </div>
 
-        <div className='flex items-center sm:gap-2 gap-5'>
+        <div className="flex items-center sm:gap-2 gap-5">
           <ThemeToggle />
-          <Link href={'/sign-in'} className={cn(buttonVariants({variant: 'outline'}), 'md:flex hidden')}>Login</Link>
-          <Link href={'/sign-up'} className={cn(buttonVariants(), 'md:flex hidden')}>Sign Up</Link>
-          <button className='md:hidden'>
-            <BiMenu size={30}/>
+          {!user ? (
+            <>
+              <Link
+                href={'/sign-in'}
+                className={cn(
+                  buttonVariants({ variant: 'outline' }),
+                  'md:flex hidden',
+                )}
+              >
+                Login
+              </Link>
+              <Link
+                href={'/sign-up'}
+                className={cn(buttonVariants(), 'md:flex hidden')}
+              >
+                Sign Up
+              </Link>
+            </>
+          ) : (
+            <NavAvatar user={user} />
+          )}
+          <button className="md:hidden">
+            <BiMenu size={30} />
           </button>
         </div>
       </nav>

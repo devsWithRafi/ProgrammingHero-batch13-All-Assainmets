@@ -1,0 +1,12 @@
+import * as z from 'zod';
+
+export const signInFormSchema = z.object({
+  email: z.email({ message: 'Invalid email address.' }),
+  password: z
+    .string({ message: 'Password must not be empty.' })
+    .min(8, 'Password must be at least 8 characters.')
+    .max(50, 'Password must be at most 50 characters.')
+    .regex(/[A-Z]/, 'Must contain at least one uppercase letter.')
+    .regex(/[a-z]/, 'Must contain at least one lowercase letter.')
+    .regex(/[0-9]/, 'Must contain at least one number.'),
+});

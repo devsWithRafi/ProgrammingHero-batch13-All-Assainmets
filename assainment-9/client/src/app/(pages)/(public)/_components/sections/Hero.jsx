@@ -77,7 +77,6 @@ const Hero = () => {
               alt="banner"
               width={1000}
               height={1000}
-              quality={100}
               className="w-full h-auto object-cover select-none pointer-events-none"
             />
             <div className="w-full h-full top-0 left-0 absolute bg-gradient-to-r from-[#000]/90 via-[#3525CD]/60 to-[#3525CD]/0">
