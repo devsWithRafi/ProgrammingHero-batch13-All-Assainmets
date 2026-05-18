@@ -1,0 +1,35 @@
+import { betterAuth } from 'better-auth';
+import { mongodbAdapter } from 'better-auth/adapters/mongodb';
+import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
+dotenv.config();
+
+const client = new MongoClient(process.env.MONGODB_URI);
+const db = client.db();
+
+export const auth = betterAuth({
+  trustedOrigins: [process.env.CLIENT_URL],
+  database: mongodbAdapter(db, {
+    client,
+  }),
+  emailAndPassword: {
+    enabled: true,
+    // if the autoSignIn false then better-auth creating new user with the existing email
+    // for fix that bug i turned it true
+    autoSignIn: true,
+    requireEmailVerification: false,
+  },
+  socialProviders: {
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    },
+  },
+  account: {
+    accountLinking: {
+      enabled: true,
+      trustedProviders: ['google'],
+      requireLocalEmailVerified: false,
+    },
+  },
+});
