@@ -15,8 +15,8 @@ const Navber = () => {
   const pathname = usePathname();
 
   return (
-    <header className="w-full sticky top-0 z-99999 flex flex-col items-center justify-center border-b">
-      <nav className="w-full max-w-[1500px] mx-auto p-3.5 flex items-center gap-5 justify-between">
+    <header className="w-full bg-white dark:bg-black sticky top-0 z-50 flex flex-col items-center justify-center border-b">
+      <nav className="w-full max-w-[1500px] mx-auto h-[65px] px-3.5 flex items-center gap-5 justify-between">
         <Link href={'/'}>
           <Logo />
         </Link>
