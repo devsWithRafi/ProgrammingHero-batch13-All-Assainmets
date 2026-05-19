@@ -7,7 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { authClient } from '@/lib/auth-client';
 import { tutorSchema } from './tutorSchema';
 import { Separator } from '@/components/ui/separator';
 import { Controller, useForm } from 'react-hook-form';
@@ -40,6 +39,10 @@ import { CalendarIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Calendar } from '@/components/ui/calendar';
 import { format } from 'date-fns';
+import { createNewTutor } from '@/services/createNewTutor';
+import { toast } from 'sonner';
+import { useTransition } from 'react';
+import { jwtClientToken } from '@/lib/auth-client';
 
 const AddTutorForm = () => {
   const form = useForm({
@@ -49,7 +52,7 @@ const AddTutorForm = () => {
       photo: '',
       subject: '',
       availableDays: [],
-      availableTimeSlot: 0,
+      availableTimeSlot: fixedData.timeSlots[0],
       hourlyFee: 200,
       totalSlot: 0,
       sessionStartDate: undefined,
@@ -60,21 +63,28 @@ const AddTutorForm = () => {
     },
   });
 
+  const [formPending, startFormPending] = useTransition();
+
   const onSubmit = async (data) => {
-    console.log('value', data);
-    console.log('dfdfd');
+    const getToken = await jwtClientToken();
+    if (getToken.success === false) return;
+
+    startFormPending(async () => {
+      const result = await createNewTutor(data, getToken.token);
+      if (result.success) {
+        toast.success(result.message, { position: 'top-center' });
+        form.reset();
+        return;
+      }
+      toast.error(result.message, { position: 'top-center' });
+    });
   };
 
   return (
-    <Card className="w-full max-w-[700px] sm:p-4 sm:py-10">
-      <CardHeader>
-        <CardTitle>Add New Tutor</CardTitle>
-        <CardDescription>
-          Fill in your details to create a tutor profile.
-        </CardDescription>
-      </CardHeader>
-
-      <CardContent>
+    <Card className="w-full max-w-[700px] sm:p-4 sm:py-10 mt-10">
+      <CardContent
+        className={cn(formPending && 'opacity-50 pointer-events-none')}
+      >
         <form id="form-rhf-demo" onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
             {/* ----------- Personal ----------- */}
@@ -426,7 +436,7 @@ const AddTutorForm = () => {
                       <SelectTrigger
                         className={'rounded-sm min-h-10 font-poppins'}
                       >
-                        <SelectValue placeholder="Select a slot" />
+                        <SelectValue placeholder="Select a Slots" />
                       </SelectTrigger>
                       <SelectContent className={'font-poppins'}>
                         {fixedData.timeSlots.map((slot) => (
@@ -495,7 +505,11 @@ const AddTutorForm = () => {
           </FieldGroup>
           <Field orientation="horizontal" className="mt-5 flex flex-col">
             <Button type="submit" className="w-full h-10">
-              Create a Tutor
+              {formPending ? (
+                <Loading text={'Creating...'} />
+              ) : (
+                'Create a Tutor'
+              )}
             </Button>
             <Button type="button" variant="outline" className="w-full h-10">
               Cancel

@@ -1,11 +1,13 @@
 import SectionTitle from '@/components/SectionTitle';
 import Link from 'next/link';
 import { IoMdArrowForward } from 'react-icons/io';
-import tutorsData from '@/lib/dummy-data/tutors.json';
+import { fetchTutorsData } from '@/services/apis/fetchTutorsData';
+import { Suspense } from 'react';
+import TutorsList from '../TutorsList';
 
-import TutorCard from '@/components/tutor/TutorCard';
+const AvailableTutors = async () => {
+  const tutors = await fetchTutorsData();
 
-const AvailableTutors = () => {
   return (
     <section className="py-15 w-full max-w-[1500px] mx-auto px-3 min-h-screen">
       <SectionTitle
@@ -22,11 +24,9 @@ const AvailableTutors = () => {
         }
       />
 
-      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 mt-10">
-        {tutorsData.map((tutor) => (
-          <TutorCard key={tutor.id} tutor={tutor} />
-        ))}
-      </div>
+      <Suspense fallback={<p>Loading...</p>}>
+        <TutorsList tutorsData={tutors} />
+      </Suspense>
     </section>
   );
 };

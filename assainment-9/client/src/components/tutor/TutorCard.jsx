@@ -28,43 +28,45 @@ const TutorCard = ({ tutor }) => {
           />
         </div>
       </CardHeader>
-      <CardContent>
-        <CardTitle className="font-semibold text-xl max-w-[90%] text-ellipsis whitespace-nowrap overflow-hidden">
-          {tutor.name}
-        </CardTitle>
-        <CardDescription className="text-sm font-medium max-w-[90%] text-ellipsis whitespace-nowrap overflow-hidden">
-          {tutor.institution}
-        </CardDescription>
-        <div className="w-full flex flex-wrap gap-2 mt-2">
-          <span className="flex items-center gap-1 text-xs bg-muted py-0.5 px-2 rounded-full text-muted-foreground">
-            <IoLocationOutline />
-            {tutor.location}
-          </span>
-          <span className="flex items-center gap-1 text-xs bg-muted py-0.5 px-2 rounded-full text-muted-foreground">
-            <LuLaptopMinimal />
-            {tutor.teachingMode}
-          </span>
-        </div>
-
-        <Separator className="my-4" />
-
-        <div className="flex flex-col gap-2">
-          <h3 className="font-semibold text-2xl">
-            ৳ {tutor.hourlyFee}{' '}
-            <span className="text-muted-foreground font-medium text-sm">
-              /hr
+      <CardContent className='flex flex-col justify-between h-full'>
+        <div>
+          <CardTitle className="font-semibold text-xl max-w-[90%] text-ellipsis whitespace-nowrap overflow-hidden">
+            {tutor.name}
+          </CardTitle>
+          <CardDescription className="text-sm font-medium max-w-[90%] text-ellipsis whitespace-nowrap overflow-hidden">
+            {tutor.institution}
+          </CardDescription>
+          <div className="w-full flex flex-wrap gap-2 mt-2">
+            <span className="flex items-center gap-1 text-xs bg-muted py-0.5 px-2 rounded-full text-muted-foreground">
+              <IoLocationOutline />
+              {tutor.location}
             </span>
-          </h3>
+            <span className="flex items-center gap-1 text-xs bg-muted py-0.5 px-2 rounded-full text-muted-foreground">
+              <LuLaptopMinimal />
+              {tutor.teachingMode}
+            </span>
+          </div>
 
-          <div className="flex items-center flex-wrap gap-3">
-            {tutor.availableDays.map((day, index) => (
-              <span
-                key={index}
-                className="text-sm bg-muted font-medium py-0.5 px-2 rounded-sm text-muted-foreground"
-              >
-                {day}
+          <Separator className="my-4" />
+
+          <div className="flex flex-col gap-2">
+            <h3 className="font-semibold text-2xl">
+              ৳ {tutor.hourlyFee}{' '}
+              <span className="text-muted-foreground font-medium text-sm">
+                /hr
               </span>
-            ))}
+            </h3>
+
+            <div className="flex items-center flex-wrap gap-3">
+              {tutor.availableDays.map((day, index) => (
+                <span
+                  key={index}
+                  className="text-sm bg-muted font-medium py-0.5 px-2 rounded-sm text-muted-foreground"
+                >
+                  {day}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
