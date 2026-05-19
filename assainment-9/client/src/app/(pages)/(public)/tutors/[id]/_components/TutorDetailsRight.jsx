@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
+import BookSessionForm from './BookSessionForm';
 
 const supports = [
   '1-on-1 Personalized Session',
@@ -58,12 +59,7 @@ const TutorDetailsRight = ({ tutor }) => {
           ))}
         </div>
 
-        <Button
-          variant="secondary"
-          className={'w-full rounded-full h-auto p-3'}
-        >
-          Book This Session
-        </Button>
+        <BookSessionForm tutor={tutor} />
 
         <CardDescription className={'text-center text-xs mt-5'}>
           100% Satisfaction Guarantee or Full Refund
