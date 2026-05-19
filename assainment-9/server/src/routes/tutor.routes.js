@@ -7,5 +7,6 @@ const tutorRouter = Router();
 
 tutorRouter.post('/create', authMiddlewere, createTutor);
 tutorRouter.get('/get-tutors', getAllTutors);
+tutorRouter.get('/get-tutors/:id', authMiddlewere, getAllTutors);
 
 export default tutorRouter;
