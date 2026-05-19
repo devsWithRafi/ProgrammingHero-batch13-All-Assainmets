@@ -9,7 +9,7 @@ export async function getOneTutor(req, res) {
   try {
     await connectDB();
 
-    const tutor = await Tutor.find({ _id: id });
+    const tutor = await Tutor.findById(id);
 
     if (!tutor) {
       return res
