@@ -2,9 +2,17 @@ import { env } from '@/lib/env';
 
 const serverUrl = env.NEXT_PUBLIC_BETTER_AUTH_URL;
 
-export const fetchTutorsData = async () => {
+export const fetchTutorsData = async ({ query = {} } = {}) => {
   try {
-    const res = await fetch(`${serverUrl}/api/tutor/get-tutors`);
+    const params = new URLSearchParams();
+
+    Object.entries(query).forEach(([key, value]) => {
+      if (value) params.append(key, value);
+    });
+
+    const res = await fetch(
+      `${serverUrl}/api/tutor/get-tutors?${params.toString()}`,
+    );
     if (!res.ok) throw new Error('Failed to fetch tutors');
     const { data } = await res.json();
     return data ?? [];

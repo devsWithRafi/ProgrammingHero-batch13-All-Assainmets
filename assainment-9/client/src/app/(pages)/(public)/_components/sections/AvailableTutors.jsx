@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 import TutorsList from '../TutorsList';
 
 const AvailableTutors = async () => {
-  const tutors = await fetchTutorsData();
+  const tutors = await fetchTutorsData({ query: { show: 6 } });
 
   return (
     <section className="py-15 w-full max-w-[1500px] mx-auto px-3 min-h-screen">

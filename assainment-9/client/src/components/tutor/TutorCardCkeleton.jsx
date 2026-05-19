@@ -1,25 +1,6 @@
-'use client';
+import React from 'react';
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { IoLocationOutline } from 'react-icons/io5';
-import { LuLaptopMinimal } from 'react-icons/lu';
-import { Separator } from '@/components/ui/separator';
-import { useRouter } from 'next/navigation';
-
-const TutorCard = ({ tutor }) => {
-  const router = useRouter();
-  const handleNavigate = () => {
-    router.push(`/tutors/${tutor._id}`);
-  };
-  
+const TutorCardCkeleton = () => {
   return (
     <Card className="overflow-hidden relative py-0 pb-3 group">
       <CardHeader className="p-0 ">
@@ -78,7 +59,7 @@ const TutorCard = ({ tutor }) => {
           </div>
         </div>
 
-        <Button onClick={handleNavigate} className="w-full mt-5 h-auto p-2">
+        <Button onCLick={handleNavigate} className="w-full mt-5 h-auto p-2">
           Book a Session
         </Button>
       </CardContent>
@@ -86,4 +67,4 @@ const TutorCard = ({ tutor }) => {
   );
 };
 
-export default TutorCard;
+export default TutorCardCkeleton;
