@@ -4,14 +4,29 @@ import { validateTutorData } from '../../helpers/validateBodyData/validateTutorD
 import { Tutor } from '../../models/tutor.model.js';
 
 export async function getAllTutors(req, res) {
+  const { show, tutorsName, startDate, endDate } = req.query;
+
   try {
+    const options = {};
     await connectDB();
-    const tutors = await Tutor.find();
+
+    const limit = Number(show) || 0;
+
+    if (startDate || endDate) {
+      options.sessionStartDate = {};
+      if (startDate) options.sessionStartDate.$gte = new Date(startDate);
+      if (endDate) options.sessionStartDate.$lte = new Date(endDate);
+    }
+
+    if (tutorsName) {
+      options.name = { $regex: tutorsName, $options: 'i' };
+    }
+
+    const tutors = await Tutor.find(options).limit(limit);
 
     return res.status(201).json({
       success: true,
       data: tutors,
-      message: 'Tutor created successful',
     });
   } catch (error) {
     console.error(error);
