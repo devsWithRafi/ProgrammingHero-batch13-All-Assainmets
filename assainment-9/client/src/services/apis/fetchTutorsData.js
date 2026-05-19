@@ -17,6 +17,10 @@ export const fetchTutorsData = async ({ query = {} } = {}) => {
     const { data } = await res.json();
     return data ?? [];
   } catch (error) {
-    throw new Error(error);
+    console.log(error);
+    return {
+      success: false,
+      message: error.message || 'An error occoured!',
+    };
   }
 };

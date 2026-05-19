@@ -1,9 +1,12 @@
-import React from 'react'
+import PageLoader from '@/components/PageLoader';
+import TutorDetails from './_components/TutorDetails';
 
-const TutorDetailsPage = () => {
+const TutorDetailsPage = async () => {
   return (
-    <div>TutorDetailsPage</div>
-  )
-}
+    <section className="w-full">
+      <TutorDetails />
+    </section>
+  );
+};
 
-export default TutorDetailsPage
+export default TutorDetailsPage;

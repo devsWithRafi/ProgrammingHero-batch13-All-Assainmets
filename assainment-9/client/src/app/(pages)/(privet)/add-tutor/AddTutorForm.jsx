@@ -1,12 +1,6 @@
 'use client';
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { tutorSchema } from './tutorSchema';
 import { Separator } from '@/components/ui/separator';
 import { Controller, useForm } from 'react-hook-form';
@@ -18,11 +12,10 @@ import {
   FieldLabel,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
-import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 import { Button } from '@/components/ui/button';
 import Loading from '@/components/Loading';
 import { Toggle } from '@/components/ui/toggle';
-import { fixedData } from './fixedData';
+
 import {
   Select,
   SelectContent,
@@ -43,6 +36,8 @@ import { createNewTutor } from '@/services/createNewTutor';
 import { toast } from 'sonner';
 import { useTransition } from 'react';
 import { jwtClientToken } from '@/lib/auth-client';
+import { fixedSampleData } from '@/lib/fixedSampleData';
+import { Textarea } from '@/components/ui/textarea';
 
 const AddTutorForm = () => {
   const form = useForm({
@@ -52,7 +47,7 @@ const AddTutorForm = () => {
       photo: '',
       subject: '',
       availableDays: [],
-      availableTimeSlot: fixedData.timeSlots[0],
+      availableTimeSlot: fixedSampleData.timeSlots[0],
       hourlyFee: 200,
       totalSlot: 0,
       sessionStartDate: undefined,
@@ -60,6 +55,7 @@ const AddTutorForm = () => {
       experience: 0,
       location: '',
       teachingMode: '',
+      about: '',
     },
   });
 
@@ -226,7 +222,7 @@ const AddTutorForm = () => {
                         <SelectValue placeholder="Select subject" />
                       </SelectTrigger>
                       <SelectContent className={'font-poppins'}>
-                        {fixedData.subjects.map((subject) => (
+                        {fixedSampleData.subjects.map((subject) => (
                           <SelectItem key={subject} value={subject}>
                             {subject}
                           </SelectItem>
@@ -347,7 +343,7 @@ const AddTutorForm = () => {
                     aria-invalid={fieldState.invalid}
                     className="flex flex-wrap gap-2"
                   >
-                    {fixedData.teachingModes.map((mode) => (
+                    {fixedSampleData.teachingModes.map((mode) => (
                       <Toggle
                         key={mode}
                         pressed={field.value === mode}
@@ -392,7 +388,7 @@ const AddTutorForm = () => {
                     aria-invalid={fieldState.invalid}
                     className="flex flex-wrap gap-2"
                   >
-                    {fixedData.availableDays.map((day) => {
+                    {fixedSampleData.availableDays.map((day) => {
                       const active = field.value?.includes(day);
                       return (
                         <Toggle
@@ -439,7 +435,7 @@ const AddTutorForm = () => {
                         <SelectValue placeholder="Select a Slots" />
                       </SelectTrigger>
                       <SelectContent className={'font-poppins'}>
-                        {fixedData.timeSlots.map((slot) => (
+                        {fixedSampleData.timeSlots.map((slot) => (
                           <SelectItem key={slot} value={slot}>
                             {slot}
                           </SelectItem>
@@ -502,6 +498,32 @@ const AddTutorForm = () => {
                 )}
               />
             </div>
+            {/* about tutor */}
+            <Controller
+              name="about"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="form-rhf-demo-title">
+                    About Tutor
+                  </FieldLabel>
+                  <Textarea
+                    {...field}
+                    id="form-rhf-demo-title"
+                    aria-invalid={fieldState.invalid}
+                    placeholder="Write something..."
+                    autoComplete="off"
+                    className="rounded-sm min-h-25 text-sm"
+                  />
+                  {fieldState.invalid && (
+                    <FieldError
+                      className={'text-xs'}
+                      errors={[fieldState.error]}
+                    />
+                  )}
+                </Field>
+              )}
+            />
           </FieldGroup>
           <Field orientation="horizontal" className="mt-5 flex flex-col">
             <Button type="submit" className="w-full h-10">

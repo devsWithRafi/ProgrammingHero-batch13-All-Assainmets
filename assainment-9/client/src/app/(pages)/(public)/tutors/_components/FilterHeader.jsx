@@ -42,8 +42,8 @@ const FilterHeader = () => {
   };
 
   return (
-    <div className="w-full p-5 border rounded-xl grid grid-cols-5 items-end justify-between gap-5">
-      <div className="flex flex-col gap-1 col-span-2">
+    <div className="w-full p-5 border rounded-xl grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 items-end justify-between gap-5">
+      <div className="flex flex-col gap-1 md:col-span-2 sm:col-span-3 col-span-2">
         <Label>Tutor Name</Label>
         <Input
           value={query.tutorsName}
@@ -118,7 +118,7 @@ const FilterHeader = () => {
           </PopoverContent>
         </Popover>
       </div>
-      <Button onClick={handleResetFilter} className="h-10 rounded-sm">
+      <Button onClick={handleResetFilter} className="h-10 rounded-sm col-span-2 sm:col-span-1">
         Reset
       </Button>
     </div>
