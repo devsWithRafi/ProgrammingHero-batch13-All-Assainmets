@@ -19,7 +19,7 @@ const supports = [
   'Weekly Mock Test Access',
 ];
 
-const TutorDetailsRight = ({ tutor }) => {
+const TutorDetailsRight = ({ tutor, fetchTutor }) => {
   return (
     <Card className="lg:min-w-100 lg:max-w-100 md:min-w-80 md:max-w-80 w-full bg-primary sm:px-5 sm:py-8 px-3 py-5 z-1">
       <CardHeader>
@@ -72,7 +72,7 @@ const TutorDetailsRight = ({ tutor }) => {
           </div>
         )}
 
-        <BookSessionForm tutor={tutor} />
+        <BookSessionForm tutor={tutor} fetchTutor={fetchTutor} />
 
         <CardDescription className={'text-center text-xs mt-5'}>
           100% Satisfaction Guarantee or Full Refund

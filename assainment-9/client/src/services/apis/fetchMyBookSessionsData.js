@@ -1,14 +1,15 @@
-import { env } from "@/lib/env";
+import { env } from '@/lib/env';
 
 export const fetchMyBookSessionsData = async ({ token }) => {
   try {
     const res = await fetch(
-      `${env.NEXT_PUBLIC_BETTER_AUTH_URL}/api/my-book-session/get-my-book-session`,
+      `${env.NEXT_PUBLIC_BETTER_AUTH_URL}/api/booking/book-sessions`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
+        cache: 'no-store',
       },
     );
     const data = await res.json();

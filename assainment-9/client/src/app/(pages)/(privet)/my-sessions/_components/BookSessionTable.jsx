@@ -26,23 +26,24 @@ const BookSessionTable = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedSession, setSelectedSession] = useState({});
 
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        setLoading(true);
-        const getToken = await jwtClientToken();
-        if (getToken.success) {
-          const data = await fetchMyBookSessionsData({ token: getToken.token });
-          setMyBookSession(data);
-        }
-      } catch (error) {
-        console.log(error);
-        setLoading(false);
-      } finally {
-        setLoading(false);
+  const loadSessionData = async () => {
+    try {
+      setLoading(true);
+      const getToken = await jwtClientToken();
+      if (getToken.success) {
+        const data = await fetchMyBookSessionsData({ token: getToken.token });
+        setMyBookSession(data);
       }
-    };
-    loadData();
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    loadSessionData();
   }, []);
 
   const statusStyle = {
@@ -139,6 +140,7 @@ const BookSessionTable = () => {
         open={modalOpen}
         setIsOpen={setModalOpen}
         selectedSession={selectedSession}
+        loadSessionData={loadSessionData}
       />
     </>
   );

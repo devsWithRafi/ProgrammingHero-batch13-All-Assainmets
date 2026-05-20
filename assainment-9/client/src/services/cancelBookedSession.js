@@ -3,26 +3,24 @@
 import { env } from '@/lib/env';
 import { revalidatePath } from 'next/cache';
 
-export const createNewBookSession = async (data, token) => {
+export const cancelBookedSession = async ({ id, token }) => {
   try {
     if (token) {
       const res = await fetch(
-        `${env.NEXT_PUBLIC_BETTER_AUTH_URL}/api/booking/create`,
+        `${env.NEXT_PUBLIC_BETTER_AUTH_URL}/api/booking/cancel-session/${id}`,
         {
-          method: 'POST',
+          method: 'PATCH',
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(data),
+          body: JSON.stringify({ action: 'cancel' }),
         },
       );
 
       const result = await res.json();
-      if (result.success) {
-        revalidatePath('/my-sessions');
-        revalidatePath(`/tutors/${data.tutorId}`);
-      }
+      const validatePaths = ['/my-sessions', '/my-tutors', '/tutors'];
+      validatePaths.forEach((route) => revalidatePath(route));
       return result;
     }
 

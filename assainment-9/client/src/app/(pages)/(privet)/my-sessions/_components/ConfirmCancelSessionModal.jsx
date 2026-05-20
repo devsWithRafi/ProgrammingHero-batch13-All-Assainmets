@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -6,8 +8,37 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import { jwtClientToken } from '@/lib/auth-client';
+import { cancelBookedSession } from '@/services/cancelBookedSession';
+import { toast } from 'sonner';
 
-const ConfirmCancelSessionModal = ({ open, setIsOpen, selectedSession }) => {
+const ConfirmCancelSessionModal = ({
+  open,
+  setIsOpen,
+  selectedSession,
+  loadSessionData,
+}) => {
+  const handleCancelSession = async () => {
+    const getToken = await jwtClientToken();
+    if (getToken) {
+      const result = await cancelBookedSession({
+        id: selectedSession?._id,
+        token: getToken.token,
+      });
+      if (result.success) {
+        loadSessionData();
+        setIsOpen(false);
+        toast.success(result.message || 'Session Cancelled Successfully', {
+          position: 'top-center',
+        });
+      } else {
+        toast.error(result.message || 'Session Cancellation Failed', {
+          position: 'top-center',
+        });
+      }
+    }
+  };
+
   return (
     <Dialog open={open} onOpenChange={setIsOpen}>
       <DialogContent className={'font-poppins'}>
@@ -39,9 +70,21 @@ const ConfirmCancelSessionModal = ({ open, setIsOpen, selectedSession }) => {
             </span>
           </div>
 
-          <div className='grid grid-cols-2 gap-2'>
-            <Button onClick={() => setIsOpen(false)} variant='outline' className={'h-auto p-2.5 rounded-full'}>Keep Session</Button>
-            <Button variant='destructive' className={'h-auto p-2.5 rounded-full'}>Yes, Cancel</Button>
+          <div className="grid grid-cols-2 gap-2">
+            <Button
+              onClick={() => setIsOpen(false)}
+              variant="outline"
+              className={'h-auto p-2.5 rounded-full'}
+            >
+              Keep Session
+            </Button>
+            <Button
+              onClick={handleCancelSession}
+              variant="destructive"
+              className={'h-auto p-2.5 rounded-full'}
+            >
+              Yes, Cancel
+            </Button>
           </div>
         </DialogHeader>
       </DialogContent>

@@ -31,23 +31,24 @@ const TutorDetails = () => {
   const [tutor, setTutor] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchTutor = async () => {
-      try {
-        const getToken = await jwtClientToken();
-        if (getToken.success) {
-          const data = await fetchOneTutorData({ id, token: getToken.token });
-          setTutor(data);
-        } else {
-          setTutor({});
-          console.log('Auth-Token not found');
-        }
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setIsLoading(false);
+  const fetchTutor = async () => {
+    try {
+      const getToken = await jwtClientToken();
+      if (getToken.success) {
+        const data = await fetchOneTutorData({ id, token: getToken.token });
+        setTutor(data);
+      } else {
+        setTutor({});
+        console.log('Auth-Token not found');
       }
-    };
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
     fetchTutor();
   }, [id]);
 
@@ -205,7 +206,7 @@ const TutorDetails = () => {
         </div>
 
         {/* RIGHT SIDE */}
-        <TutorDetailsRight tutor={tutor} />
+        <TutorDetailsRight tutor={tutor} fetchTutor={fetchTutor} />
       </div>
     </div>
   );

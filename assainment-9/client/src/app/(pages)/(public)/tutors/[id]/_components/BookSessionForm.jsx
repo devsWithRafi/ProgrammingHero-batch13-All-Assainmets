@@ -7,7 +7,6 @@ import {
   DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -21,7 +20,7 @@ import { createNewBookSession } from '@/services/createNewBookSession';
 import { useEffect, useState, useTransition } from 'react';
 import { toast } from 'sonner';
 
-const BookSessionForm = ({ tutor }) => {
+const BookSessionForm = ({ tutor, fetchTutor }) => {
   const { data } = authClient.useSession();
   const user = data?.user;
   const [formPending, startFormPending] = useTransition();
@@ -65,6 +64,7 @@ const BookSessionForm = ({ tutor }) => {
       if (result.success) {
         toast.success(result.message, { position: 'top-center' });
         setBookSessionForm((prev) => ({ ...prev, ...mainDefaultFields }));
+        fetchTutor()
         return;
       }
       toast.error(result.message, { position: 'top-center' });
