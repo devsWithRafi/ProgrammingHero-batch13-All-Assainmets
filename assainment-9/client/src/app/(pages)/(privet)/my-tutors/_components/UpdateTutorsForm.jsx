@@ -31,15 +31,17 @@ import { CalendarIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Calendar } from '@/components/ui/calendar';
 import { format } from 'date-fns';
-import { createNewTutor } from '@/services/createNewTutor';
 import { toast } from 'sonner';
 import { useEffect, useTransition } from 'react';
 import { jwtClientToken } from '@/lib/auth-client';
 import { fixedSampleData } from '@/lib/fixedSampleData';
 import { Textarea } from '@/components/ui/textarea';
 import { tutorSchema } from '@/lib/validatingSchema/tutorsSchema';
+import { updateTutorsData } from '@/services/updateTutorsData';
+import { useMyTutors } from '@/context/my-tutors/MyTutorsContextProvider';
 
-const UpdateTutorsForm = ({ selectedTutor }) => {
+const UpdateTutorsForm = ({ selectedTutor, setModelOpen }) => {
+  const { loadMyTutors } = useMyTutors();
   const form = useForm({
     resolver: zodResolver(tutorSchema),
     defaultValues: {
@@ -62,8 +64,8 @@ const UpdateTutorsForm = ({ selectedTutor }) => {
   useEffect(() => {
     if (selectedTutor) {
       form.reset({
-       ...selectedTutor,
-       sessionStartDate: new Date(selectedTutor.sessionStartDate),
+        ...selectedTutor,
+        sessionStartDate: new Date(selectedTutor.sessionStartDate),
       });
     }
   }, [selectedTutor]);
@@ -75,10 +77,16 @@ const UpdateTutorsForm = ({ selectedTutor }) => {
     if (getToken.success === false) return;
 
     startFormPending(async () => {
-      const result = await createNewTutor(data, getToken.token);
+      const result = await updateTutorsData({
+        data,
+        token: getToken.token,
+        tutorId: selectedTutor._id,
+      });
       if (result.success) {
         toast.success(result.message, { position: 'top-center' });
+        loadMyTutors();
         form.reset();
+        setModelOpen(false)
         return;
       }
       toast.error(result.message, { position: 'top-center' });
@@ -224,7 +232,11 @@ const UpdateTutorsForm = ({ selectedTutor }) => {
                       Subject
                     </FieldLabel>
 
-                    <Select key={field.value} onValueChange={field.onChange} value={field.value}>
+                    <Select
+                      key={field.value}
+                      onValueChange={field.onChange}
+                      value={field.value}
+                    >
                       <SelectTrigger
                         className={'rounded-sm min-h-10 font-poppins'}
                       >
@@ -437,7 +449,11 @@ const UpdateTutorsForm = ({ selectedTutor }) => {
                     <FieldLabel htmlFor="form-rhf-demo-title">
                       Time slot
                     </FieldLabel>
-                    <Select key={field.value} onValueChange={field.onChange} value={field.value}>
+                    <Select
+                      key={field.value}
+                      onValueChange={field.onChange}
+                      value={field.value}
+                    >
                       <SelectTrigger
                         className={'rounded-sm min-h-10 font-poppins'}
                       >
@@ -534,16 +550,12 @@ const UpdateTutorsForm = ({ selectedTutor }) => {
               )}
             />
           </FieldGroup>
-          <Field orientation="horizontal" className="mt-5 flex flex-col">
-            <Button type="submit" className="w-full h-10">
-              {formPending ? (
-                <Loading text={'Creating...'} />
-              ) : (
-                'Create a Tutor'
-              )}
-            </Button>
-            <Button type="button" variant="outline" className="w-full h-10">
+          <Field orientation="horizontal" className="mt-5 flex justify-end">
+            <Button type="button" variant="outline" className="h-10 px-10">
               Cancel
+            </Button>
+            <Button type="submit" className="h-10 px-10">
+              {formPending ? <Loading text={'Updating...'} /> : 'Save Changes'}
             </Button>
           </Field>
         </form>

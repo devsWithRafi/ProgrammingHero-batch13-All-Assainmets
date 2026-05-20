@@ -4,6 +4,7 @@ import { createTutor } from '../controllers/tutor/createTutor.controller.js';
 import { getAllTutors } from '../controllers/tutor/getAllTutors.controllers.js';
 import { getOneTutor } from '../controllers/tutor/getOneTutor.controllers.js';
 import { getMyTutor } from '../controllers/tutor/getMyTutor.controllers.js';
+import { updateTutorData } from '../controllers/tutor/updateTutorData.controllers.js';
 
 const tutorRouter = Router();
 
@@ -11,5 +12,6 @@ tutorRouter.post('/create', authMiddlewere, createTutor);
 tutorRouter.get('/get-tutors', getAllTutors);
 tutorRouter.get('/get-tutors/:id', authMiddlewere, getOneTutor);
 tutorRouter.get('/my-tutors', authMiddlewere, getMyTutor);
+tutorRouter.put('/update-tutor/:id', authMiddlewere, updateTutorData);
 
 export default tutorRouter;

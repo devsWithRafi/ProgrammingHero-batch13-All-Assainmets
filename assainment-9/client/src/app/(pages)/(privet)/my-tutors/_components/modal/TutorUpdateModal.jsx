@@ -4,7 +4,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from '@/components/ui/dialog';
 import UpdateTutorsForm from '../UpdateTutorsForm';
 import Image from 'next/image';
@@ -34,11 +33,16 @@ const TutorUpdateModal = ({ open, setIsOpen, selectedTutor }) => {
           <span className="flex flex-col gap-1">
             <DialogTitle>Update Tutor</DialogTitle>
             <DialogDescription>
-              <span>{selectedTutor.name} - {selectedTutor.subject}</span>
+              <span>
+                {selectedTutor.name} - {selectedTutor.subject}
+              </span>
             </DialogDescription>
           </span>
         </DialogHeader>
-        <UpdateTutorsForm selectedTutor={selectedTutor} />
+        <UpdateTutorsForm
+          selectedTutor={selectedTutor}
+          setModelOpen={setIsOpen}
+        />
       </DialogContent>
     </Dialog>
   );
