@@ -5,6 +5,9 @@ import { fetchTutorsData } from '@/services/apis/fetchTutorsData';
 import { Suspense } from 'react';
 import TutorsList from '../TutorsList';
 
+const noDataMessage =
+  ' There are currently no tutors available at the moment. Please check back later for new tutor listings and sessions.';
+
 const AvailableTutors = async () => {
   const tutors = await fetchTutorsData({ query: { show: 6 } });
 
@@ -25,7 +28,7 @@ const AvailableTutors = async () => {
       />
 
       <Suspense fallback={<p>Loading...</p>}>
-        <TutorsList tutorsData={tutors} />
+        <TutorsList tutorsData={tutors} ifNoDataMessage={noDataMessage} />
       </Suspense>
     </section>
   );

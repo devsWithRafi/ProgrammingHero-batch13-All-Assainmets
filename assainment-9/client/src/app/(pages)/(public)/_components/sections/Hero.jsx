@@ -117,7 +117,7 @@ const Hero = () => {
       </Swiper>
 
       {/* popular subjects */}
-      <div className="w-full bg-black text-zinc-300 font-poppins py-4 overflow-hidden flex items-center px-5 gap-3">
+      <div className="w-full bg-primary text-primary-foreground font-poppins py-4 overflow-hidden flex items-center px-5 gap-3">
         <p className="text-nowrap font-ring">Popular Subjects:</p>
         <Marquee pauseOnHover speed={30} className="w-full">
           {[...dummySub, ...dummySub].map((item, index) => (
