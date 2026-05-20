@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   Table,
   TableBody,
@@ -9,8 +9,6 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { jwtClientToken } from '@/lib/auth-client';
-import { fetchMyBookSessionsData } from '@/services/apis/fetchMyBookSessionsData';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { GoDotFill } from 'react-icons/go';
@@ -19,32 +17,13 @@ import SectionTitle from '@/components/SectionTitle';
 import PageLoader from '@/components/PageLoader';
 import ConfirmCancelSessionModal from './ConfirmCancelSessionModal';
 import { toast } from 'sonner';
+import { useMyBookSession } from '@/context/session-context/BookSessionContextProvider';
 
 const BookSessionTable = () => {
-  const [myBookSession, setMyBookSession] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { loading, myBookSession } = useMyBookSession();
+
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedSession, setSelectedSession] = useState({});
-
-  const loadSessionData = async () => {
-    try {
-      setLoading(true);
-      const getToken = await jwtClientToken();
-      if (getToken.success) {
-        const data = await fetchMyBookSessionsData({ token: getToken.token });
-        setMyBookSession(data);
-      }
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    loadSessionData();
-  }, []);
 
   const statusStyle = {
     confirmed: 'dark:text-green-500 text-green-700 bg-green-400/20',
@@ -140,7 +119,6 @@ const BookSessionTable = () => {
         open={modalOpen}
         setIsOpen={setModalOpen}
         selectedSession={selectedSession}
-        loadSessionData={loadSessionData}
       />
     </>
   );

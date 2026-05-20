@@ -3,6 +3,8 @@ import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import Navber from '@/components/navber/Navber';
 import { Toaster } from '@/components/ui/sonner';
+import BookSessionContextProvider from '@/context/session-context/BookSessionContextProvider';
+import MyTutorsContextProvider from '@/context/my-tutors/MyTutorsContextProvider';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -52,7 +54,9 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <BookSessionContextProvider>
+            <MyTutorsContextProvider>{children}</MyTutorsContextProvider>
+          </BookSessionContextProvider>
           <Toaster />
         </ThemeProvider>
       </body>

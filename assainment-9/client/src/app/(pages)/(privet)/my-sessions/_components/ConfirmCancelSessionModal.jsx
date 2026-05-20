@@ -8,16 +8,13 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
+import { useMyBookSession } from '@/context/session-context/BookSessionContextProvider';
 import { jwtClientToken } from '@/lib/auth-client';
 import { cancelBookedSession } from '@/services/cancelBookedSession';
 import { toast } from 'sonner';
 
-const ConfirmCancelSessionModal = ({
-  open,
-  setIsOpen,
-  selectedSession,
-  loadSessionData,
-}) => {
+const ConfirmCancelSessionModal = ({ open, setIsOpen, selectedSession }) => {
+  const { loadSessionData } = useMyBookSession();
   const handleCancelSession = async () => {
     const getToken = await jwtClientToken();
     if (getToken) {

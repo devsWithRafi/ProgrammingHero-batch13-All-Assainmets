@@ -1,9 +1,11 @@
-import React from 'react'
+import MyTutorsTable from './_components/MyTutorsTable';
 
 const MyTutorsPage = () => {
   return (
-    <div>MyTutorsPage</div>
-  )
-}
+    <section className='w-full p-3 max-w-[1500px] mx-auto'>
+      <MyTutorsTable />
+    </section>
+  );
+};
 
-export default MyTutorsPage
+export default MyTutorsPage;

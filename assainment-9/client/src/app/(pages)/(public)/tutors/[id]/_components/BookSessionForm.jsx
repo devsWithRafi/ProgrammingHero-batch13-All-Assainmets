@@ -14,6 +14,7 @@ import {
 import { Field, FieldGroup } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useMyBookSession } from '@/context/session-context/BookSessionContextProvider';
 import { authClient, jwtClientToken } from '@/lib/auth-client';
 import { cn } from '@/lib/utils';
 import { createNewBookSession } from '@/services/createNewBookSession';
@@ -24,6 +25,7 @@ const BookSessionForm = ({ tutor, fetchTutor }) => {
   const { data } = authClient.useSession();
   const user = data?.user;
   const [formPending, startFormPending] = useTransition();
+  const { loadSessionData } = useMyBookSession();
   const mainDefaultFields = { name: '', phoneNumber: '' };
   const [bookSessionForm, setBookSessionForm] = useState({
     ...mainDefaultFields,
@@ -64,7 +66,8 @@ const BookSessionForm = ({ tutor, fetchTutor }) => {
       if (result.success) {
         toast.success(result.message, { position: 'top-center' });
         setBookSessionForm((prev) => ({ ...prev, ...mainDefaultFields }));
-        fetchTutor()
+        loadSessionData()
+        fetchTutor();
         return;
       }
       toast.error(result.message, { position: 'top-center' });
