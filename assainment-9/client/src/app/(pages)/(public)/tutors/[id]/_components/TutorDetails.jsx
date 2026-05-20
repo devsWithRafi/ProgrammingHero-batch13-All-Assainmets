@@ -82,7 +82,7 @@ const TutorDetails = () => {
     <div>
       {/* TOP */}
       {tutor?.photo && (
-        <div className="w-full h-[50vh] overflow-hidden opacity-60">
+        <div className="w-full sm:h-[50vh] overflow-hidden opacity-60">
           <Image
             width={1000}
             height={500}
@@ -100,7 +100,7 @@ const TutorDetails = () => {
           <Card className="w-full sm:px-5 sm:py-8 relative">
             <CardHeader className={'flex gap-5'}>
               {tutor.photo && (
-                <div className="min-w-20 max-w-20 border-4 aspect-square overflow-hidden rounded-full">
+                <div className="sm:min-w-20 min-w-18 max-w-18 sm:max-w-20 border-4 aspect-square overflow-hidden rounded-full">
                   <Image
                     src={tutor.photo}
                     alt={tutor.name}
@@ -116,11 +116,11 @@ const TutorDetails = () => {
                 <span className="text-primary font-bold sm:text-sm text-xs">
                   {'5.0'}
                 </span>{' '}
-                (124 Reviews)
+                <span className='sm:inline hidden'>(124 Reviews)</span>
               </CardDescription>
 
               <div>
-                <CardTitle className="sm:text-4xl text-3xl font-semibold font-viga">
+                <CardTitle className="sm:text-4xl text-xl font-semibold font-viga">
                   {tutor.name}
                 </CardTitle>
                 <div className="flex flex-wrap items-center sm:gap-5 gap-2 sm:mt-2">

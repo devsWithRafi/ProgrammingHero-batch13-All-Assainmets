@@ -41,12 +41,27 @@ const BookSessionTable = () => {
     setModalOpen(true);
   };
 
+  const totalActiveSessions =
+    (Array.isArray(myBookSession) &&
+      myBookSession.filter((item) => item.status.toLowerCase() === 'confirmed')
+        .length) || 0;
+
   return loading ? (
     <PageLoader className={'w-full h-[calc(100vh-100px)]'} />
   ) : (
     <>
-      <SectionTitle title={'My Booked Sessions'} />
-      {myBookSession.length > 0 ? (
+      <div>
+        <span className="flex flex-wrap items-center gap-5">
+          <SectionTitle title={'My Booked Sessions'} />
+          <span className="bg-muted py-0.5 px-4 rounded-full text-sm dark:bg-orange-200/20 dark:text-orange-200 text-zinc-600 font-medium">
+            {totalActiveSessions} Active
+          </span>
+        </span>
+        <p className="text-muted-foreground font-medium text-sm">
+          Manage and track all the sessions you’ve booked with tutors
+        </p>
+      </div>
+      {Array.isArray(myBookSession) && myBookSession.length > 0 ? (
         <div className="mt-10 border rounded-lg overflow-x-auto">
           <Table className={''}>
             <TableHeader className={'bg-muted sm:h-12'}>

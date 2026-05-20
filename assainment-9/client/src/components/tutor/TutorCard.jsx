@@ -13,18 +13,28 @@ import { IoLocationOutline } from 'react-icons/io5';
 import { LuLaptopMinimal } from 'react-icons/lu';
 import { Separator } from '@/components/ui/separator';
 import { useRouter } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 const TutorCard = ({ tutor }) => {
   const router = useRouter();
+
   const handleNavigate = () => {
     router.push(`/tutors/${tutor._id}`);
   };
-  
+
+  const isAvailable =
+    new Date(tutor.sessionStartDate) > new Date() && tutor.totalSlot > 0;
+
   return (
     <Card className="overflow-hidden relative py-0 pb-3 group">
       <CardHeader className="p-0 ">
-        <span className="bg-white z-1 font-poppins text-black px-2.5 py-0.5 rounded-full text-sm absolute top-2 left-2">
-          Available
+        <span
+          className={cn(
+            'bg-white z-1 font-poppins text-black px-2.5 py-0.5 rounded-full text-sm absolute top-2 left-2 shadow-sm',
+            !isAvailable && 'bg-orange-300 text-white'
+          )}
+        >
+          {isAvailable ? 'Available' : 'Not Available'}
         </span>
         <div className="w-full h-full aspect-[2/1.3] overflow-hidden">
           <Image

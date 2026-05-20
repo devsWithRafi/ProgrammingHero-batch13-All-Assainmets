@@ -1,5 +1,6 @@
 'use client';
 
+import Loading from '@/components/Loading';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -10,35 +11,47 @@ import {
 } from '@/components/ui/dialog';
 import { useMyBookSession } from '@/context/session-context/BookSessionContextProvider';
 import { jwtClientToken } from '@/lib/auth-client';
+import { cn } from '@/lib/utils';
 import { cancelBookedSession } from '@/services/cancelBookedSession';
+import { useTransition } from 'react';
 import { toast } from 'sonner';
 
 const ConfirmCancelSessionModal = ({ open, setIsOpen, selectedSession }) => {
   const { loadSessionData } = useMyBookSession();
+  const [deletePending, startDeletePending] = useTransition();
+
   const handleCancelSession = async () => {
     const getToken = await jwtClientToken();
     if (getToken) {
-      const result = await cancelBookedSession({
-        id: selectedSession?._id,
-        token: getToken.token,
+      startDeletePending(async () => {
+        const result = await cancelBookedSession({
+          id: selectedSession?._id,
+          token: getToken.token,
+        });
+        if (result.success) {
+          loadSessionData();
+          setIsOpen(false);
+          toast.success(result.message || 'Session Cancelled Successfully', {
+            position: 'top-center',
+          });
+        } else {
+          toast.error(result.message || 'Session Cancellation Failed', {
+            position: 'top-center',
+          });
+        }
       });
-      if (result.success) {
-        loadSessionData();
-        setIsOpen(false);
-        toast.success(result.message || 'Session Cancelled Successfully', {
-          position: 'top-center',
-        });
-      } else {
-        toast.error(result.message || 'Session Cancellation Failed', {
-          position: 'top-center',
-        });
-      }
+    } else {
+      toast.error('Session Cancellation Failed', {
+        position: 'top-center',
+      });
     }
   };
 
   return (
     <Dialog open={open} onOpenChange={setIsOpen}>
-      <DialogContent className={'font-poppins'}>
+      <DialogContent className={cn('font-poppins', 
+        deletePending && 'opacity-50 pointer-events-none cursor-not-allowed'
+      )}>
         <DialogHeader>
           <DialogTitle className={'text-xl font-semibold'}>
             Cancel Session
@@ -80,7 +93,7 @@ const ConfirmCancelSessionModal = ({ open, setIsOpen, selectedSession }) => {
               variant="destructive"
               className={'h-auto p-2.5 rounded-full'}
             >
-              Yes, Cancel
+              {deletePending ? <Loading text={'Processing...'} /> : 'Yes, Cancel'}
             </Button>
           </div>
         </DialogHeader>
