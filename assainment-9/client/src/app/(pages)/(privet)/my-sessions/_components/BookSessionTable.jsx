@@ -17,10 +17,14 @@ import { GoDotFill } from 'react-icons/go';
 import EmptyBookSessionState from './EmptyBookSessionState';
 import SectionTitle from '@/components/SectionTitle';
 import PageLoader from '@/components/PageLoader';
+import ConfirmCancelSessionModal from './ConfirmCancelSessionModal';
+import { toast } from 'sonner';
 
 const BookSessionTable = () => {
   const [myBookSession, setMyBookSession] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedSession, setSelectedSession] = useState({});
 
   useEffect(() => {
     const loadData = async () => {
@@ -47,8 +51,18 @@ const BookSessionTable = () => {
     pending: 'dark:text-zinc-400 text-zinc-600 bg-zinc-400/20',
   };
 
+  const handleOpenModal = (id) => {
+    const session = myBookSession.find((item) => item._id === id);
+    if (!session) {
+      toast.error('Something went wrong! Please try again!');
+      return;
+    }
+    setSelectedSession(session);
+    setModalOpen(true);
+  };
+
   return loading ? (
-    <PageLoader className={'w-full h-[calc(100vh-100px)]'}/>
+    <PageLoader className={'w-full h-[calc(100vh-100px)]'} />
   ) : (
     <>
       <SectionTitle title={'My Booked Sessions'} />
@@ -99,6 +113,7 @@ const BookSessionTable = () => {
                     <TableCell className="font-medium text-right sm:px-5">
                       {item.status === 'Confirmed' ? (
                         <Button
+                          onClick={() => handleOpenModal(item._id)}
                           className={
                             'rounded-full px-5 !bg-transparent border border-red-400'
                           }
@@ -118,6 +133,13 @@ const BookSessionTable = () => {
       ) : (
         <EmptyBookSessionState />
       )}
+
+      {/* cancel session modal */}
+      <ConfirmCancelSessionModal
+        open={modalOpen}
+        setIsOpen={setModalOpen}
+        selectedSession={selectedSession}
+      />
     </>
   );
 };
