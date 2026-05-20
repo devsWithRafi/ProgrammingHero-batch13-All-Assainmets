@@ -1,6 +1,5 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -11,6 +10,8 @@ import {
 import { Progress } from '@/components/ui/progress';
 import { IoIosCheckmarkCircle } from 'react-icons/io';
 import BookSessionForm from './BookSessionForm';
+import { PiWarningCircle } from 'react-icons/pi';
+import { format } from 'date-fns';
 
 const supports = [
   '1-on-1 Personalized Session',
@@ -20,7 +21,7 @@ const supports = [
 
 const TutorDetailsRight = ({ tutor }) => {
   return (
-    <Card className="lg:min-w-100 lg:max-w-100 md:min-w-80 md:max-w-80 w-full bg-primary sm:px-5 sm:py-8 px-3 py-5">
+    <Card className="lg:min-w-100 lg:max-w-100 md:min-w-80 md:max-w-80 w-full bg-primary sm:px-5 sm:py-8 px-3 py-5 z-1">
       <CardHeader>
         <CardDescription className={'font-medium text-xs'}>
           HOURLY RATE
@@ -58,6 +59,18 @@ const TutorDetailsRight = ({ tutor }) => {
             </CardDescription>
           ))}
         </div>
+
+        {tutor.sessionStartDate && (
+          <div className="w-full rounded-sm border border-orange-300/30 p-5 flex gap-2 bg-orange-300/10">
+            <PiWarningCircle className="text-orange-300 size-5" />
+            <CardDescription className={'flex flex-wrap gap-2'}>
+              Booking opens on
+              <span className="text-muted font-medium">
+                {format(new Date(tutor.sessionStartDate), 'dd/mm/yyyy')}
+              </span>
+            </CardDescription>
+          </div>
+        )}
 
         <BookSessionForm tutor={tutor} />
 

@@ -1,4 +1,3 @@
-import PageLoader from '@/components/PageLoader';
 import TutorDetails from './_components/TutorDetails';
 
 const TutorDetailsPage = async () => {
