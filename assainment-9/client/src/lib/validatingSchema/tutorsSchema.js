@@ -45,7 +45,5 @@ export const tutorSchema = z.object({
     )
     .min(1, 'Please select a teaching mode.'),
 
-  about: z
-    .string()
-    .max(1000, 'About must be at most 1000 characters'),
+  about: z.string().max(1000, 'About must be at most 1000 characters'),
 });

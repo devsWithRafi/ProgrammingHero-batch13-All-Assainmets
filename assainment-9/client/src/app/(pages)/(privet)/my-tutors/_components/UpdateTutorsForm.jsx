@@ -33,13 +33,13 @@ import { Calendar } from '@/components/ui/calendar';
 import { format } from 'date-fns';
 import { createNewTutor } from '@/services/createNewTutor';
 import { toast } from 'sonner';
-import { useTransition } from 'react';
+import { useEffect, useTransition } from 'react';
 import { jwtClientToken } from '@/lib/auth-client';
 import { fixedSampleData } from '@/lib/fixedSampleData';
 import { Textarea } from '@/components/ui/textarea';
 import { tutorSchema } from '@/lib/validatingSchema/tutorsSchema';
 
-const AddTutorForm = () => {
+const UpdateTutorsForm = ({ selectedTutor }) => {
   const form = useForm({
     resolver: zodResolver(tutorSchema),
     defaultValues: {
@@ -59,6 +59,15 @@ const AddTutorForm = () => {
     },
   });
 
+  useEffect(() => {
+    if (selectedTutor) {
+      form.reset({
+       ...selectedTutor,
+       sessionStartDate: new Date(selectedTutor.sessionStartDate),
+      });
+    }
+  }, [selectedTutor]);
+
   const [formPending, startFormPending] = useTransition();
 
   const onSubmit = async (data) => {
@@ -77,7 +86,7 @@ const AddTutorForm = () => {
   };
 
   return (
-    <Card className="w-full max-w-[700px] sm:p-4 sm:py-10 mt-10">
+    <Card className="w-full px-4 rounded-none">
       <CardContent
         className={cn(formPending && 'opacity-50 pointer-events-none')}
       >
@@ -215,7 +224,7 @@ const AddTutorForm = () => {
                       Subject
                     </FieldLabel>
 
-                    <Select onValueChange={field.onChange} value={field.value}>
+                    <Select key={field.value} onValueChange={field.onChange} value={field.value}>
                       <SelectTrigger
                         className={'rounded-sm min-h-10 font-poppins'}
                       >
@@ -428,7 +437,7 @@ const AddTutorForm = () => {
                     <FieldLabel htmlFor="form-rhf-demo-title">
                       Time slot
                     </FieldLabel>
-                    <Select onValueChange={field.onChange} value={field.value}>
+                    <Select key={field.value} onValueChange={field.onChange} value={field.value}>
                       <SelectTrigger
                         className={'rounded-sm min-h-10 font-poppins'}
                       >
@@ -543,4 +552,4 @@ const AddTutorForm = () => {
   );
 };
 
-export default AddTutorForm;
+export default UpdateTutorsForm;

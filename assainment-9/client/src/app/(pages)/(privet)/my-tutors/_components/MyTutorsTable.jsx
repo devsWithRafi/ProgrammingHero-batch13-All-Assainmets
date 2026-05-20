@@ -17,6 +17,7 @@ import { Button } from '@/components/ui/button';
 import EmptyMyTutorsState from './EmptyMyTutorsState';
 import { MdOutlineEdit } from 'react-icons/md';
 import { RiDeleteBin7Line } from 'react-icons/ri';
+import TutorTableAction from './TutorTableAction';
 
 const MyTutorsTable = () => {
   const { loading, myTutors } = useMyTutors();
@@ -111,24 +112,7 @@ const MyTutorsTable = () => {
 
                     {/* Action */}
                     <TableCell className="sm:px-5 text-right">
-                      <div className="flex gap-1 justify-end">
-                        <Button
-                          variant="outline"
-                          className={'rounded-full h-auto py-1.5 sm:px-4 px-1.5'}
-                        >
-                          <MdOutlineEdit />
-                          <span className='sm:inline hidden'>Update</span>
-                        </Button>
-                        <Button
-                          variant="destructive"
-                          className={
-                            'rounded-full h-auto py-1.5 sm:px-4 px-1.5 !bg-transparent border border-red-400'
-                          }
-                        >
-                          <RiDeleteBin7Line />
-                          <span className='sm:inline hidden'>Delete</span>
-                        </Button>
-                      </div>
+                      <TutorTableAction selectedTutor={tutor} />
                     </TableCell>
                   </TableRow>
                 ))}
