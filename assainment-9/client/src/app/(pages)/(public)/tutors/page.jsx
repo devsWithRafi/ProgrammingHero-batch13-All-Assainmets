@@ -4,6 +4,10 @@ import TutorsList from '../_components/TutorsList';
 import { Suspense } from 'react';
 import FilterHeader from './_components/FilterHeader';
 
+export const metadata = {
+  title: 'MediQueue | Tutors',
+};
+
 const TutorPage = async ({ searchParams }) => {
   const query = await searchParams;
   const tutors = await fetchTutorsData({ query });

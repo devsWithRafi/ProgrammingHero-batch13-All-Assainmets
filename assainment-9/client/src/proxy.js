@@ -7,7 +7,9 @@ export async function proxy(request) {
   const { pathname } = request.nextUrl;
   const token = request.cookies.get('better-auth.session_token');
 
-  const isProtected = PROTECTED_ROUTES.some(route => pathname.startsWith(route));
+  const isTutorDetail = pathname.match(/^\/tutors\/.+/);
+
+  const isProtected = isTutorDetail || PROTECTED_ROUTES.some(route => pathname.startsWith(route));
   const isAuthRoute = AUTH_ROUTES.some(route => pathname.startsWith(route));
 
   // Not logged in, trying to access protected page → redirect to sign-in
