@@ -24,7 +24,7 @@ export async function getAllTutors(req, res) {
 
     const tutors = await Tutor.find(options).limit(limit);
 
-    return res.status(201).json({
+    return res.status(200).json({
       success: true,
       data: tutors,
     });

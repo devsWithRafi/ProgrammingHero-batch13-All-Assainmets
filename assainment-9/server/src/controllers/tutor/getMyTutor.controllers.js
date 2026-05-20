@@ -3,13 +3,12 @@ import { connectDB } from '../../config/db.js';
 import { validateTutorData } from '../../helpers/validateBodyData/validateTutorData.js';
 import { Tutor } from '../../models/tutor.model.js';
 
-export async function getOneTutor(req, res) {
-  const { id } = req.params;
-
+export async function getMyTutor(req, res) {
   try {
+    const user = req.user;
     await connectDB();
 
-    const tutor = await Tutor.findById(id);
+    const tutor = await Tutor.find({ createdBy: user.id });
 
     if (!tutor) {
       return res
