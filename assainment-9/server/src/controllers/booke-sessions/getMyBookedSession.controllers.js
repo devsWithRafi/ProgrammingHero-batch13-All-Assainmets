@@ -1,7 +1,7 @@
 import { connectDB } from '../../config/db.js';
 import { MySession } from '../../models/mySession.model.js';
 
-export async function getMyBookSession(req, res) {
+export async function getMyBookedSession(req, res) {
   try {
     await connectDB();
 

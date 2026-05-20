@@ -25,7 +25,7 @@ app.all('/api/auth/{*any}', toNodeHandler(auth));
 
 // server routes / end points
 app.use('/api/tutor', tutorRouter);
-app.use('/api/my-book-session', myBookSessionRouter);
+app.use('/api/booking', myBookSessionRouter);
 
 // test
 app.get('/', (req, res) => {
