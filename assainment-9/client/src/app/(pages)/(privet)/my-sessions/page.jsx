@@ -1,9 +1,11 @@
-import React from 'react'
+import BookSessionTable from './_components/BookSessionTable';
 
 const MySessionPage = () => {
   return (
-    <div>MySessionPage</div>
-  )
-}
+    <section className="w-full max-w-[1500px] mx-auto px-3 py-5">
+      <BookSessionTable />
+    </section>
+  );
+};
 
-export default MySessionPage
+export default MySessionPage;

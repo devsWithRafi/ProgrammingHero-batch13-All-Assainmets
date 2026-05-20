@@ -26,7 +26,7 @@ const TutorCard = ({ tutor }) => {
         <span className="bg-white z-1 font-poppins text-black px-2.5 py-0.5 rounded-full text-sm absolute top-2 left-2">
           Available
         </span>
-        <div className="w-full h-full overflow-hidden">
+        <div className="w-full h-full aspect-[2/1.3] overflow-hidden">
           <Image
             src={tutor.photo}
             alt={tutor.name}

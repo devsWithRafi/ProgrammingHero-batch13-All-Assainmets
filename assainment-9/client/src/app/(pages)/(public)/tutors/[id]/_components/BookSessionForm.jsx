@@ -37,6 +37,7 @@ const BookSessionForm = ({ tutor }) => {
     const loadData = () => {
       setBookSessionForm((prev) => ({
         ...prev,
+        name: user?.name || '',
         tutorName: tutor?.name || '',
         tutorId: tutor?._id || '',
         email: user?.email || '',
@@ -96,10 +97,11 @@ const BookSessionForm = ({ tutor }) => {
         </span>
       )}
 
-      <DialogContent className={"sm:max-w-130 font-poppins p-7"}>
-        <form onSubmit={onSubmit} className={cn(
-          formPending && 'opacity-50 pointer-events-none'
-        )}>
+      <DialogContent className={'sm:max-w-130 font-poppins p-7'}>
+        <form
+          onSubmit={onSubmit}
+          className={cn(formPending && 'opacity-50 pointer-events-none')}
+        >
           <DialogHeader className={'flex flex-col items-center gap-2'}>
             <DialogTitle className={'text-center font-bold font-ring text-3xl'}>
               Book Session
