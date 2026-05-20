@@ -15,4 +15,5 @@ export const validateTutorData = z.object({
   experience: z.number().min(0),
   location: z.string().min(2).max(50),
   teachingMode: z.enum(['Online', 'Offline', 'Both']),
+  about: z.string().max(1000),
 });

@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import { ENV } from './lib/ENV.js';
 import tutorRouter from './routes/tutor.routes.js';
 import { authMiddlewere } from './middlewere/authMiddlewere.js';
+import myBookSessionRouter from './routes/myBookSession.routes.js';
 dotenv.config();
 
 const port = process.env.PORT || 7000;
@@ -24,15 +25,13 @@ app.all('/api/auth/{*any}', toNodeHandler(auth));
 
 // server routes / end points
 app.use('/api/tutor', tutorRouter);
+app.use('/api/my-book-session', myBookSessionRouter);
 
 // test
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'Server is running' });
 });
 
-app.get('/test', authMiddlewere, (req, res) => {
-  res.status(200).json({ message: 'Server is booming' });
-});
 
 app.listen(port, () => {
   console.log(`Server is running on PORT: ${port}`);

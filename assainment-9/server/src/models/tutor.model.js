@@ -14,6 +14,7 @@ const tutorSchema = new mongoose.Schema(
     experience: { type: Number, required: true },
     location: { type: String, required: true },
     teachingMode: { type: String, required: true },
+    about: { type: String, required: false },
 
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
