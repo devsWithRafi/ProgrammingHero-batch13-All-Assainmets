@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/auth/:path*",
-      "destination": "https://mediqueue-a9-server.vercel.app/api/auth/:path*"
-    }
-  ]
-}

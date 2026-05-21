@@ -1,47 +1,36 @@
 import { NextResponse } from 'next/server';
+import { headers } from 'next/headers';
+import { auth } from '@/lib/auth';
 
-const PROTECTED_ROUTES = [
-  '/profile',
-  '/add-tutor',
-  '/my-tutors',
-  '/my-sessions',
-];
-const AUTH_ROUTES = ['/sign-in', '/sign-up'];
+const AuthRouts = ['/sign-in', '/sign-up'];
 
 export async function proxy(request) {
   const { pathname } = request.nextUrl;
-  const token = request.cookies.get('better-auth.session_token');
 
-  const isTutorDetail = pathname.match(/^\/tutors\/.+/);
+  if (pathname === '/tutors') return NextResponse.next();
 
-  const isProtected =
-    isTutorDetail ||
-    PROTECTED_ROUTES.some((route) => pathname.startsWith(route));
-  const isAuthRoute = AUTH_ROUTES.some((route) => pathname.startsWith(route));
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
 
-  // Not logged in, trying to access protected page → redirect to sign-in
-  if (!token && isProtected) {
+  const isAuthRoutes = AuthRouts.some((route) => pathname.startsWith(route));
+
+  if (isAuthRoutes) {
+    if (session) {
+      return NextResponse.redirect(new URL('/', request.url));
+    }
+    return NextResponse.next();
+  }
+
+  if (!session) {
     const loginUrl = new URL('/sign-in', request.url);
     loginUrl.searchParams.set('redirect', pathname);
     return NextResponse.redirect(loginUrl);
-  }
-
-  // Already logged in, trying to access auth pages → redirect home
-  if (token && isAuthRoute) {
-    return NextResponse.redirect(new URL('/', request.url));
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    '/profile',
-    '/add-tutor',
-    '/my-tutors',
-    '/my-sessions',
-    '/sign-in',
-    '/sign-up',
-    '/tutors/:path*',
-  ],
+  matcher: ['/add-tutor', '/tutors/:path*', '/my-tutors', '/my-sessions'],
 };

@@ -1,6 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import EmptyBookSessionState from './EmptyBookSessionState';
+import PageLoader from '@/components/PageLoader';
+import { toast } from 'sonner';
+import { useMyBookSession } from '@/context/session-context/BookSessionContextProvider';
+import DataLoader from '@/components/DataLoader';
 import {
   Table,
   TableBody,
@@ -12,13 +17,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { GoDotFill } from 'react-icons/go';
-import EmptyBookSessionState from './EmptyBookSessionState';
 import SectionTitle from '@/components/SectionTitle';
-import PageLoader from '@/components/PageLoader';
 import ConfirmCancelSessionModal from './ConfirmCancelSessionModal';
-import { toast } from 'sonner';
-import { useMyBookSession } from '@/context/session-context/BookSessionContextProvider';
-import DataLoader from '@/components/DataLoader';
 
 const BookSessionTable = () => {
   const { loading, myBookSession } = useMyBookSession();

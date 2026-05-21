@@ -7,7 +7,7 @@ export const cancelBookedSession = async ({ id, token }) => {
   try {
     if (token) {
       const res = await fetch(
-        `${env.NEXT_PUBLIC_BETTER_AUTH_URL}/api/booking/cancel-session/${id}`,
+        `${env.NEXT_PUBLIC_SERVER_URL}/api/booking/cancel-session/${id}`,
         {
           method: 'PATCH',
           headers: {

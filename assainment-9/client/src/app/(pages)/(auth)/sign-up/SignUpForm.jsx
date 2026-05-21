@@ -74,7 +74,7 @@ const SignUpForm = () => {
     startLoginWithGooglePending(async () => {
       await signIn.social({
         provider: 'google',
-        callbackURL: `${window.location.origin}${redirectRoute || '/'}`,
+        callbackURL: redirectRoute || '/',
         fetchOptions: {
           onSuccess: () => {
             toast.success('Signed in successfully!', {

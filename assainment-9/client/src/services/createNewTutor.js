@@ -7,7 +7,7 @@ export const createNewTutor = async (data, token) => {
   try {
     if (token) {
       const res = await fetch(
-        `${env.NEXT_PUBLIC_BETTER_AUTH_URL}/api/tutor/create`,
+        `${env.NEXT_PUBLIC_SERVER_URL}/api/tutor/create`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

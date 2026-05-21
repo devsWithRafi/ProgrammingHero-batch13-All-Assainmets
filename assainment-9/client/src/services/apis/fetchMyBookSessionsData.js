@@ -3,7 +3,7 @@ import { env } from '@/lib/env';
 export const fetchMyBookSessionsData = async ({ token }) => {
   try {
     const res = await fetch(
-      `${env.NEXT_PUBLIC_BETTER_AUTH_URL}/api/booking/book-sessions`,
+      `${env.NEXT_PUBLIC_SERVER_URL}/api/booking/book-sessions`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -14,7 +14,7 @@ export const fetchMyBookSessionsData = async ({ token }) => {
     );
     const data = await res.json();
     if (data.success) {
-      return data.data ?? {};
+      return data.data ?? [];
     } else return data;
   } catch (error) {
     console.log(error);

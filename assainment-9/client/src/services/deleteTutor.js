@@ -7,7 +7,7 @@ export const deleteTutor = async ({ token, tutorId }) => {
   try {
     if (token) {
       const res = await fetch(
-        `${env.NEXT_PUBLIC_BETTER_AUTH_URL}/api/tutor/delete-tutor/${tutorId}`,
+        `${env.NEXT_PUBLIC_SERVER_URL}/api/tutor/delete-tutor/${tutorId}`,
         {
           method: 'DELETE',
           headers: {

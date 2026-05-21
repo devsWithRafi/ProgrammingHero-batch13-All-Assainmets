@@ -1,6 +1,6 @@
 import { env } from '@/lib/env';
 
-const serverUrl = env.NEXT_PUBLIC_BETTER_AUTH_URL;
+const serverUrl = env.NEXT_PUBLIC_SERVER_URL;
 
 export const fetchMyTutors = async ({ token }) => {
   try {
