@@ -10,6 +10,11 @@ export const fixedSampleData = {
     'Biology',
     'Chemistry',
     'Physics',
+    'Computer Science',
+    'Economics',
+    'Bangla',
+    'Arabic',
+    'Fasion Design',
   ],
   timeSlots: [
     'Morning (6:00AM - 12:00PM)',
