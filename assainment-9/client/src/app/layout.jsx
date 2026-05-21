@@ -57,7 +57,7 @@ export default function RootLayout({ children }) {
         >
           <BookSessionContextProvider>
             <MyTutorsContextProvider>
-              {children}
+              <main className="min-h-screen">{children}</main>
               <Footer />
             </MyTutorsContextProvider>
           </BookSessionContextProvider>
