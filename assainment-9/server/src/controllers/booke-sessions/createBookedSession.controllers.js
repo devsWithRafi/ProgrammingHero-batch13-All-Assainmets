@@ -1,11 +1,9 @@
-import { connectDB } from '../../config/db.js';
 import { Tutor } from '../../models/tutor.model.js';
 import { validateMySessionData } from '../../helpers/validateBodyData/validateMySessionData.js';
 import { MySession } from '../../models/mySession.model.js';
 
 export async function createBookedSession(req, res) {
   try {
-    await connectDB();
     const data = req.body;
     const validateMySession = validateMySessionData.parse(data);
 

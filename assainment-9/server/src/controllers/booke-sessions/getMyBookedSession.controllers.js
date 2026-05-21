@@ -1,10 +1,7 @@
-import { connectDB } from '../../config/db.js';
 import { MySession } from '../../models/mySession.model.js';
 
 export async function getMyBookedSession(req, res) {
   try {
-    await connectDB();
-
     const currentUser = req.user;
 
     const myBookSession = await MySession.find({

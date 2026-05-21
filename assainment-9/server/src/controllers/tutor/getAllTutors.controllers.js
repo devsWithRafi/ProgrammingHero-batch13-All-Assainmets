@@ -1,5 +1,4 @@
 import { success } from 'zod';
-import { connectDB } from '../../config/db.js';
 import { validateTutorData } from '../../helpers/validateBodyData/validateTutorData.js';
 import { Tutor } from '../../models/tutor.model.js';
 
@@ -8,7 +7,6 @@ export async function getAllTutors(req, res) {
 
   try {
     const options = {};
-    await connectDB();
 
     const limit = Number(show) || 0;
 

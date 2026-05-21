@@ -1,4 +1,3 @@
-import { connectDB } from '../../config/db.js';
 import { validateTutorData } from '../../helpers/validateBodyData/validateTutorData.js';
 import { Tutor } from '../../models/tutor.model.js';
 
@@ -9,8 +8,6 @@ export async function updateTutorData(req, res) {
     const data = req.body;
 
     const validatedDate = validateTutorData.parse(data);
-
-    await connectDB();
 
     const tutor = await Tutor.findOneAndUpdate(
       {

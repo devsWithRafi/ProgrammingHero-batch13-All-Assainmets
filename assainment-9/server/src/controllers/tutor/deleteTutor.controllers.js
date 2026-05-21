@@ -1,4 +1,3 @@
-import { connectDB } from '../../config/db.js';
 import { validateTutorData } from '../../helpers/validateBodyData/validateTutorData.js';
 import { Tutor } from '../../models/tutor.model.js';
 
@@ -13,8 +12,6 @@ export async function deleteTutor(req, res) {
         message: 'Tutor ID is required',
       });
     }
-
-    await connectDB();
 
     const tutor = await Tutor.findOneAndDelete({
       _id: id,

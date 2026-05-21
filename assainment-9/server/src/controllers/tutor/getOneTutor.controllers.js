@@ -1,5 +1,4 @@
 import { success } from 'zod';
-import { connectDB } from '../../config/db.js';
 import { validateTutorData } from '../../helpers/validateBodyData/validateTutorData.js';
 import { Tutor } from '../../models/tutor.model.js';
 
@@ -7,8 +6,6 @@ export async function getOneTutor(req, res) {
   const { id } = req.params;
 
   try {
-    await connectDB();
-
     const tutor = await Tutor.findById(id);
 
     if (!tutor) {

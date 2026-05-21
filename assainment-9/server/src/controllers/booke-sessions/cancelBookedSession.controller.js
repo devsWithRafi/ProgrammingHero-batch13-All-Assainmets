@@ -1,4 +1,3 @@
-import { connectDB } from '../../config/db.js';
 import { MySession } from '../../models/mySession.model.js';
 import { Tutor } from '../../models/tutor.model.js';
 
@@ -14,8 +13,6 @@ export async function cancelBookedSession(req, res) {
         message: 'Invalid action',
       });
     }
-
-    await connectDB();
 
     //  Update my book session status
     const session = await MySession.findOneAndUpdate(
