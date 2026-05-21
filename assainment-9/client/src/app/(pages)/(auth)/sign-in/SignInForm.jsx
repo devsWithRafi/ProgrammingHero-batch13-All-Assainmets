@@ -202,9 +202,11 @@ const SignInForm = () => {
         </Button>
 
         <div className="text-sm text-center mt-5 text-muted-foreground">
-          Already have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link
-            href={`/sign-up?redirect=${redirectRoute || '/sign-in'}`}
+            href={
+              redirectRoute ? `/sign-up?redirect=${redirectRoute}` : '/sign-up'
+            }
             className="text-primary hover:underline"
           >
             Sign Up

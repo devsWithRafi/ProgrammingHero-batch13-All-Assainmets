@@ -52,13 +52,13 @@ const SignUpForm = () => {
         name: data.name,
         email: data.email,
         password: data.password,
-        callbackURL: '/sign-in',
+        callbackURL: redirectRoute ? `/sign-in?redirect=${redirectRoute}` : '/sign-in',
         fetchOptions: {
           onSuccess: () => {
             toast.success('Signed up successfully!', {
               position: 'top-center',
             });
-            router.push('/sign-in');
+            router.push(redirectRoute ? `/sign-in?redirect=${redirectRoute}` : '/sign-in');
           },
           onError: (ctx) => {
             toast.error(ctx.error.message ?? 'Sign Up Failed!', {
@@ -265,7 +265,7 @@ const SignUpForm = () => {
         <div className="text-sm text-center mt-5 text-muted-foreground">
           Already have an account?{' '}
           <Link
-            href={`/sign-in?redirect=${redirectRoute || '/'}`}
+            href={redirectRoute ? `/sign-in?redirect=${redirectRoute}` : '/sign-in'}
             className="text-primary hover:underline"
           >
             Login
