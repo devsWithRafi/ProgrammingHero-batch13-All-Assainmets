@@ -38,6 +38,7 @@ import { jwtClientToken } from '@/lib/auth-client';
 import { fixedSampleData } from '@/lib/fixedSampleData';
 import { Textarea } from '@/components/ui/textarea';
 import { tutorSchema } from '@/lib/validatingSchema/tutorsSchema';
+import { useMyTutors } from '@/context/my-tutors/MyTutorsContextProvider';
 
 const AddTutorForm = () => {
   const form = useForm({
@@ -60,6 +61,7 @@ const AddTutorForm = () => {
   });
 
   const [formPending, startFormPending] = useTransition();
+  const { loadMyTutors } = useMyTutors();
 
   const onSubmit = async (data) => {
     const getToken = await jwtClientToken();
@@ -69,6 +71,7 @@ const AddTutorForm = () => {
       const result = await createNewTutor(data, getToken.token);
       if (result.success) {
         toast.success(result.message, { position: 'top-center' });
+        loadMyTutors();
         form.reset();
         return;
       }
