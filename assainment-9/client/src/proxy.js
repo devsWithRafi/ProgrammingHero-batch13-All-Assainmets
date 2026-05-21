@@ -1,16 +1,25 @@
 import { NextResponse } from 'next/server';
 
-const PROTECTED_ROUTES = ['/profile', '/add-tutor', '/my-tutors', '/my-sessions'];
+const PROTECTED_ROUTES = [
+  '/profile',
+  '/add-tutor',
+  '/my-tutors',
+  '/my-sessions',
+];
 const AUTH_ROUTES = ['/sign-in', '/sign-up'];
 
 export async function proxy(request) {
   const { pathname } = request.nextUrl;
-  const token = request.cookies.get('better-auth.session_token');
+  const token =
+    request.cookies.get('__Secure-better-auth.session_token') ||
+    request.cookies.get('better-auth.session_token');
 
   const isTutorDetail = pathname.match(/^\/tutors\/.+/);
 
-  const isProtected = isTutorDetail || PROTECTED_ROUTES.some(route => pathname.startsWith(route));
-  const isAuthRoute = AUTH_ROUTES.some(route => pathname.startsWith(route));
+  const isProtected =
+    isTutorDetail ||
+    PROTECTED_ROUTES.some((route) => pathname.startsWith(route));
+  const isAuthRoute = AUTH_ROUTES.some((route) => pathname.startsWith(route));
 
   // Not logged in, trying to access protected page → redirect to sign-in
   if (!token && isProtected) {
