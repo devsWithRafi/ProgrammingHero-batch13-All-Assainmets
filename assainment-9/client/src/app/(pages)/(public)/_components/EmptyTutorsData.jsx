@@ -3,7 +3,7 @@ import { FaUserGraduate } from 'react-icons/fa';
 
 const EmptyTutorsData = ({ emptyMessage }) => {
   return (
-    <div className="flex flex-col items-center justify-center rounded-xl border border-dashed bg-muted/10 px-6 py-12 text-center mt-10">
+    <div className="flex flex-col items-center justify-center rounded-xl border border-dashed bg-muted/10 px-6 h-80 text-center mt-10">
       <span className="p-5 bg-muted rounded-full text-muted-foreground shadow-sm">
         <FaUserGraduate size={30} />
       </span>

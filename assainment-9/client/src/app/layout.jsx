@@ -1,11 +1,11 @@
 import { Poppins, Lora, Viga, Righteous, Abel } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
-import Navber from '@/components/navber/Navber';
 import { Toaster } from '@/components/ui/sonner';
 import BookSessionContextProvider from '@/context/session-context/BookSessionContextProvider';
 import MyTutorsContextProvider from '@/context/my-tutors/MyTutorsContextProvider';
 import Footer from '@/components/footer/Footer';
+import SmoothScrollProvider from '@/components/SmoothScroll';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -57,8 +57,12 @@ export default function RootLayout({ children }) {
         >
           <BookSessionContextProvider>
             <MyTutorsContextProvider>
-              <main className="min-h-screen">{children}</main>
-              <Footer />
+              <SmoothScrollProvider>
+                <main className="min-h-screen">
+                  {children}
+                  <Footer />
+                </main>
+              </SmoothScrollProvider>
             </MyTutorsContextProvider>
           </BookSessionContextProvider>
           <Toaster />

@@ -9,7 +9,7 @@ export const signUpFormSchema = z.object({
   email: z.email({ message: 'Invalid email address.' }),
   password: z
     .string({ message: 'Password must not be empty.' })
-    .min(8, 'Password must be at least 8 characters.')
+    .min(6, 'Password must be at least 6 characters.')
     .max(50, 'Password must be at most 50 characters.')
     .regex(/[A-Z]/, 'Must contain at least one uppercase letter.')
     .regex(/[a-z]/, 'Must contain at least one lowercase letter.')

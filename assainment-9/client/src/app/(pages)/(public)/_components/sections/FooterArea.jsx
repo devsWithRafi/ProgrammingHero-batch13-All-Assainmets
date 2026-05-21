@@ -1,3 +1,5 @@
+'use client';
+
 import { assets } from '@/assets/assets';
 import { buttonVariants } from '@/components/ui/button';
 import { fixedSampleData } from '@/lib/fixedSampleData';
@@ -6,10 +8,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { IoMdArrowForward } from 'react-icons/io';
+import { motion } from 'motion/react';
 
 const FooterArea = () => {
   return (
-    <section className="max-w-[1500px] mx-auto w-full p-3 flex flex-col items-center justify-center pb-10">
+    <motion.section
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.8,
+        delay: 0.2,
+        ease: 'easeOut',
+      }}
+      className="max-w-[1500px] mx-auto w-full p-3 flex flex-col items-center justify-center pb-10"
+    >
       <div className="bg-black sm:px-10 border px-5 sm:py-10 py-5 lg:h-100 md:h-80 h-auto w-full rounded-2xl flex sm:flex-row sm:gap-0 gap-5 flex-col sm:items-center justify-between relative overflow-hidden">
         <div className="flex items-start flex-col gap-5 sm:w-1/2">
           <h2 className="font-medium font-ring sm:text-3xl text-xl text-white">
@@ -54,7 +67,7 @@ const FooterArea = () => {
           className="sm:w-1/2 w-full h-full object-cover absolute right-0 select-none pointer-events-none"
         />
       </div>
-    </section>
+    </motion.section>
   );
 };
 

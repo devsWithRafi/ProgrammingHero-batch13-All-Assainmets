@@ -9,7 +9,9 @@ const TutorsList = async ({ ifNoDataMessage, query }) => {
   return tutorsData.length > 0 ? (
     <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 mt-10">
       {Array.isArray(tutorsData) &&
-        tutorsData.map((tutor) => <TutorCard key={tutor._id} tutor={tutor} />)}
+        tutorsData.map((tutor, index) => (
+          <TutorCard key={tutor._id} index={index} tutor={tutor} />
+        ))}
     </div>
   ) : (
     <EmptyTutorsData emptyMessage={ifNoDataMessage} />

@@ -1,6 +1,10 @@
+'use client';
+
 import { FiSearch } from 'react-icons/fi';
 import { LuCalendarClock } from 'react-icons/lu';
 import { RiFlashlightLine } from 'react-icons/ri';
+import BookASessionCard from '../BookASessionCard';
+import { motion } from 'motion/react';
 
 const dummyData = [
   {
@@ -24,32 +28,36 @@ const BooksASession = () => {
   return (
     <section className="px-3 sm:py-30 py-20 w-full bg-muted">
       <div className="w-full max-w-[1500px] mx-auto">
-        <h2 className="font-semibold font-ring sm:text-4xl text-2xl text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.5,
+            delay: 0.2,
+            ease: 'easeOut',
+          }}
+          className="font-semibold font-ring sm:text-4xl text-2xl text-center"
+        >
           Book a session in 3 easy steps
-        </h2>
-        <p className="text-muted-foreground text-sm text-center mt-2">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.5,
+            delay: 0.5,
+            ease: 'easeOut',
+          }}
+          className="text-muted-foreground text-sm text-center mt-2"
+        >
           Three simple steps to connect with a mentor who understands your
           goals.
-        </p>
+        </motion.p>
         <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 mt-15">
           {dummyData.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col gap-3 items-center bg-card border rounded-xl p-10"
-            >
-              <span className="text-muted-foreground rounded-full aspect-square w-15 flex items-center justify-center bg-muted relative">
-                <item.icon size={35} />
-                <span className="bg-primary text-primary-foreground aspect-square w-7 h-7 font-medium flex items-center justify-center rounded-full absolute -top-2 -right-2">
-                  {index + 1}
-                </span>
-              </span>
-              <h2 className="font-semibold text-xl text-center">
-                {item.title}
-              </h2>
-              <p className="text-muted-foreground text-sm text-center">
-                {item.description}
-              </p>
-            </div>
+            <BookASessionCard item={item} key={index} index={index} />
           ))}
         </div>
       </div>

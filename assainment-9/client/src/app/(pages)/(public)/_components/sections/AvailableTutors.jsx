@@ -28,7 +28,7 @@ const AvailableTutors = () => {
   }, []);
 
   return (
-    <section className="py-15 w-full max-w-[1500px] mx-auto px-3 min-h-screen">
+    <section className="py-15 w-full max-w-[1500px] mx-auto px-3 min-h-[500px]">
       <SectionTitle
         title="Learn From The Best"
         description="Top-rated tutors available right now in Dhaka"
@@ -48,7 +48,9 @@ const AvailableTutors = () => {
       ) : tutors.length > 0 ? (
         <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 mt-10">
           {Array.isArray(tutors) &&
-            tutors.map((tutor) => <TutorCard key={tutor._id} tutor={tutor} />)}
+            tutors.map((tutor, index) => (
+              <TutorCard key={tutor._id} tutor={tutor} index={index} />
+            ))}
         </div>
       ) : (
         <EmptyTutorsData emptyMessage={noDataMessage} />
