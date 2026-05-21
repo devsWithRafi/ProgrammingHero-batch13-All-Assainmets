@@ -10,9 +10,7 @@ const AUTH_ROUTES = ['/sign-in', '/sign-up'];
 
 export async function proxy(request) {
   const { pathname } = request.nextUrl;
-  const token =
-    request.cookies.get('better-auth.session_token') ||
-    request.cookies.get('__Secure-better-auth.session_token');
+  const token = request.cookies.get('better-auth.session_token');
 
   const isTutorDetail = pathname.match(/^\/tutors\/.+/);
 
