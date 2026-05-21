@@ -55,7 +55,7 @@ const Hero = () => {
   const swiperRef = useRef(null);
 
   return (
-    <section className="w-full lg:h-[calc(100vh-60px)] flex flex-col">
+    <section className="w-full xl:h-[calc(100vh-60px)] h-auto flex flex-col">
       <Swiper
         spaceBetween={0}
         slidesPerView={1}

@@ -89,7 +89,7 @@ const SignInForm = () => {
   };
 
   return (
-    <Card className="w-full p-5 py-10 font-poppins shadow-sm">
+    <Card className="w-full sm:max-w-[500px] p-5 py-10 font-poppins shadow-sm">
       <CardHeader className={'flex flex-col items-center justify-center'}>
         <CardTitle className={'font-bold text-3xl'}>Login</CardTitle>
         <CardDescription>

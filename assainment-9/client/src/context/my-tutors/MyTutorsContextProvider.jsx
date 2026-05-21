@@ -13,7 +13,6 @@ const MyTutorsContextProvider = ({ children }) => {
     try {
       setLoading(true);
       const getToken = await jwtClientToken();
-      console.log(getToken);
       if (getToken.success) {
         const result = await fetchMyTutors({ token: getToken.token });
         setMyTutors(result);
