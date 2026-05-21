@@ -16,6 +16,7 @@ const TutorUpdateModal = ({ open, setIsOpen, selectedTutor }) => {
       className={'p-0 w-full max-w-[700px]'}
     >
       <DialogContent
+        // data-lenis-prevent
         className={'sm:max-w-200 font-poppins p-0 max-h-[80vh] overflow-y-auto'}
       >
         <DialogHeader className="p-6 pb-0 flex flex-row items-center">

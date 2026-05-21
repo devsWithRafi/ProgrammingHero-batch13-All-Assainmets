@@ -6,7 +6,6 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
@@ -53,9 +52,16 @@ const NavAvatar = ({ user }) => {
           </div>
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="font-poppins">
+      <DropdownMenuContent align="end" className="font-poppins w-50">
         <DropdownMenuGroup>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuItem className="font-semibold text-sm flex flex-col items-start gap-0 select-none pointer-events-none">
+            <span className='w-[95%] text-ellipsis whitespace-nowrap overflow-hidden'>{user.name}</span>
+            <span className="text-xs  font-normal text-muted-foreground w-[95%] text-ellipsis whitespace-nowrap overflow-hidden">
+              {user.email}
+            </span>
+          </DropdownMenuItem>
+
+          <DropdownMenuSeparator />
           <DropdownMenuItem>
             <CgProfile /> Profile
           </DropdownMenuItem>
