@@ -6,7 +6,7 @@ export const metadata = {
 
 const MySessionPage = () => {
   return (
-    <section className="w-full max-w-[1500px] mx-auto px-3 py-5">
+    <section className="w-full max-w-[1500px] mx-auto px-3 py-7 min-h-screen mt-15">
       <BookSessionTable />
     </section>
   );

@@ -18,6 +18,7 @@ import PageLoader from '@/components/PageLoader';
 import ConfirmCancelSessionModal from './ConfirmCancelSessionModal';
 import { toast } from 'sonner';
 import { useMyBookSession } from '@/context/session-context/BookSessionContextProvider';
+import DataLoader from '@/components/DataLoader';
 
 const BookSessionTable = () => {
   const { loading, myBookSession } = useMyBookSession();
@@ -44,11 +45,10 @@ const BookSessionTable = () => {
   const totalActiveSessions =
     (Array.isArray(myBookSession) &&
       myBookSession.filter((item) => item.status.toLowerCase() === 'confirmed')
-        .length) || 0;
+        .length) ||
+    0;
 
-  return loading ? (
-    <PageLoader className={'w-full h-[calc(100vh-100px)]'} />
-  ) : (
+  return (
     <>
       <div>
         <span className="flex flex-wrap items-center gap-5">
@@ -61,7 +61,9 @@ const BookSessionTable = () => {
           Manage and track all the sessions you’ve booked with tutors
         </p>
       </div>
-      {Array.isArray(myBookSession) && myBookSession.length > 0 ? (
+      {loading ? (
+        <DataLoader className={'mt-10'} />
+      ) : Array.isArray(myBookSession) && myBookSession.length > 0 ? (
         <div className="mt-10 border rounded-lg overflow-x-auto">
           <Table className={''}>
             <TableHeader className={'bg-muted sm:h-12'}>

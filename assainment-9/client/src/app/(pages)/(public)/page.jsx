@@ -4,7 +4,7 @@ import Hero from './_components/sections/Hero';
 
 export default function HomePage() {
   return (
-    <section>
+    <section className="mt-15">
       <Hero />
       <AvailableTutors />
       <FooterArea />

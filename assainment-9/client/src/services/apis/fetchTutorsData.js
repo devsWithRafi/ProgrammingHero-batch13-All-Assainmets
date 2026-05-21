@@ -15,6 +15,9 @@ export const fetchTutorsData = async ({ query = {} } = {}) => {
     );
     if (!res.ok) throw new Error('Failed to fetch tutors');
     const { data } = await res.json();
+
+    // await new Promise((resolve) => setTimeout(resolve, 5000));
+
     return data ?? [];
   } catch (error) {
     console.log(error);

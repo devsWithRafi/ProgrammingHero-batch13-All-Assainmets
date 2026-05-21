@@ -6,7 +6,7 @@ export const metadata = {
 
 const MyTutorsPage = () => {
   return (
-    <section className="w-full p-3 max-w-[1500px] mx-auto">
+    <section className="w-full px-3 py-7 max-w-[1500px] mx-auto min-h-screen mt-15">
       <MyTutorsTable />
     </section>
   );

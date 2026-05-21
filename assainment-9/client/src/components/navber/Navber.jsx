@@ -9,16 +9,20 @@ import { cn } from '@/lib/utils';
 import { buttonVariants } from '../ui/button';
 import { BiMenu } from 'react-icons/bi';
 import { useSession } from '@/lib/auth-client';
-import Image from 'next/image';
 import NavAvatar from './NavAvatar';
+import { useState } from 'react';
+import { RxCross2 } from 'react-icons/rx';
+import NavMobile from './NavMobile';
 
 const Navber = () => {
   const pathname = usePathname();
   const { data } = useSession();
   const user = data?.user;
 
+  const [navMobileOpen, setNavMobileOpen] = useState(false);
+
   return (
-    <header className="w-full bg-white/70 dark:bg-black/70 backdrop-blur-[40px] sticky top-0 z-50 flex flex-col items-center justify-center border-b">
+    <header className="w-full bg-white/90 dark:bg-black/70 backdrop-blur-[40px] fixed top-0 z-50 flex flex-col items-center justify-center border-b">
       <nav className="w-full max-w-[1500px] mx-auto h-[65px] px-3.5 flex items-center gap-5 justify-between">
         <Link href={'/'}>
           <Logo />
@@ -67,11 +71,17 @@ const Navber = () => {
           ) : (
             <NavAvatar user={user} />
           )}
-          <button className="md:hidden">
-            <BiMenu size={30} />
+          <button
+            onClick={() => setNavMobileOpen((prev) => !prev)}
+            className="md:hidden"
+          >
+            {navMobileOpen ? <RxCross2 size={30} /> : <BiMenu size={30} />}
           </button>
         </div>
       </nav>
+
+      {/* nav mobile */}
+      <NavMobile isOpen={navMobileOpen} user={user} />
     </header>
   );
 };

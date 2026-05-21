@@ -5,6 +5,7 @@ import Navber from '@/components/navber/Navber';
 import { Toaster } from '@/components/ui/sonner';
 import BookSessionContextProvider from '@/context/session-context/BookSessionContextProvider';
 import MyTutorsContextProvider from '@/context/my-tutors/MyTutorsContextProvider';
+import Footer from '@/components/footer/Footer';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -47,7 +48,7 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${poppins.variable} ${lora.variable} ${righteous.variable} ${viga.variable} ${abel.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col font-poppins">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -55,7 +56,10 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <BookSessionContextProvider>
-            <MyTutorsContextProvider>{children}</MyTutorsContextProvider>
+            <MyTutorsContextProvider>
+              {children}
+              <Footer />
+            </MyTutorsContextProvider>
           </BookSessionContextProvider>
           <Toaster />
         </ThemeProvider>

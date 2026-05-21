@@ -6,7 +6,7 @@ export const metadata = {
 
 const TutorDetailsPage = async () => {
   return (
-    <section className="w-full">
+    <section className="w-full mt-15">
       <TutorDetails />
     </section>
   );

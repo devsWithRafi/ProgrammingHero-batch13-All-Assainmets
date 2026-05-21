@@ -10,24 +10,27 @@ import {
 } from '@/components/ui/table';
 
 import SectionTitle from '@/components/SectionTitle';
-import PageLoader from '@/components/PageLoader';
 import { useMyTutors } from '@/context/my-tutors/MyTutorsContextProvider';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
 import EmptyMyTutorsState from './EmptyMyTutorsState';
-import { MdOutlineEdit } from 'react-icons/md';
-import { RiDeleteBin7Line } from 'react-icons/ri';
 import TutorTableAction from './TutorTableAction';
+import DataLoader from '@/components/DataLoader';
 
 const MyTutorsTable = () => {
   const { loading, myTutors } = useMyTutors();
 
-  return loading ? (
-    <PageLoader className={'w-full h-[calc(100vh-100px)]'} />
-  ) : (
+  return (
     <>
-      <SectionTitle title={'My Tutors'} />
-      {myTutors.length > 0 ? (
+      <SectionTitle
+        title={'My Tutors'}
+        description={
+          'Manage and organize all the tutors you’ve added and keep track of their information effortlessly.'
+        }
+      />
+
+      {loading ? (
+        <DataLoader className={'mt-10'} />
+      ) : myTutors.length > 0 ? (
         <div className="mt-10 border rounded-lg overflow-x-auto">
           <Table className={''}>
             <TableHeader className={'bg-muted sm:h-12'}>
@@ -65,7 +68,9 @@ const MyTutorsTable = () => {
                       <span className="flex flex-col">
                         {tutor.name}
                         <span className="text-muted-foreground text-xs">
-                          {tutor.location.length > 16 ? tutor.location.slice(0, 16) + '...' : tutor.location}
+                          {tutor.location.length > 16
+                            ? tutor.location.slice(0, 16) + '...'
+                            : tutor.location}
                         </span>
                       </span>
                     </TableCell>

@@ -1,8 +1,8 @@
 import SectionTitle from '@/components/SectionTitle';
-import { fetchTutorsData } from '@/services/apis/fetchTutorsData';
 import TutorsList from '../_components/TutorsList';
 import { Suspense } from 'react';
 import FilterHeader from './_components/FilterHeader';
+import DataLoader from '@/components/DataLoader';
 
 export const metadata = {
   title: 'MediQueue | Tutors',
@@ -10,10 +10,9 @@ export const metadata = {
 
 const TutorPage = async ({ searchParams }) => {
   const query = await searchParams;
-  const tutors = await fetchTutorsData({ query });
 
   return (
-    <section className="w-full max-w-[1500px] mx-auto flex flex-col gap-5 px-3 py-8">
+    <section className="w-full max-w-[1500px] mx-auto flex flex-col gap-5 px-3 py-8 mt-15">
       <SectionTitle
         title="Browse Tutors"
         description="Find the right tutor to elevate your academic performance with expert guidance."
@@ -21,8 +20,8 @@ const TutorPage = async ({ searchParams }) => {
 
       <FilterHeader />
 
-      <Suspense fallback={<p>Loading...</p>}>
-        <TutorsList tutorsData={tutors} />
+      <Suspense fallback={<DataLoader />}>
+        <TutorsList query={query} />
       </Suspense>
     </section>
   );

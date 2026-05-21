@@ -1,15 +1,15 @@
 import SectionTitle from '@/components/SectionTitle';
 import Link from 'next/link';
 import { IoMdArrowForward } from 'react-icons/io';
-import { fetchTutorsData } from '@/services/apis/fetchTutorsData';
 import { Suspense } from 'react';
 import TutorsList from '../TutorsList';
+import DataLoader from '@/components/DataLoader';
 
 const noDataMessage =
   ' There are currently no tutors available at the moment. Please check back later for new tutor listings and sessions.';
 
 const AvailableTutors = async () => {
-  const tutors = await fetchTutorsData({ query: { show: 6 } });
+  const query = { query: { show: 6 } };
 
   return (
     <section className="py-15 w-full max-w-[1500px] mx-auto px-3 min-h-screen">
@@ -27,8 +27,8 @@ const AvailableTutors = async () => {
         }
       />
 
-      <Suspense fallback={<p>Loading...</p>}>
-        <TutorsList tutorsData={tutors} ifNoDataMessage={noDataMessage} />
+      <Suspense fallback={<DataLoader className={'mt-10'} />}>
+        <TutorsList query={query} ifNoDataMessage={noDataMessage} />
       </Suspense>
     </section>
   );

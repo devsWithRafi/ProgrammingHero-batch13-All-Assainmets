@@ -6,7 +6,7 @@ export const metadata = {
 
 const AddTutorPage = () => {
   return (
-    <div className="w-full min-h-screen sm:p-5 p-3 flex flex-col items-center justify-center">
+    <div className="w-full min-h-screen sm:p-5 p-3 flex flex-col items-center justify-center mt-15">
       <span className="text-center py-5">
         <h2 className="font-semibold font-ring text-5xl">Add New Tutor</h2>
         <p className="text-muted-foreground font-medium text-lg">
