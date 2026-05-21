@@ -9,22 +9,38 @@ const client = new MongoClient(process.env.MONGODB_URI);
 const db = client.db();
 
 export const auth = betterAuth({
+  baseURL: process.env.BETTER_AUTH_URL,
   trustedOrigins: [process.env.CLIENT_URL, 'http://localhost:3000'],
+
   database: mongodbAdapter(db, {
     client,
   }),
+
+  advanced: {
+    crossSubDomainCookies: {
+      enabled: false,
+    },
+    defaultCookieAttributes: {
+      secure: true,
+      httpOnly: true,
+      sameSite: 'none',
+    },
+  },
+
   emailAndPassword: {
     enabled: true,
     // if autoSignIn false then better-auth creating new user with existing email
     autoSignIn: true,
     requireEmailVerification: false,
   },
+
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     },
   },
+
   account: {
     accountLinking: {
       enabled: true,
