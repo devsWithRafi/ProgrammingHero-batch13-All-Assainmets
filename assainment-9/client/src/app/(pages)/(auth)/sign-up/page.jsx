@@ -1,4 +1,6 @@
+import { Suspense } from 'react';
 import SignUpForm from './SignUpForm';
+import PageLoader from '@/components/PageLoader';
 
 export const metadata = {
   title: 'MediQueue | Sign In',
@@ -7,7 +9,9 @@ export const metadata = {
 const SignUpPage = () => {
   return (
     <section className="w-full sm:max-w-[500px]">
-      <SignUpForm />
+      <Suspense fallback={<PageLoader />}>
+        <SignUpForm />
+      </Suspense>
     </section>
   );
 };

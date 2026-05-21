@@ -1,5 +1,7 @@
 import MyTutorsTable from './_components/MyTutorsTable';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'MediQueue | My Tutors',
 };

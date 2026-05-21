@@ -49,19 +49,25 @@ const ConfirmCancelSessionModal = ({ open, setIsOpen, selectedSession }) => {
 
   return (
     <Dialog open={open} onOpenChange={setIsOpen}>
-      <DialogContent className={cn('font-poppins', 
-        deletePending && 'opacity-50 pointer-events-none cursor-not-allowed'
-      )}>
-        <DialogHeader>
-          <DialogTitle className={'text-xl font-semibold'}>
-            Cancel Session
-          </DialogTitle>
-          <DialogDescription>
-            Cancel this session with{' '}
-            <span className="font-semibold text-primary">
-              {selectedSession?.tutorName}
-            </span>
-          </DialogDescription>
+      <DialogContent className="'font-poppins'">
+        <div
+          className={cn(
+            'flex flex-col gap-4',
+            deletePending &&
+              'opacity-50 pointer-events-none cursor-not-allowed',
+          )}
+        >
+          <DialogHeader>
+            <DialogTitle className={'text-xl font-semibold'}>
+              Cancel Session
+            </DialogTitle>
+            <DialogDescription>
+              Cancel this session with{' '}
+              <span className="font-semibold text-primary">
+                {selectedSession?.tutorName}
+              </span>
+            </DialogDescription>
+          </DialogHeader>
 
           <div className="w-full rounded-sm border bg-muted p-4 flex flex-col gap-1 my-4">
             <span className="text-muted-foreground font-medium flex items-center justify-between gap-3">
@@ -93,10 +99,14 @@ const ConfirmCancelSessionModal = ({ open, setIsOpen, selectedSession }) => {
               variant="destructive"
               className={'h-auto p-2.5 rounded-full'}
             >
-              {deletePending ? <Loading text={'Processing...'} /> : 'Yes, Cancel'}
+              {deletePending ? (
+                <Loading text={'Processing...'} />
+              ) : (
+                'Yes, Cancel'
+              )}
             </Button>
           </div>
-        </DialogHeader>
+        </div>
       </DialogContent>
     </Dialog>
   );

@@ -12,6 +12,9 @@ export const fetchTutorsData = async ({ query = {} } = {}) => {
 
     const res = await fetch(
       `${serverUrl}/api/tutor/get-tutors?${params.toString()}`,
+      {
+        cache: 'no-store',
+      },
     );
     if (!res.ok) throw new Error('Failed to fetch tutors');
     const { data } = await res.json();

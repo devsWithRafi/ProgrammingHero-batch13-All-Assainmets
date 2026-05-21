@@ -9,6 +9,7 @@ export const fetchMyTutors = async ({ token }) => {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
+      cache: 'no-store',
     });
     const result = await res.json();
     if (result.success) {

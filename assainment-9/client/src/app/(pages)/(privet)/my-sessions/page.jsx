@@ -1,5 +1,7 @@
 import BookSessionTable from './_components/BookSessionTable';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'MediQueue | My Sessions',
 };
