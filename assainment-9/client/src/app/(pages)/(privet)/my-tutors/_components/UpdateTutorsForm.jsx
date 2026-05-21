@@ -86,7 +86,7 @@ const UpdateTutorsForm = ({ selectedTutor, setModelOpen }) => {
         toast.success(result.message, { position: 'top-center' });
         loadMyTutors();
         form.reset();
-        setModelOpen(false)
+        setModelOpen(false);
         return;
       }
       toast.error(result.message, { position: 'top-center' });
@@ -551,7 +551,12 @@ const UpdateTutorsForm = ({ selectedTutor, setModelOpen }) => {
             />
           </FieldGroup>
           <Field orientation="horizontal" className="mt-5 flex justify-end">
-            <Button type="button" variant="outline" className="h-10 px-10">
+            <Button
+              onClick={() => setModelOpen(false)}
+              type="button"
+              variant="outline"
+              className="h-10 px-10"
+            >
               Cancel
             </Button>
             <Button type="submit" className="h-10 px-10">
