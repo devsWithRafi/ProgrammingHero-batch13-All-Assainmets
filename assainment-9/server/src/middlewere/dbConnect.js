@@ -1,6 +1,6 @@
-import { connectDB } from '../config/db.js';
+// import { connectDB } from '../config/db.js';
 
-export const dbConnect = async (req, res, next) => {
-  await connectDB();
-  next();
-};
+// export const dbConnect = async (req, res, next) => {
+//   await connectDB();
+//   next();
+// };
