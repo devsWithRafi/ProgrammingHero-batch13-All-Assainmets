@@ -89,6 +89,7 @@ const ConfirmCancelSessionModal = ({ open, setIsOpen, selectedSession }) => {
           <div className="grid grid-cols-2 gap-2">
             <Button
               onClick={() => setIsOpen(false)}
+              type="button"
               variant="outline"
               className={'h-auto p-2.5 rounded-full'}
             >
@@ -96,6 +97,7 @@ const ConfirmCancelSessionModal = ({ open, setIsOpen, selectedSession }) => {
             </Button>
             <Button
               onClick={handleCancelSession}
+              type="button"
               variant="destructive"
               className={'h-auto p-2.5 rounded-full'}
             >

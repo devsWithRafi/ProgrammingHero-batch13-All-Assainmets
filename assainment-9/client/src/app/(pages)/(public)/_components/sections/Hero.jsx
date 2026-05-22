@@ -90,8 +90,8 @@ const Hero = () => {
                 <Link
                   href={'/tutors'}
                   className={cn(
-                    buttonVariants({ variant: 'secondary' }),
-                    'h-auto sm:p-3 p-2 px-4 sm:px-8 rounded-full font-poppins font-medium sm:mt-5 mt-3',
+                    buttonVariants(),
+                    'h-auto sm:p-3 bg-white hover:!bg-white/90 text-zinc-900 hover:!text-zinc-900 p-2 px-4 sm:px-8 rounded-full font-poppins font-medium sm:mt-5 mt-3',
                   )}
                 >
                   Explore Tutors
@@ -117,13 +117,15 @@ const Hero = () => {
       </Swiper>
 
       {/* popular subjects */}
-      <div className="w-full bg-primary text-primary-foreground font-poppins py-4 overflow-hidden flex items-center px-5 gap-3">
-        <p className="text-nowrap font-ring">Popular Subjects:</p>
+      <div className="w-full bg-primary text-primary-foreground font-poppins sm:py-4 py-2 sm:px-5 px-2 overflow-hidden flex items-center sm:gap-3 gap-1">
+        <p className="text-nowrap font-ring sm:text-[17px] text-xs">
+          Popular Subjects:
+        </p>
         <Marquee pauseOnHover speed={30} className="w-full">
           {[...dummySub, ...dummySub].map((item, index) => (
             <span key={index} className="flex items-center uppercase">
-              <span>{item}</span>
-              <SiWikibooks className="shrink-0 sm:mx-20 mx-5" />
+              <span className="sm:text-[17px] text-xs font-medium">{item}</span>
+              <SiWikibooks className="shrink-0 sm:mx-20 mx-5 sm:text-[17px] text-xs" />
             </span>
           ))}
         </Marquee>

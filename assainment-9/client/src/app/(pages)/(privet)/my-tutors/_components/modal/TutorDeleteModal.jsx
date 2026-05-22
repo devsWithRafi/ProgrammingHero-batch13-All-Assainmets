@@ -76,7 +76,7 @@ const TutorDeleteModal = ({ open, setIsOpen, selectedTutor }) => {
             </Button>
             <Button
               onClick={handleDeleteTutor}
-              className="h-auto py-2.5 rounded-full bg-red-500"
+              className="h-auto py-2.5 rounded-full bg-red-500 text-white"
             >
               {deleting ? <Loading text={'Deleting...'} /> : 'Yes, Delete'}
             </Button>

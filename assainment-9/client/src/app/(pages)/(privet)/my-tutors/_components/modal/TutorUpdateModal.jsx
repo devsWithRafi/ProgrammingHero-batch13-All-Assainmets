@@ -19,7 +19,7 @@ const TutorUpdateModal = ({ open, setIsOpen, selectedTutor }) => {
         // data-lenis-prevent
         className={'sm:max-w-200 font-poppins p-0 max-h-[80vh] overflow-y-auto'}
       >
-        <DialogHeader className="p-6 pb-0 flex flex-row items-center">
+        <DialogHeader className="sm:p-6 p-3 pb-0 flex flex-row items-center">
           {selectedTutor.photo && (
             <div className="overflow-hidden border-3 w-15 max-w-20 aspect-square rounded-full">
               <Image

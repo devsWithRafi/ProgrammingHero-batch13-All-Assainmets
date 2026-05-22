@@ -70,7 +70,7 @@ const TutorDetails = () => {
     {
       title: 'Session start date',
       value: tutor.sessionStartDate
-        ? format(new Date(tutor.sessionStartDate), 'dd/mm/yyyy')
+        ? format(new Date(tutor.sessionStartDate), 'MM/dd/yyyy')
         : '',
       icon: CalendarClock,
     },
@@ -114,9 +114,8 @@ const TutorDetails = () => {
               <CardDescription className="bg-muted px-3 py-1 rounded-sm absolute right-3 top-3 flex items-center gap-1 font-medium capitalize sm:text-sm text-xs">
                 <MdOutlineStarPurple500 className="text-orange-300 sm:size-5 size-4" />
                 <span className="text-primary font-bold sm:text-sm text-xs">
-                  {'5.0'}
-                </span>{' '}
-                <span className='sm:inline hidden'>(124 Reviews)</span>
+                  4.9
+                </span>
               </CardDescription>
 
               <div>

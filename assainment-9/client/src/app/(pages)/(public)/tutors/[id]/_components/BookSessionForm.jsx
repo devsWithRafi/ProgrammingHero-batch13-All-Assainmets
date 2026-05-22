@@ -21,7 +21,7 @@ import { createNewBookSession } from '@/services/createNewBookSession';
 import { useEffect, useState, useTransition } from 'react';
 import { toast } from 'sonner';
 
-const BookSessionForm = ({ tutor, fetchTutor }) => {
+const BookSessionForm = ({ tutor, fetchTutor, isOpen, setIsOpen }) => {
   const { data } = authClient.useSession();
   const user = data?.user;
   const [formPending, startFormPending] = useTransition();
@@ -66,40 +66,18 @@ const BookSessionForm = ({ tutor, fetchTutor }) => {
       if (result.success) {
         toast.success(result.message, { position: 'top-center' });
         setBookSessionForm((prev) => ({ ...prev, ...mainDefaultFields }));
-        loadSessionData()
+        loadSessionData();
         fetchTutor();
+        setIsOpen(false);
         return;
       }
       toast.error(result.message, { position: 'top-center' });
     });
   };
 
-  const isBookingDisabled = () => {
-    if (tutor) {
-      const startDate = new Date(tutor.sessionStartDate);
-      const isSlotesAvailable = tutor.totalSlot > 0;
-      return startDate < new Date() || !isSlotesAvailable;
-    }
-  };
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button
-          disabled={isBookingDisabled()}
-          variant="secondary"
-          className={'w-full rounded-full h-auto p-3 mt-3'}
-        >
-          Book This Session
-        </Button>
-      </DialogTrigger>
-
-      {isBookingDisabled() && (
-        <span className="text-xs text-orange-300/80 text-center">
-          Booking is not available yet for this tutor
-        </span>
-      )}
-
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className={'sm:max-w-130 font-poppins p-7'}>
         <form
           onSubmit={onSubmit}
@@ -169,12 +147,17 @@ const BookSessionForm = ({ tutor, fetchTutor }) => {
             </Field>
           </FieldGroup>
 
+          {/* Modal controller */}
           <div className="flex gap-2 mt-5 justify-end">
-            <DialogClose asChild>
-              <Button variant="outline" className={'h-10 rounded-sm px-5'}>
-                Cancel
-              </Button>
-            </DialogClose>
+            <Button
+              onClick={() => setIsOpen(false)}
+              type="button"
+              variant="outline"
+              className={'h-10 rounded-sm px-5'}
+            >
+              Cancel
+            </Button>
+
             <Button type="submit" className={'h-10 rounded-sm px-5'}>
               {formPending ? (
                 <Loading text={'Please wait...'} />

@@ -462,7 +462,7 @@ const AddTutorForm = () => {
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
                     <FieldLabel htmlFor="form-rhf-demo-title">
-                      Time slot
+                      Session start date
                     </FieldLabel>
                     <Popover>
                       <PopoverTrigger asChild>

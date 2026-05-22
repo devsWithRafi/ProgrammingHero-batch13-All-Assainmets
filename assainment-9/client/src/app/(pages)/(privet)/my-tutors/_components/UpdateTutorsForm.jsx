@@ -94,7 +94,7 @@ const UpdateTutorsForm = ({ selectedTutor, setModelOpen }) => {
   };
 
   return (
-    <Card className="w-full px-4 rounded-none">
+    <Card className="w-full sm:px-4 rounded-none">
       <CardContent
         className={cn(formPending && 'opacity-50 pointer-events-none')}
       >
@@ -484,7 +484,7 @@ const UpdateTutorsForm = ({ selectedTutor, setModelOpen }) => {
                 render={({ field, fieldState }) => (
                   <Field data-invalid={fieldState.invalid}>
                     <FieldLabel htmlFor="form-rhf-demo-title">
-                      Time slot
+                      Session start date
                     </FieldLabel>
                     <Popover>
                       <PopoverTrigger asChild>
@@ -523,6 +523,7 @@ const UpdateTutorsForm = ({ selectedTutor, setModelOpen }) => {
                 )}
               />
             </div>
+
             {/* about tutor */}
             <Controller
               name="about"
@@ -550,16 +551,19 @@ const UpdateTutorsForm = ({ selectedTutor, setModelOpen }) => {
               )}
             />
           </FieldGroup>
-          <Field orientation="horizontal" className="mt-5 flex justify-end">
+          <Field
+            orientation="horizontal"
+            className="mt-5 flex sm:flex-row flex-col-reverse sm:justify-end"
+          >
             <Button
               onClick={() => setModelOpen(false)}
               type="button"
               variant="outline"
-              className="h-10 px-10"
+              className="sm:w-auto w-full h-10 px-10"
             >
               Cancel
             </Button>
-            <Button type="submit" className="h-10 px-10">
+            <Button type="submit" className="sm:w-auto w-full h-10 px-10">
               {formPending ? <Loading text={'Updating...'} /> : 'Save Changes'}
             </Button>
           </Field>

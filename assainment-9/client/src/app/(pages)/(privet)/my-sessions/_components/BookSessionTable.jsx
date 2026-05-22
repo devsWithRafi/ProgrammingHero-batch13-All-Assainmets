@@ -112,14 +112,14 @@ const BookSessionTable = () => {
                         <Button
                           onClick={() => handleOpenModal(item._id)}
                           className={
-                            'rounded-full px-5 !bg-transparent border border-red-400'
+                            cn('rounded-full px-5 !bg-transparent border border-red-400')
                           }
                           variant="destructive"
                         >
                           Cancel
                         </Button>
                       ) : (
-                        'No Action'
+                        <span className='text-muted-foreground'>No Action</span>
                       )}
                     </TableCell>
                   </TableRow>
