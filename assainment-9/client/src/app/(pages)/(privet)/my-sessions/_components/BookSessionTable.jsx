@@ -19,11 +19,13 @@ import { cn } from '@/lib/utils';
 import { GoDotFill } from 'react-icons/go';
 import SectionTitle from '@/components/SectionTitle';
 import ConfirmCancelSessionModal from './ConfirmCancelSessionModal';
+import ConfirmResetModal from './ConfirmResetModal';
 
 const BookSessionTable = () => {
   const { loading, myBookSession } = useMyBookSession();
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [resetModalOpen, setResetModalOpen] = useState(false);
   const [selectedSession, setSelectedSession] = useState({});
 
   const statusStyle = {
@@ -57,9 +59,20 @@ const BookSessionTable = () => {
             {totalActiveSessions} Active
           </span>
         </span>
-        <p className="text-muted-foreground font-medium text-sm">
-          Manage and track all the sessions you’ve booked with tutors
-        </p>
+        <div className="flex sm:flex-row flex-col items-center justify-between gap-2">
+          <p className="text-muted-foreground font-medium text-sm w-[90%]">
+            Manage and track all the sessions you’ve booked with tutors
+          </p>
+          {Array.isArray(myBookSession) && myBookSession.length > 0 && (
+            <Button
+              type="button"
+              onClick={() => setResetModalOpen(true)}
+              className="h-auto py-2.5 px-5 rounded-full"
+            >
+              Reset All
+            </Button>
+          )}
+        </div>
       </div>
       {loading ? (
         <DataLoader className={'mt-10'} />
@@ -111,15 +124,15 @@ const BookSessionTable = () => {
                       {item.status === 'Confirmed' ? (
                         <Button
                           onClick={() => handleOpenModal(item._id)}
-                          className={
-                            cn('rounded-full px-5 !bg-transparent border border-red-400')
-                          }
+                          className={cn(
+                            'rounded-full px-5 !bg-transparent border border-red-400',
+                          )}
                           variant="destructive"
                         >
                           Cancel
                         </Button>
                       ) : (
-                        <span className='text-muted-foreground'>No Action</span>
+                        <span className="text-muted-foreground">No Action</span>
                       )}
                     </TableCell>
                   </TableRow>
@@ -130,6 +143,12 @@ const BookSessionTable = () => {
       ) : (
         <EmptyBookSessionState />
       )}
+
+      {/* reset all session modal */}
+      <ConfirmResetModal
+        isOpen={resetModalOpen}
+        setIsOpen={setResetModalOpen}
+      />
 
       {/* cancel session modal */}
       <ConfirmCancelSessionModal
