@@ -157,16 +157,18 @@ const TutorDetails = () => {
 
               <Separator className="my-5" />
 
-              <div>
-                <CardTitle className="sm:text-2xl text-xl font-semibold">
-                  About
-                </CardTitle>
-                <CardDescription className={'font-medium sm:text-sm text-xs'}>
-                  {tutor.about}
-                </CardDescription>
-              </div>
+              {tutor.about && (
+                <div>
+                  <CardTitle className="sm:text-2xl text-xl font-semibold">
+                    About
+                  </CardTitle>
+                  <CardDescription className={'font-medium sm:text-sm text-xs'}>
+                    {tutor.about}
+                  </CardDescription>
+                </div>
+              )}
 
-              <Separator className="my-5" />
+              {tutor.about && <Separator className="my-5" />}
 
               <div>
                 <CardTitle className="sm:text-2xl text-xl font-semibold">
