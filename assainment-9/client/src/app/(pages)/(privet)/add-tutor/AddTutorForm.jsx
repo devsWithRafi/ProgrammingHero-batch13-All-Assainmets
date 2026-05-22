@@ -39,6 +39,7 @@ import { fixedSampleData } from '@/lib/fixedSampleData';
 import { Textarea } from '@/components/ui/textarea';
 import { tutorSchema } from '@/lib/validatingSchema/tutorsSchema';
 import { useMyTutors } from '@/context/my-tutors/MyTutorsContextProvider';
+import { useRouter } from 'next/navigation';
 
 const AddTutorForm = () => {
   const form = useForm({
@@ -59,6 +60,8 @@ const AddTutorForm = () => {
       about: '',
     },
   });
+
+  const router = useRouter();
 
   const [formPending, startFormPending] = useTransition();
   const { loadMyTutors } = useMyTutors();
@@ -536,7 +539,12 @@ const AddTutorForm = () => {
                 'Create a Tutor'
               )}
             </Button>
-            <Button type="button" variant="outline" className="w-full h-10">
+            <Button
+              onClick={() => router.back()}
+              type="button"
+              variant="outline"
+              className="w-full h-10"
+            >
               Cancel
             </Button>
           </Field>
