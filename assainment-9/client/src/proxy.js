@@ -24,7 +24,7 @@ export async function proxy(request) {
 
   if (!session) {
     const loginUrl = new URL('/sign-in', request.url);
-    loginUrl.searchParams.set('redirect', pathname);
+    if (pathname) loginUrl.searchParams.set('redirect', pathname);
     return NextResponse.redirect(loginUrl);
   }
 
